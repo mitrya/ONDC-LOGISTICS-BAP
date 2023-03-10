@@ -1,17 +1,27 @@
 const express = require('express');
 const path = require('path');
-
+const PORT = process.env.PORT || 8000;
 const app = express()
+const cors = require('cors');
+require('./models/person'); 
+require('./models/order')
 
 app.use(cors({
-    origin: 'http://localhost:5173' // for react app
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],origin: '*' // for react app
 }));
 
+
 app.use(express.json())
-app.use(express.static(path.join(__dirname,'..','public')));
 
-app.get('/*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'..','public','index.html'));  
-})
+app.use(require("./routes/auth"));
+app.use(require("./routes/order"));
 
-module.exports=app;
+
+async function startServer() {
+    
+  app.listen(PORT,()=>{
+      console.log(`Listening on port ${PORT}...`)
+  })    
+}
+
+startServer();
