@@ -17,13 +17,9 @@ const Homepage = () => {
     
     
   return (
-    <div className="background-1">
-        <div className='background-2'>
             <div className="form-background">
                     <MultiStepForm/>
             </div>
-        </div>
-    </div>
   )
 }
 
