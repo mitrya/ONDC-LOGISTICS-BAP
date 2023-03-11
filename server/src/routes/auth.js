@@ -1,12 +1,14 @@
-const Express  = require('express');
-const Router = Express.Router;
+const express = require("express");
+const app = express();
+const router = express.Router();
 const mongoose = require('mongoose');
 const multer = require('multer');
-const bcrypt = require('becrypt')
+const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
+const JWT_SECRET = require(process.env)
 
-Router.post("/signup",(req,res) => {
+router.post("/signup",(req,res) => {
 	const {name,image,dob,gender,cred,Address,Contact,password} = req.body;
 
 	User.findOne( {Contact : Contact})
@@ -42,7 +44,7 @@ Router.post("/signup",(req,res) => {
 		})
 })
 
-Router.post("/signin", async (req,res) => {
+router.post("/signin", async (req,res) => {
 	const {contact,password} = req.body;
 	var saveduser = await User.findOne({'Contact.phone' : 'contact'});
 	if(!saveduser) saveduser =  await User.findOne({'Contact.email' : 'contact'})

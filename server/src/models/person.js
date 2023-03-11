@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const Contact  = new Schema({
@@ -78,4 +78,4 @@ Person.virtual('fullName').get(function() {
 
 const User = mongoose.model('user',Person);
 
-export default User;
+module.exports =  User;
