@@ -58,7 +58,7 @@ const ContactSchema = new mongoose.Schema(
 );
 
 
-const order = new Schema({
+const orderSchema = new Schema({
     pickupaddress:{
         type:[AddressSchema],
         required: true
@@ -71,7 +71,7 @@ const order = new Schema({
     //billing: { type: BillingSchema },
     items: { type: [ItemsSchema] , required: true},
     state: { type: String , required: true}, //["PENDING-CONFIRMATION", "Ordered", "CANCELLED", "Pending", "Active", "Processing"]
-    userId: String,
+    userId: {type: String},
    // payment: { type: PaymentSchema },
     transactionId: { type: String },
     paymentStatus: { 
@@ -98,3 +98,6 @@ const order = new Schema({
     
 
 });
+
+module.exports = mongoose.model('Order', orderSchema);
+
