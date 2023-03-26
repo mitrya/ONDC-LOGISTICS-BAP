@@ -5,6 +5,7 @@ const app = express()
 const cors = require('cors');
 require('./models/person'); 
 require('./models/order')
+
 const mongoose = require('mongoose');
 // const {MONGO_URI} = process.env;
 // const MONGO_URI = 'mongodb+srv://miniPROJ:AAKPV@2023@cluster0.jc8n4yz.mongodb.net/?retryWrites=true&w=majority'
@@ -31,8 +32,8 @@ app.use(cors({
 
 app.use(express.json())
 
-app.use(require("./routes/auth"));
-app.use(require("./routes/order"));
+// app.use(require("./routes/auth"));
+//app.use(require("./routes/order"));
 
 
 async function startServer() {

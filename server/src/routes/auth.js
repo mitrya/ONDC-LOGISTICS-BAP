@@ -6,7 +6,7 @@ const multer = require('multer');
 const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
-const JWT_SECRET = require(process.env)
+const JWT_SECRET = process.env.JWT_SECRET
 
 router.post("/signup",(req,res) => {
 	const {name,image,dob,gender,cred,Address,Contact,password} = req.body;
@@ -66,3 +66,7 @@ router.post("/signin", async (req,res) => {
 
 
 })
+
+module.exports = {
+	router
+}
