@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const Contact  = new Schema({
-	phone: String,
-	email: String,
-}, {_id: false});
-
 const Address = new Schema({
 	door : {
 		type: String,
@@ -47,24 +42,12 @@ const Address = new Schema({
 const Person = new Schema({
 	name : {
 		first: String,
-		// middle : String,
+		middle : String,
 		last :String
 	},
-	image : {
-		type: String
-	},
-	dob : {
-		type: String,
-		required: true,
-		format : Date
-	},
-	gender : {
-		type: String,
-		required: true
-	},
-	cred : String,
-	address : {type : Address},
-	contact : {type : Contact},
+	// address : {type : Address},
+	phone: String,
+	email: String,
 	password:{
 		type : String,
 		required: true

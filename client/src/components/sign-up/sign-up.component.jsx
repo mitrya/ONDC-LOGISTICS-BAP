@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './sign-up.styles.css'
+// import axios
 const SignUp = () => {
     
     const [signUpDetails, setSignUpDetails] = useState({
@@ -20,10 +21,30 @@ const SignUp = () => {
         event.preventDefault();
         console.log(signUpDetails)
         try {
-                //sign in logic
-        } catch (error) {
-            alert(error);
-        }
+			let res = await fetch("http://localhost:8000/signup", {
+				method: "post",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					name:signUpDetails.displayName,
+					email: signUpDetails.email,
+					password:signUpDetails.password,
+                    Contact : signUpDetails.contact
+				}),
+			})
+			let data = await res.json();
+
+			if (data.error) {
+				alert(data.error);
+			} else {
+				alert(data.message);
+
+			}
+		}
+		catch(err){
+			console.log("There is some error", err);
+		}
     }
     
     return (

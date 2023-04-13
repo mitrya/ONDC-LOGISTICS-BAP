@@ -21,7 +21,7 @@ const MultiStepForm = () => {
     height:"",
     value:"",
     objectType:"",
-    serviceType:"",
+    serviceType:"Immediate",
   });    
   const [fillCount,setFillCount] = useState(0);
   const [isValidPIN,setIsValidPIN] = useState(false)
@@ -36,11 +36,33 @@ const MultiStepForm = () => {
     setStep(step + 1)
   }
   
-  const submitFormData = (e) => {
+  const submitFormData = async (e) => {
     e.preventDefault();
-    if(fillCount !== 9) 
-        return;
-    console.log("submit the form data");
+    console.log(searchQuery)
+    // if(fillCount !== 9) 
+    //     return;
+        try {
+			let res = await fetch("http://localhost:9000/search", {
+				method: "post",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					searchQuery
+				}),
+			})
+			let data = await res.json();
+            console.log(data)
+			if (data.error) {
+				alert(data.error);
+			} else {
+				alert(data.message);
+
+			}
+		}
+		catch(err){
+			console.log("There is some error", err);
+		}
   };
 
 

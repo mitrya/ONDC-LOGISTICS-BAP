@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
-import PersonSchema from '/person.js';
+const PersonSchema = require('./person.js');
 
 const AddressSchema = new mongoose.Schema(
     {
@@ -69,7 +69,7 @@ const orderSchema = new Schema({
     },
     tracking: { type: Boolean },
     //billing: { type: BillingSchema },
-    items: { type: [ItemsSchema] , required: true},
+    // items: { type: [ItemsSchema] , required: true},
     state: { type: String , required: true}, //["PENDING-CONFIRMATION", "Ordered", "CANCELLED", "Pending", "Active", "Processing"]
     userId: {type: String},
    // payment: { type: PaymentSchema },

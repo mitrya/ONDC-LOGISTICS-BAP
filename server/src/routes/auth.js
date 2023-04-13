@@ -6,14 +6,14 @@ const multer = require('multer');
 const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
-const JWT_SECRET = require(process.env)
+const JWT_SECRET = 'secRET';// require(process.env)
 
 router.post("/signup",(req,res) => {
-	const {name,image,dob,gender,cred,Address,Contact,password} = req.body;
-
+	const {name,Address,Contact,password} = req.body;
+	console.log(name);
 	User.findOne( {Contact : Contact})
 		.then(savedUser => {
-			if(!savedUser) {
+			if(savedUser) {
 				 return res.json({
 					error : "Contact details are already registered, Please sign in or use different email and password"
 				})
@@ -21,12 +21,8 @@ router.post("/signup",(req,res) => {
 			bcrypt.hash(password,12).then((hashedpassword) => {
 				const user = new User({
 					name,
-					image,
-					dob,
-					gender,
-					cred,
-					Address,
-					Contact,
+					address:Address,
+					contact:Contact,
 					password
 				});
 
@@ -46,8 +42,8 @@ router.post("/signup",(req,res) => {
 
 router.post("/signin", async (req,res) => {
 	const {contact,password} = req.body;
-	var saveduser = await User.findOne({'Contact.phone' : 'contact'});
-	if(!saveduser) saveduser =  await User.findOne({'Contact.email' : 'contact'})
+	var saveduser = await User.findOne({'contact.phone' : contact});
+	if(!saveduser) saveduser =  await User.findOne({'contact.email' : contact})
 
 	if(!saveduser) {
 		return res.json({error : "User not registered" });
@@ -66,3 +62,5 @@ router.post("/signin", async (req,res) => {
 
 
 })
+
+module.exports = router

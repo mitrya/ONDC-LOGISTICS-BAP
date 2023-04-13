@@ -1,0 +1,26 @@
+[ 
+	{
+		"source":"IIITA",
+		"destination":"IITD",
+		"weight":100,
+		"length":1000,
+		"width":1000,
+		"height":1000,
+		"value":1000,
+		"objectType":["electronics","glass","freezed food"],
+		"serviceType":"Immediate",
+		"imgURL":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fd2kh7o38xye1vj.cloudfront.net%2Fwp-content%2Fuploads%2F2015%2F05%2F6-2.jpg&tbnid=XUrj4cvEl8TjqM&vet=12ahUKEwj0y6rMvKf-AhXG-HMBHdLaDSoQMygFegUIARDnAQ..i&imgrefurl=https%3A%2F%2Fwww.shiprocket.in%2Fblog%2Fbest-domestic-courier-services-in-india%2F&docid=yTXcJfDrPcTZPM&w=1024&h=512&q=courier%20company&ved=2ahUKEwj0y6rMvKf-AhXG-HMBHdLaDSoQMygFegUIARDnAQ"
+  },
+  {
+	"source":"Lucknow",
+	"destination":"IIITA",
+	"weight":100,
+	"length":1000,
+	"width":1000,
+	"height":1000,
+	"value":1000,
+	"objectType":["Books","Clothes","Food"],
+	"serviceType":"Immediate",
+	"imgURL":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fd2kh7o38xye1vj.cloudfront.net%2Fwp-content%2Fuploads%2F2015%2F05%2F6-2.jpg&tbnid=XUrj4cvEl8TjqM&vet=12ahUKEwj0y6rMvKf-AhXG-HMBHdLaDSoQMygFegUIARDnAQ..i&imgrefurl=https%3A%2F%2Fwww.shiprocket.in%2Fblog%2Fbest-domestic-courier-services-in-india%2F&docid=yTXcJfDrPcTZPM&w=1024&h=512&q=courier%20company&ved=2ahUKEwj0y6rMvKf-AhXG-HMBHdLaDSoQMygFegUIARDnAQ"
+  }  
+]

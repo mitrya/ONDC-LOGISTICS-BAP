@@ -15,11 +15,11 @@ const ServiceDetails = ({searchQuery,handleChange}) => {
                 onChange={handleChange}
             
             >
-                <option value="Immediate">Select Service</option>
+                <option value="Immediate">Standard</option>
                 <option value="Express">Express</option>
-                <option value="Immediate">Standard : Immediate</option>
+                {/* <option value="Immediate">Standard : Immediate</option>
                 <option value="Today">Standard : Today</option>
-                <option value="Tomorrow">Standard : Tomorrow</option>
+                <option value="Tomorrow">Standard : Tomorrow</option> */}
           </Form.Control>
         </Form.Group>
     </Form>

@@ -4,9 +4,9 @@ import './multiStepForm.styles.css'
 const PayloadDimensions = ({searchQuery,handleChange}) => {
  
     const formatInput = (e) => {
-        console.log(e.key)
+        // console.log(e.key)
         let checkIfNonValid  = !(!isNaN(e.key) || e.key === "Backspace" ||
-        e.key === "ArrowRight" ||   e.key === "ArrowLeft")
+        e.key === "ArrowRight" ||   e.key === "ArrowLeft" || e.key === "Tab")
         if(e.key === " ") checkIfNonValid = true
         return checkIfNonValid && e.preventDefault();
       }
