@@ -40,11 +40,12 @@ const Address = new Schema({
 }, {_id: false});
 
 const Person = new Schema({
-	name : {
-		first: String,
-		middle : String,
-		last :String
-	},
+	// name : {
+	// 	first: String,
+	// 	middle : String,
+	// 	last :String
+	// },
+	name: String,
 	// address : {type : Address},
 	phone: String,
 	email: String,

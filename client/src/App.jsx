@@ -2,8 +2,9 @@ import './App.css'
 import { Button } from 'react-bootstrap';
 
 import Header from './components/header/header.component';
-import HomePage from './pages/homepage/homepage.component'
-import SignInSignUp from './pages/sign-in-sign-up/sign-in-sign-up.component'
+import HomePage from './pages/homepage/homepage.component';
+import SignUp from './components/sign-up/sign-up.component';
+import SignIn from './components/sign-in/sign-in.component';
 import ServiceList from './components/serviceList/serviceList.component';
 
 import {Route, Routes} from 'react-router-dom'
@@ -17,7 +18,8 @@ function App() {
         <div className='background-2'>
           <Routes>
             <Route path="/" element={ <HomePage/> } />
-            <Route path="/signIn" element={ <SignInSignUp/> } />
+            <Route path="/signIn" element={ <SignIn/> } />
+            <Route path="/signUp" element={ <SignUp/> } />
             <Route path="/results" element={ <ServiceList/> } />
           </Routes>
         </div>

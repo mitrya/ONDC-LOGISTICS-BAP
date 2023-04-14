@@ -1,0 +1,25 @@
+.forms{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+    /* margin-top: 5%; */
+}
+
+.form{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.form-heading{
+    font-size: large;
+    font-weight: 500;
+}
+
+.form-subheading{
+    font-size: medium;
+    font-weight: 200;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}

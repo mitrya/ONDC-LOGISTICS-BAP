@@ -11,7 +11,8 @@ const mongoose = require('mongoose');
 
 mongoose
 	.connect(
-		'mongodb+srv://miniPROJ:AAKPV2023@cluster0.7sn4kdq.mongodb.net/?retryWrites=true&w=majority',{
+		// 'mongodb+srv://miniPROJ:AAKPV2023@cluster0.7sn4kdq.mongodb.net/?retryWrites=true&w=majority',{
+			'mongodb://127.0.0.1:27017/courier_app',{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		}
@@ -29,10 +30,10 @@ app.use(cors({
 }));
 
 
-	app.use(express.json())
+app.use(express.json())
 
-	app.use(require("./routes/auth"));
-	app.use(require("./routes/order"));
+app.use(require("./routes/auth"));
+app.use(require("./routes/order"));
 
 
 async function startServer() {

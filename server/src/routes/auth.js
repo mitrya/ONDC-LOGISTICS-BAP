@@ -9,9 +9,9 @@ const User = require('../models/person');
 const JWT_SECRET = 'secRET';// require(process.env)
 
 router.post("/signup",(req,res) => {
-	const {name,Address,Contact,password} = req.body;
-	console.log(name);
-	User.findOne( {Contact : Contact})
+	const {name,email,phone,password} = req.body;
+	// console.log(name);
+	User.findOne( {email})
 		.then(savedUser => {
 			if(savedUser) {
 				 return res.json({
@@ -21,13 +21,13 @@ router.post("/signup",(req,res) => {
 			bcrypt.hash(password,12).then((hashedpassword) => {
 				const user = new User({
 					name,
-					address:Address,
-					contact:Contact,
-					password
+					email,
+					phone,
+					password : hashedpassword
 				});
-
+				console.log(user)
 				user.save().then((user) => {
-					res.json({success:"Registration Successful"});
+					res.json({message:"Registration Successful"});
 				})
 				.catch(err => {
 					console.log("user saving error",err);
@@ -41,9 +41,11 @@ router.post("/signup",(req,res) => {
 })
 
 router.post("/signin", async (req,res) => {
-	const {contact,password} = req.body;
-	var saveduser = await User.findOne({'contact.phone' : contact});
-	if(!saveduser) saveduser =  await User.findOne({'contact.email' : contact})
+	const {email,password} = req.body;
+	console.log(req.body)
+	// var saveduser = await User.findOne({'contact.phone' : contact});
+	// if(!saveduser) 
+	saveduser =  await User.findOne({email:email})
 
 	if(!saveduser) {
 		return res.json({error : "User not registered" });
@@ -53,7 +55,8 @@ router.post("/signin", async (req,res) => {
 		.then((doMatch) => {
 			if(doMatch) {
 				const token  = jwt.sign({id : saveduser._id},JWT_SECRET);
-				res.json({
+				return res.json({
+					message:"Login Successful",
 					token,
 					user : {...saveduser}
 				});

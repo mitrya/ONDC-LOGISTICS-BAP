@@ -10,7 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import  './header.styles.css'
 function Header() {
-    const [signedIn, setSignedIn] = useState(true)
+    const [signedIn, setSignedIn] = useState(false)
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 750;
 
@@ -18,6 +18,7 @@ function Header() {
         const handleResizeWindow = () => setWidth(window.innerWidth);
          // subscribe to window resize event "onComponentDidMount"
          window.addEventListener("resize", handleResizeWindow);
+         if(localStorage.getItem('user')) setSignedIn(true);
          return () => {
            // unsubscribe "onComponentDestroy"
            window.removeEventListener("resize", handleResizeWindow);
@@ -27,7 +28,7 @@ function Header() {
   return (
         <Navbar  expand="lg " >
           <Container fluid>
-            <Navbar.Brand href="#">Rev Logistics</Navbar.Brand>
+            <Navbar.Brand href="#">ONDC Logistics</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -36,8 +37,8 @@ function Header() {
                 navbarScroll
               >
                 <Nav.Link as={Link} to = "/">Home</Nav.Link>
-                <Nav.Link as={Link} to = "/about" disabled>About</Nav.Link>
-                <NavDropdown title="Contact Us" id="navbarScrollingDropdown">
+                {/* <Nav.Link as={Link} to = "/about" disabled>About</Nav.Link> */}
+                {/* <NavDropdown title="Contact Us" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="#" disabled>Customer Care</NavDropdown.Item>
                   <NavDropdown.Item href="#" disabled>
                     Locate Us
@@ -45,8 +46,8 @@ function Header() {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="https://github.com/mitrya/ONDC-LOGISTICS-BAP">
                     Project Repository
-                  </NavDropdown.Item>
-                </NavDropdown>
+                  // </NavDropdown.Item>
+                </NavDropdown> */}
               </Nav>
               {
                 (signedIn)?
@@ -63,6 +64,7 @@ function Header() {
                 :
                 <>
                   <Link to="/signIn" className='link'>Login</Link>
+                  <Link to="/signUp" className='link'>Register</Link>
                 </>
 
               }
