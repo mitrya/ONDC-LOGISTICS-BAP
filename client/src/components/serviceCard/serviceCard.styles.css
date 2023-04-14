@@ -1,0 +1,9 @@
+.card-img-top {
+    object-fit: cover;
+    overflow: hidden;
+}
+.image
+{
+    height: 200px;
+    width: 200px;
+}

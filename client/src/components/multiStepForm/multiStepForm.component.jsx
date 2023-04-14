@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import LocationDetails from './locationDetails.component'
 import PayloadDimensions from './payloadDimensions.component'
@@ -10,7 +11,8 @@ import Button from 'react-bootstrap/Button';
 import './multiStepForm.styles.css'
 
 const MultiStepForm = () => {
-  
+  const navigate = useNavigate();
+
   const [step, setStep] = useState(1)
   const [searchQuery,setSearchQuery] = useState({
     source:"",
@@ -25,7 +27,7 @@ const MultiStepForm = () => {
   });    
   const [fillCount,setFillCount] = useState(0);
   const [isValidPIN,setIsValidPIN] = useState(false)
-
+  
   const handleChange = (event) => {
     setSearchQuery({ ...searchQuery, [event.target.name]: event.target.value });
   };
@@ -39,8 +41,11 @@ const MultiStepForm = () => {
   const submitFormData = async (e) => {
     e.preventDefault();
     console.log(searchQuery)
-    // if(fillCount !== 9) 
-    //     return;
+    if(fillCount !== 9) 
+    {
+        alert("All fields are required");
+        return;
+    }
         try {
 			let res = await fetch("http://localhost:9000/search", {
 				method: "post",
@@ -56,8 +61,8 @@ const MultiStepForm = () => {
 			if (data.error) {
 				alert(data.error);
 			} else {
-				alert(data.message);
-
+				// alert(data.message);
+                navigate('/results',{state:{data : data, query : searchQuery}});
 			}
 		}
 		catch(err){

@@ -5,7 +5,6 @@ import './multiStepForm.styles.css'
 const PayloadDetails = ({searchQuery,handleChange}) => {
     
     const formatInput = (e) => {
-        console.log(e.key)
         let checkIfNonValid  = !(!isNaN(e.key) || e.key === "Backspace" ||
         e.key === "ArrowRight" ||   e.key === "ArrowLeft")
         if(e.key === " ") checkIfNonValid = true
