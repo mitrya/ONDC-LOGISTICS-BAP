@@ -39,7 +39,7 @@ const SignUp = () => {
 			if (data.error) {
 				alert(data.error);
 			} else {
-				alert(data.message);
+				// alert(data.message);
         navigate('/signin')
 			}
 		}

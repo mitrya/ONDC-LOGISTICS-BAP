@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -10,20 +10,27 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import  './header.styles.css'
 function Header() {
-    const [signedIn, setSignedIn] = useState(false)
+    const [user, setuser] = useState(JSON.parse(localStorage.getItem('user')))
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 750;
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         const handleResizeWindow = () => setWidth(window.innerWidth);
          // subscribe to window resize event "onComponentDidMount"
          window.addEventListener("resize", handleResizeWindow);
-         if(localStorage.getItem('user')) setSignedIn(true);
+       
          return () => {
            // unsubscribe "onComponentDestroy"
            window.removeEventListener("resize", handleResizeWindow);
          };
        }, []);
+
+    function LogoutHandler() {
+      setuser('');
+      localStorage.clear();
+      useNavigate('/');
+    }
      
   return (
         <Navbar  expand="lg " >
@@ -50,12 +57,13 @@ function Header() {
                 </NavDropdown> */}
               </Nav>
               {
-                (signedIn)?
+                (user)?
 
-                <NavDropdown title="UserName" id="navbarScrollingDropdown" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
+                <NavDropdown title={user.name} id="navbarScrollingDropdown" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
                 <NavDropdown.Item href="#action3">Current Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">History</NavDropdown.Item>
+                <NavDropdown.Item href="#action4" onClick={LogoutHandler}>Logout</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">
                   Raise Grievance

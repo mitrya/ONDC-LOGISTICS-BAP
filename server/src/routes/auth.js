@@ -10,7 +10,6 @@ const JWT_SECRET = 'secRET';// require(process.env)
 
 router.post("/signup",(req,res) => {
 	const {name,email,phone,password} = req.body;
-	// console.log(name);
 	User.findOne( {email})
 		.then(savedUser => {
 			if(savedUser) {
@@ -25,7 +24,6 @@ router.post("/signup",(req,res) => {
 					phone,
 					password : hashedpassword
 				});
-				console.log(user)
 				user.save().then((user) => {
 					res.json({message:"Registration Successful"});
 				})
@@ -42,9 +40,6 @@ router.post("/signup",(req,res) => {
 
 router.post("/signin", async (req,res) => {
 	const {email,password} = req.body;
-	console.log(req.body)
-	// var saveduser = await User.findOne({'contact.phone' : contact});
-	// if(!saveduser) 
 	saveduser =  await User.findOne({email:email})
 
 	if(!saveduser) {
@@ -58,7 +53,11 @@ router.post("/signin", async (req,res) => {
 				return res.json({
 					message:"Login Successful",
 					token,
-					user : {...saveduser}
+					user : {
+						name: saveduser.name,
+						email: saveduser.email,
+						
+					}
 				});
 			} else return res.status(422).json({error : "Invalid credentials"});
 		})

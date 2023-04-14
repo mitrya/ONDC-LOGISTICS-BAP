@@ -16,7 +16,7 @@ const SignIn = () => {
     };
     const handleSubmit = async event => {
         event.preventDefault();
-        console.log(signInDetails)
+        // console.log(signInDetails)
         const {email,password}=signInDetails;
         
         try {
@@ -34,10 +34,10 @@ const SignIn = () => {
             if(data.error) {
                 alert(data.error);
             } else {
-                console.log(data);
-                alert(data.message);
-                localStorage.setItem('user',data.user);
-                localStorage.setItem('token',data.token);
+                // console.log(data);
+                // alert(data.message);
+                localStorage.setItem('user',JSON.stringify(data.user));
+                localStorage.setItem('token',JSON.stringify(data.token));
                 history('/');
             }
         } catch (error) {

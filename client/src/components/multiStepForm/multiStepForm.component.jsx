@@ -40,7 +40,7 @@ const MultiStepForm = () => {
   
   const submitFormData = async (e) => {
     e.preventDefault();
-    console.log(searchQuery)
+    // console.log(searchQuery)
     if(fillCount !== 9) 
     {
         alert("All fields are required");
@@ -57,7 +57,7 @@ const MultiStepForm = () => {
 				}),
 			})
 			let data = await res.json();
-            console.log(data)
+            // console.log(data)
 			if (data.error) {
 				alert(data.error);
 			} else {

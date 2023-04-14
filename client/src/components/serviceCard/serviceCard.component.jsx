@@ -7,7 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import './serviceCard.styles.css'
 const ServiceCard = ({service,query}) => {
-    console.log(service)
+    // console.log(service)
     return (
         
         <Card className='mt-3' style={{ width: ' 100%' }}>
