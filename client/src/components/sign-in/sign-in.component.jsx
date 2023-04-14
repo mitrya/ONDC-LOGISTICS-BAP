@@ -38,7 +38,8 @@ const SignIn = () => {
                 // alert(data.message);
                 localStorage.setItem('user',JSON.stringify(data.user));
                 localStorage.setItem('token',JSON.stringify(data.token));
-                history('/');
+                // history('/');
+                location.assign('/');
             }
         } catch (error) {
             alert(error);

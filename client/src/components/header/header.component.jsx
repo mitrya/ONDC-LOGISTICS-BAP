@@ -10,16 +10,17 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import  './header.styles.css'
 function Header() {
-    const [user, setuser] = useState(JSON.parse(localStorage.getItem('user')))
+    const [user, setuser] = useState('')
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint = 750;
     const navigate = useNavigate();
-
+    // console.log(localStorage.getItem('user'));
+    // console.log(user);
     React.useEffect(() => {
         const handleResizeWindow = () => setWidth(window.innerWidth);
          // subscribe to window resize event "onComponentDidMount"
          window.addEventListener("resize", handleResizeWindow);
-       
+        setuser(JSON.parse(localStorage.getItem('user')));
          return () => {
            // unsubscribe "onComponentDestroy"
            window.removeEventListener("resize", handleResizeWindow);
