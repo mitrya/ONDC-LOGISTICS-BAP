@@ -29,11 +29,16 @@ app.use(cors({
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],origin: '*' // for react app
 }));
 
+app.set('view engine','ejs');  //set up the view engine
+app.set('views','./views');    // specify a folder to look for the views.
+
+
 
 app.use(express.json())
 
 app.use(require("./routes/auth"));
 app.use(require("./routes/order"));
+app.use(require('./routes/email'));
 
 
 async function startServer() {
