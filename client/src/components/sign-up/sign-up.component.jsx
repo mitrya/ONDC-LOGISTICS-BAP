@@ -5,6 +5,9 @@ import Form from 'react-bootstrap/Form';
 import './sign-up.styles.css'
 // import axios
 const SignUp = () => {
+    useEffect(() => {
+        document.title='Sign Up'
+    })
     const navigate = useNavigate();
     const [signUpDetails, setSignUpDetails] = useState({
         displayName:'',
@@ -40,6 +43,7 @@ const SignUp = () => {
 				alert(data.error);
 			} else {
 				// alert(data.message);
+        
         navigate('/signin')
 			}
 		}
@@ -49,7 +53,7 @@ const SignUp = () => {
     }
     
     return (
-      <div className="forms">
+      <div className="forms mt-5">
         <div className='form'> 
               <div className="form-heading">Sign Up</div>
               <div className="form-subheading">Sign up with your email and password</div>

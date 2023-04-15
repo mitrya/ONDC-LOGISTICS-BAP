@@ -7,6 +7,7 @@ const Homepage = () => {
     
     const { height, width } = useWindowDimensions();
     useEffect(() => {
+      document.title='Logistics'
         if(width>1050 && height>700)
            { 
              window.scrollTo(0, 0)

@@ -6,7 +6,7 @@ import HomePage from './pages/homepage/homepage.component';
 import SignUp from './components/sign-up/sign-up.component';
 import SignIn from './components/sign-in/sign-in.component';
 import ServiceList from './components/serviceList/serviceList.component';
-
+import Preview from './pages/preview/preview.component';
 import {Route, Routes} from 'react-router-dom'
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
             <Route path="/signIn" element={ <SignIn/> } />
             <Route path="/signUp" element={ <SignUp/> } />
             <Route path="/results" element={ <ServiceList/> } />
+            <Route path="/preview" element={ <Preview/> } />
           </Routes>
         </div>
       </div>

@@ -39,13 +39,13 @@ function Header() {
             <Navbar.Brand href="#">ONDC Logistics</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
-              <Nav
+              <Nav variant="pills" defaultActiveKey="/home"
                 className="me-auto my-2 my-lg-0"
                 style={{ maxHeight: '100px' }}
                 navbarScroll
               >
                 <Nav.Link as={Link} to = "/">Home</Nav.Link>
-                {/* <Nav.Link as={Link} to = "/about" disabled>About</Nav.Link> */}
+                <Nav.Link as={Link} to = "/about" >About</Nav.Link>
                 {/* <NavDropdown title="Contact Us" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="#" disabled>Customer Care</NavDropdown.Item>
                   <NavDropdown.Item href="#" disabled>
