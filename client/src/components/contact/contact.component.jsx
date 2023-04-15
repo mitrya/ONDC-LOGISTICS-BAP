@@ -21,7 +21,7 @@ function Contact() {
     function MyForm() {
         return (
             <>
-                <form action ="/user/contactMessage" method="post">
+                <form action ="/user/contactMessage" method="post" style={{color:'black'}}>
                     <input type="text" name="name" placeholder="Your Name" />
                     <input type="text" name="email" placeholder="Your Email" />
                     <input type="text" name="message" placeholder="Message" />
@@ -34,14 +34,12 @@ function Contact() {
     return (
         <>
             <div className='container-fluid box mt-3 mb-2 mx-5'>
-                <div className='contact-header'>
-                    Contact Us:
-                </div>
+
                 <div class="contact-box">
                     <section id="contact">
                         <div id="contact-header">
-                            <span>Add Contact Icon</span>
                             <span>Contact</span>
+                            <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-address-book" /></span>
                         </div>
                         <div id="flex_user">
                             <div id="message-section">
@@ -57,17 +55,17 @@ function Contact() {
                                 <div id="myaddress">
                                     <p>Our Address</p>
                                         <div id="contact-location">
-                                            <span>Add Location Icon</span>
+                                            <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-map-marker" /></span>
                                             <span>&nbsp;Delhi, India</span>
                                         </div>
                 
                                         <div id="contact-mobile">
-                                            <span>Add Mobile Phone Icon</span>
+                                            <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-phone" /></span>
                                             <span>&nbsp;0123456789</span>
                                         </div>
                 
                                         <div id="contact-email">
-                                            <span>Add Email Icon</span>
+                                            <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-envelope" /></span>
                                             <span>&nbsp;ourEmail@gmail.com</span>
                                         </div>
                                 </div>

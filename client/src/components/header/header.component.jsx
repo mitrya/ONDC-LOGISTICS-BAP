@@ -32,6 +32,10 @@ function Header() {
       localStorage.clear();
       useNavigate('/');
     }
+
+    // function handleHover(){
+
+    // }
      
   return (
         <Navbar  expand="lg " >
@@ -65,11 +69,11 @@ function Header() {
                 (user)?
 
                 <NavDropdown title={user.name} id="navbarScrollingDropdown" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                <NavDropdown.Item href="#action3">Current Shipments</NavDropdown.Item>
+                <NavDropdown.Item href="#action3" style={{':hover' : {"color" : "black"} }}>Current Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">History</NavDropdown.Item>
                 <NavDropdown.Item href="#action4" onClick={LogoutHandler}>Logout</NavDropdown.Item>
-                <NavDropdown.Divider />
+                {/* <NavDropdown.Divider /> */}
                 <NavDropdown.Item href="#action5">
                   Raise Grievance
                 </NavDropdown.Item>

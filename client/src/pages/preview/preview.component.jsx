@@ -23,7 +23,6 @@ const Preview = () => {
 	<Card style={{ width: '50rem' }}>
 		<Card.Body>
 			<Card.Title>{service.name}</Card.Title>
-			{/* <FontAwesomeIcon className="icon" icon="fa-heart" /> */}
 			<ListGroup className="list-group-flush">
 				<ListGroup.Item>Code : {service.serviceDescriptor.serviceName}</ListGroup.Item>
 				<ListGroup.Item className='font-weight-bold'>Price : {service.Orderprice} INR</ListGroup.Item>

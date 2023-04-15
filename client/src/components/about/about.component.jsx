@@ -14,9 +14,9 @@ function About() {
     return (
         <div className='text mt-5 mx-5 font-weight-normal'>
             <div className='mb-3'>
-                Welcome to ExpressShip, your reliable and efficient courier service provider based on the Open Network for Digital Commerce (ONDC)
+                Welcome to ONDC Logistics, your reliable and efficient courier service provider based on the Open Network for Digital Commerce (ONDC)
                 framework! We are committed to simplifying your logistics needs and providing seamless, end-to-end shipping solutions for businesses and individuals alike.
-                At ExpressShip, we understand that shipping plays a critical role in today's fast-paced world of e-commerce and digital commerce. That's why we have built our platform on the ONDC framework,
+                At ONDC Logistics, we understand that shipping plays a critical role in today's fast-paced world of e-commerce and digital commerce. That's why we have built our platform on the ONDC framework,
                 which allows us to leverage the latest technology and industry standards to provide an unparalleled shipping experience for our customers
             </div>
             <div className='mb-3'>
@@ -31,7 +31,7 @@ function About() {
                 for your shipping needs.
             </div>
             <div className='mb-3'>
-                At ExpressShip, we are committed to sustainability and environmental responsibility. We strive to minimize our carbon footprint by optimizing 
+                At ONDC Logistics, we are committed to sustainability and environmental responsibility. We strive to minimize our carbon footprint by optimizing 
                 shipping routes, using eco-friendly packaging materials, and promoting responsible shipping practices. We also offer innovative solutions, 
                 such as consolidated shipping and smart packaging, to reduce waste and promote sustainable shipping practices.
             </div>
