@@ -32,6 +32,10 @@ function Header() {
       localStorage.clear();
       useNavigate('/');
     }
+
+    // function handleHover(){
+
+    // }
      
   return (
         <Navbar  expand="lg " >
@@ -39,15 +43,17 @@ function Header() {
             <Navbar.Brand href="#">ONDC Logistics</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
-              <Nav
+              <Nav variant="pills" defaultActiveKey="/home"
                 className="me-auto my-2 my-lg-0"
                 style={{ maxHeight: '100px' }}
                 navbarScroll
               >
                 <Nav.Link as={Link} to = "/">Home</Nav.Link>
+
                 <Nav.Link as={Link} to = "/about">About</Nav.Link>
                 <Nav.Link as={Link} to ="/contact">Contact Us</Nav.Link>
                 {/* <Nav.Link as={Link} to = "/about" disabled>About</Nav.Link> */}
+
                 {/* <NavDropdown title="Contact Us" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="#" disabled>Customer Care</NavDropdown.Item>
                   <NavDropdown.Item href="#" disabled>
@@ -63,11 +69,11 @@ function Header() {
                 (user)?
 
                 <NavDropdown title={user.name} id="navbarScrollingDropdown" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                <NavDropdown.Item href="#action3">Current Shipments</NavDropdown.Item>
+                <NavDropdown.Item href="#action3" style={{':hover' : {"color" : "black"} }}>Current Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">History</NavDropdown.Item>
                 <NavDropdown.Item href="#action4" onClick={LogoutHandler}>Logout</NavDropdown.Item>
-                <NavDropdown.Divider />
+                {/* <NavDropdown.Divider /> */}
                 <NavDropdown.Item href="#action5">
                   Raise Grievance
                 </NavDropdown.Item>

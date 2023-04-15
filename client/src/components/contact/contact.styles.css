@@ -10,7 +10,7 @@ section {
 #contact {
     width: 100%;
     height: auto;
-    background: linear-gradient(90deg, #2857a4 60%, #403066); 
+    background: linear-gradient(180deg, #2c4053 60%, #403066); 
 }
 #contact #myaddress p {
     color: white;
@@ -160,3 +160,8 @@ section {
     background-color: #e0ffdd;
     border-left: 6px solid green;
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  

@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './sign-in.styles.css'
 const SignIn = () => {
+
+    useEffect(() => {
+        document.title='Login'
+    })
+
     const history=useNavigate();
    const [signInDetails, setSignInDetails] = useState({
         email:'',
@@ -47,7 +52,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className="forms">
+        <div className="forms mt-5">
             <div className='form'> 
                 <div className="form-heading">Sign In</div>
                 <div className="form-subheading">Sign in with your email and password</div>
