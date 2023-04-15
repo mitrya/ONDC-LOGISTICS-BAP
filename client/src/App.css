@@ -18,4 +18,25 @@
     height: 100%;
     display: flex;
     justify-content: center;  
+    animation: slideshow 16s infinite;
 }
+
+
+@keyframes slideshow {
+    0% {
+      background-image: url('./images/delivery-3670118__340.webp');
+    }
+    25% {
+      background-image: url('./images/delivery-7595692__340.webp');
+    }
+    50% {
+      background-image: url('./images/delivery-7070991__340.webp');
+    }
+    75% {
+      background-image: url('./images/parcels-2484036__340.webp');
+    }
+    100% {
+      background-image: url('./images/truck-2181037__340.webp');
+    }
+  }
+  

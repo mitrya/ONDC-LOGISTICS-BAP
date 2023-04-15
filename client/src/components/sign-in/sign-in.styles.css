@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-left: 10%;
+    background-color: white;
     margin-right: 10%;
     /* margin-top: 5%; */
 }

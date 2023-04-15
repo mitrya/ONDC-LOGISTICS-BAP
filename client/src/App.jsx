@@ -1,6 +1,6 @@
 import './App.css'
 import { Button } from 'react-bootstrap';
-
+import { useState, useEffect } from 'react';
 import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import SignUp from './components/sign-up/sign-up.component';
@@ -8,11 +8,10 @@ import SignIn from './components/sign-in/sign-in.component';
 import ServiceList from './components/serviceList/serviceList.component';
 import About from './components/about/about.component';
 import Contact from './components/contact/contact.component';
-
 import {Route, Routes} from 'react-router-dom'
 
-function App() {
 
+function App() {
   return (
     <>
       <Header/>
