@@ -52,7 +52,7 @@ const SignIn = () => {
     }
 
     return (
-        <div className="forms mt-5">
+        <div className="forms mt-5 d-flex justify-content-center">
             <div className='form'> 
                 <div className="form-heading">Sign In</div>
                 <div className="form-subheading">Sign in with your email and password</div>

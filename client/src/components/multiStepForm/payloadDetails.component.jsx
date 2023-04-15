@@ -27,15 +27,23 @@ const PayloadDetails = ({searchQuery,handleChange}) => {
         />
         </Form.Group>
         <Form.Group className="mb-3">
-        <Form.Label>Payload Object Type*</Form.Label>
-        <Form.Control 
-            name="objectType"
-            type="text" 
-            placeholder="Enter object type like mobile, glass ..." 
-            required
-            value={searchQuery.objectType}
-            onChange={handleChange}
-        />
+
+        <Form.Label>Select Payload Object Type*</Form.Label>
+            <Form.Control 
+                as="select" 
+                name="objectType"
+                required
+                value={searchQuery.objectType}
+                onChange={handleChange}
+            
+            >
+        <option value="glass">glass</option>
+        <option value="electronics">electronics</option>
+        <option value="perishable">perishable</option>
+
+        </Form.Control>
+
+       
         </Form.Group>
     </Form>
 );

@@ -1,14 +1,7 @@
-/* .navbar-header{
-    background-color: #0E2C53;
-} */
-*{
-    text-decoration: none;
-}
 .navbar,
 .navbar-default {
-    /* background-image: #12f07d !important; */
     background-image: linear-gradient(to bottom,#577D86 0,#577D86 100%) !important; 
-    /* color: aliceblue !important; */
+
 }
 .navbar-brand
 {
@@ -17,10 +10,16 @@
 .nav-link{
     color: aliceblue !important;
 }
+.offcanvas
+{
+    background-color:#577D86 !important;
+    --bs-offcanvas-bg : #577D86 !important;
+}
 .dropdown-menu {
     /* background-color: #e4c812; */
     background-image: linear-gradient(to bottom#577D86 0,#577D86 100%) !important; 
 }
+
 /* .dropdown-item, .dropdown-item:active {
     color: rgb(6, 133, 243) !important;
     /* text-decoration: none; 
@@ -47,8 +46,11 @@
 
 .dropdown-menu a {
     border:0 !important;
-
+    background-color:#577D86;
+    --bs-dropdown-bg:#577D86 !important;
+    --bs-dropdown-link-hover-bg:#577D86 !important;
 }
+
 .dropdown-menu a:hover {
     background-color: rgb(182, 32, 32);
     color: white;

@@ -8,7 +8,7 @@ import SignIn from './components/signIn/signIn.component';
 import ServiceList from './components/serviceList/serviceList.component';
 import About from './components/about/about.component';
 import Contact from './components/contact/contact.component';
-
+import Preview from './pages/preview/preview.component';
 import {Route, Routes} from 'react-router-dom'
 
 function App() {
@@ -16,18 +16,15 @@ function App() {
   return (
     <>
       <Header/>
-      {/* <div className='background-1'> */}
-        {/* <div className='background-2'> */}
           <Routes>
             <Route path="/" element={ <HomePage/> } />
             <Route path="/signIn" element={ <SignIn/> } />
             <Route path="/signUp" element={ <SignUp/> } />
             <Route path="/results" element={ <ServiceList/> } />
+            <Route path="/preview" element={ <Preview/> } />
             <Route path="/about" element={<About/>}/>
             <Route path="/contact" element={<Contact/>}/>
           </Routes>
-        {/* </div> */}
-      {/* </div> */}
     </>
   )
 }

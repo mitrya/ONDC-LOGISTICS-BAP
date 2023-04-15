@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -53,7 +53,7 @@ const SignUp = () => {
     }
     
     return (
-      <div className="forms mt-5">
+      <div className="forms mt-5 d-flex justify-content-center">
         <div className='form'> 
               <div className="form-heading">Sign Up</div>
               <div className="form-subheading">Sign up with your email and password</div>
