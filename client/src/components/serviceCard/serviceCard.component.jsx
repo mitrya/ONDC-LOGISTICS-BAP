@@ -1,21 +1,33 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import ReactStars from "react-rating-stars-component";
-
+import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import './serviceCard.styles.css'
 const ServiceCard = ({service,query}) => {
+    const navigate = useNavigate();
+    function previewHandler(s) {
+      // const {price} 
+      navigate('/preview',{state:{previewService: {
+        ...service,
+        Orderprice : service.price * query.weight,
+      }}})
+    }
     // console.log(service)
     return (
         
-        <Card className='mt-3' style={{ width: ' 100%' }}>
-          <div className=''>
-            <div className='card-img-top'>
-              <img src={service.logo} className='image'/>
-            </div>
-            <Card.Body>
+        <Card className='mt-3' style={{ width: 'max-content' }}>
+          <div className='card-rows'>    
+              <div className="card-row">
+                  <div className='card-img-top'>
+                    <img src={service.logo} className='image'/>
+                  </div>
+              </div>
+                <div className="card-row">
+
+                <Card.Body>
                 <Card.Title>{service.name}</Card.Title>
                 
                 <ListGroup className="list-group-flush">
@@ -34,8 +46,10 @@ const ServiceCard = ({service,query}) => {
                     {service.serviceDescriptor.description}
                 </Card.Text>
                 
-                <Button variant="primary">Preview</Button>
-            </Card.Body>
+                <Button id={service.id} variant="primary" onClick={previewHandler}>Preview</Button>
+                </Card.Body>
+                </div>
+            
           </div>
 
         </Card>

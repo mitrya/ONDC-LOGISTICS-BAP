@@ -1,9 +1,25 @@
+.mt-3{
+    margin: auto;
+    /* display: flex;
+    flex-wrap: wrap; */
+}
+
 .card-img-top {
     object-fit: cover;
     overflow: hidden;
 }
 .image
 {
-    height: 200px;
-    width: 200px;
+    height: 10em;
+    width: 10em;
+}
+.card-rows {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

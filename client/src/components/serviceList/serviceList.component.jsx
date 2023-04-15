@@ -10,6 +10,10 @@ const ServiceList = () => {
   const [query,setQuery] = useState(location.state.query);
   const [sortType,setSortType] = useStateCallback('price');
 
+
+  useEffect(() => {
+    document.title='Search Results'
+  })
   // console.log(location.state)
   // console.log(data)
   // console.log(query)

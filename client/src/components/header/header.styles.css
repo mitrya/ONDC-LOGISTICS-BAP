@@ -1,10 +1,14 @@
 /* .navbar-header{
     background-color: #0E2C53;
 } */
+*{
+    text-decoration: none;
+}
 .navbar,
 .navbar-default {
-    background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; /* override background image gradient w/ flat color */
-    color: aliceblue !important;
+    /* background-image: #12f07d !important; */
+    background-image: linear-gradient(to bottom,#577D86 0,#577D86 100%) !important; 
+    /* color: aliceblue !important; */
 }
 .navbar-brand
 {
@@ -14,20 +18,38 @@
     color: aliceblue !important;
 }
 .dropdown-menu {
-    background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; /* override background image gradient w/ flat color */
+    /* background-color: #e4c812; */
+    background-image: linear-gradient(to bottom#577D86 0,#577D86 100%) !important; 
 }
-.dropdown-item, .dropdown-item:active {
-    color: aliceblue !important;
+/* .dropdown-item, .dropdown-item:active {
+    color: rgb(6, 133, 243) !important;
+    /* text-decoration: none; 
+}*/
+
+/* .dropdown-item:hover {
+    color: rgb(6, 133, 243) ;
     text-decoration: none;
-}
-hr
+} */
+
+/* hr
 {
-   background-color: aliceblue;
-}
+   /* background-color: aliceblue; */
+
 
 .link{
     color: aliceblue;
     text-decoration: none;
     font-weight: 500;
     margin: 10px;
+}
+
+
+
+.dropdown-menu a {
+    border:0 !important;
+
+}
+.dropdown-menu a:hover {
+    background-color: rgb(182, 32, 32);
+    color: white;
 }
