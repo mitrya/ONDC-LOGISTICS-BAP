@@ -1,0 +1,153 @@
+section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: #9e9b9b29;
+}
+  
+  /*Contact Section*/
+#contact {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(90deg, #2857a4 60%, #403066); 
+}
+#contact #myaddress p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 550;
+    display: inline-block; 
+}
+#contact #myaddress #contact-location span {
+    color: white;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-bottom: 1rem; 
+}
+#contact #myaddress #contact-mobile span {
+    color: white;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-bottom: 1rem; 
+}
+#contact #myaddress #contact-email span {
+    color: white;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+#contact #message-submit {
+    margin: auto;
+    margin-top: 1rem;
+    display: block; 
+}
+  
+#contact-header {
+    color: white;
+    font-size: 2.9rem;
+    font-weight: 530;
+    margin-top: 1.5rem;
+    margin-bottom: 3.5rem; 
+}
+
+#flex_user {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap; 
+}
+
+.box {
+    height: auto;
+    min-height: 70vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; 
+}
+    
+.contact-header {
+    padding: 1rem;
+    font-size: 2rem;
+    color: red;
+    height: 10%; 
+}
+
+.contact-box {
+    height: 90%;
+    min-height: 63vh;
+    padding: 1rem; 
+}
+
+#other-info {
+    box-sizing: border-box;
+    width: 35%;
+    margin: auto; 
+}
+#other-info #connect span {
+    display: inline-block;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 550; 
+}
+#other-info #connect #connect-text {
+    display: inline-block;
+    color: white;
+    font-size: 1.2rem;
+    text-align: justify; 
+}
+        
+/*Contact Section's message-section*/
+#message-section {
+    box-sizing: border-box;
+    width: 35%;
+    margin: auto; 
+}
+
+#contact input[type="text"] {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    display: inline-block;
+    margin-bottom: 2.7rem;
+    width: 100%;
+    color: white;
+    height: 2rem;
+    padding-left: 0.4rem; 
+}
+          
+#contact input[type="submit"] {
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 0.8rem 0.8rem;
+    font-weight: 550;
+    display: inline-block;
+}
+
+#contact #message-submit:hover {
+    background-color: white;
+    color: blue; 
+}
+
+@media screen and (max-width: 728px) {
+    #other-info {
+        width: 80%;
+        margin-top: 10rem;
+        margin-bottom: 5rem;
+    }
+    #message-section {
+        width: 80%; 
+    } 
+}
+
+.dropdown-menu {
+    padding: 0px;
+}
+
+.dropdown-menu a {
+    border-bottom: 1px solid black; 
+}
+  
