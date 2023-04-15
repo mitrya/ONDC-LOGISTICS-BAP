@@ -151,3 +151,12 @@ section {
     border-bottom: 1px solid black; 
 }
   
+.danger {
+    background-color: #ffdddd;;
+    border-left: 6px solid #f44336;
+}  
+
+.success {
+    background-color: #e0ffdd;
+    border-left: 6px solid green;
+}

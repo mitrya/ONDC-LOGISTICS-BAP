@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -7,24 +7,82 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import fontawesome from '@fortawesome/fontawesome'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import  '@fortawesome/fontawesome-free-solid'
-
-
 
 
 import  './contact.styles.css'
 
 function Contact() {
 
+    const [messageBody,setMessageBody] = useState({
+        email:'',
+        name:'',
+        content:'',
+    });
+
+    const [info,setInfo] = useState('');
+    const [result,setResult] = useState(false);
+
+    const {email,name,content} = messageBody;
+
+    const handleChange = (event) => {
+        setMessageBody({ ...messageBody, [event.target.name]: event.target.value });
+        setInfo('');
+        setResult(false);
+    };
+
+    const handleClick = async (event) =>{
+        event.preventDefault();
+        console.log(messageBody);
+        try {
+			let res = await fetch("http://localhost:8000/message", {
+				method: "post",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					messageBody
+				}),
+			})
+			let data = await res.json();
+            // console.log(data)
+			if (data.error) {
+                setInfo(data.error);
+                setResult(false);
+			} else {
+                setInfo(data.message);
+                setResult(true);
+			}
+		}
+		catch(err){
+			console.log("There is some error", err);
+		}
+    }
+
+    const displayMessage = (info) => {
+        if(result===true){
+            return (
+                <div class="success">
+                    <p><strong>Success!</strong> {info}</p>
+                </div>
+            );
+        }   
+        else if(result===false){
+            return (
+                <div class="danger">
+                    <p><strong>Error!</strong> {info}</p>
+                </div>
+            );
+        }
+    }
+
     function MyForm() {
         return (
             <>
-                <form action ="/user/contactMessage" method="post">
-                    <input type="text" name="name" placeholder="Your Name" />
-                    <input type="text" name="email" placeholder="Your Email" />
-                    <input type="text" name="message" placeholder="Message" />
+                <form action ="/user/contactMessage" method="post" onSubmit = {handleClick}>
+                    <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />
+                    <input type="text" name="email" placeholder="Your Email" onChange={handleChange} />
+                    <input type="text" name="content" placeholder="Message" onChange={handleChange} />
+                    {info.length>0 && displayMessage(info)}
                     <input type="submit" id="message-submit" value="SEND MESSAGE" />
                 </form>
             </>
