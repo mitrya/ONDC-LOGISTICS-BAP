@@ -45,7 +45,11 @@ function Header() {
                 navbarScroll
               >
                 <Nav.Link as={Link} to = "/">Home</Nav.Link>
-                <Nav.Link as={Link} to = "/about" >About</Nav.Link>
+
+                <Nav.Link as={Link} to = "/about">About</Nav.Link>
+                <Nav.Link as={Link} to ="/contact">Contact Us</Nav.Link>
+                {/* <Nav.Link as={Link} to = "/about" disabled>About</Nav.Link> */}
+
                 {/* <NavDropdown title="Contact Us" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="#" disabled>Customer Care</NavDropdown.Item>
                   <NavDropdown.Item href="#" disabled>
