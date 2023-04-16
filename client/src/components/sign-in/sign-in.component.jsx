@@ -52,8 +52,8 @@ const SignIn = () => {
     }
 
     return (
-        <div className="forms mt-5">
-            <div className='form'> 
+        <div className="forms1 mt-5">
+            <div className='form1'> 
                 <div className="form-heading">Sign In</div>
                 <div className="form-subheading">Sign in with your email and password</div>
                 <Form>

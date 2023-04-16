@@ -1,16 +1,21 @@
 .forms{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: space-between;
     margin-left: 10%;
     margin-right: 10%;
     background-color: white;
-    /* margin-top: 5%; */
+    height:max-content;
+    padding: 10px;
+    border-radius: 5%;
 }
 
 .form{
     padding-left: 5%;
     padding-right: 5%;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .form-heading{

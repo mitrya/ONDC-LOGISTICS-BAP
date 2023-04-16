@@ -16,9 +16,26 @@ const SignUp = () => {
         password:'',
         confirmPassword:''
     })
-    
+    const [address,setAddress] = useState({
+      door:'',
+      name:'',
+      building:'',
+      street:'',
+      locality:'',
+      ward:'',
+      city:'',
+      state:'',
+      country:'',
+      area_code:''
+    })
+
+
     const handleChange = (event) => {
         setSignUpDetails({ ...signUpDetails, [event.target.name]: event.target.value });
+    };
+
+    const handleAddress = (event) => {
+      setAddress({ ...address, [event.target.name]: event.target.value });
     };
     
     const handleSubmit = async event => {
@@ -31,10 +48,12 @@ const SignUp = () => {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					name:signUpDetails.displayName,
-					email: signUpDetails.email,
-					password:signUpDetails.password,
-                    Contact : signUpDetails.contact
+          signUpDetails,
+          address
+					// name:signUpDetails.displayName,
+					// email: signUpDetails.email,
+					// password:signUpDetails.password,
+          //           Contact : signUpDetails.contact
 				}),
 			})
 			let data = await res.json();
@@ -53,12 +72,15 @@ const SignUp = () => {
     }
     
     return (
-      <div className="forms mt-5">
-        <div className='form'> 
-              <div className="form-heading">Sign Up</div>
-              <div className="form-subheading">Sign up with your email and password</div>
+      <div className="forms mt-3">
+        <Form>
+          <div className='form container'> 
+            <div className='row'>
 
-            <Form>
+              <div className="col">
+                <div className="form-heading">Sign Up</div>
+                <div className="form-subheading">Sign up with your email and password</div>
+            
                 <Form.Group className="mb-3" controlId="signUpFormName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control 
@@ -125,12 +147,84 @@ const SignUp = () => {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={handleSubmit}>
-                    Sign Up
-                </Button>
-
-            </Form>
-        </div>
+                </div>
+                <div className="col">
+                  <div className="form-subheading">Address Details</div>
+                  <Form.Group className="mb-3" controlId="signUpFormAddDoor">
+                      <Form.Label>Door Number</Form.Label>
+                      <Form.Control 
+                        name="door"
+                        type="text" 
+                        placeholder="Door Number" 
+                        required
+                        value={address.door}
+                        onChange={handleAddress}
+                      />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="signUpFormAddStreet">
+                    <Form.Label>Street</Form.Label>
+                    <Form.Control 
+                      name="street"
+                      type="text" 
+                      placeholder="Enter Street" 
+                      required
+                      value={address.street}
+                      onChange={handleAddress}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="signUpFormAreaCode">
+                    <Form.Label>Area Code</Form.Label>
+                    <Form.Control 
+                      name="area_code"
+                      type="text" 
+                      placeholder="Enter Area Code" 
+                      required
+                      value={address.area_code}
+                      onChange={handleAddress}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="signUpFormCity">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control 
+                      name="city"
+                      type="text" 
+                      placeholder="Enter city" 
+                      required
+                      value={address.city}
+                      onChange={handleAddress}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="signUpFormState">
+                    <Form.Label>State</Form.Label>
+                    <Form.Control 
+                      name="state"
+                      type="text" 
+                      placeholder="Enter State" 
+                      required
+                      value={address.state}
+                      onChange={handleAddress}
+                    />
+                </Form.Group>
+                
+                <Form.Group className="mb-3" controlId="signUpFormCountry">
+                    <Form.Label>Country</Form.Label>
+                    <Form.Control 
+                      name="country"
+                      type="text" 
+                      placeholder="Enter country" 
+                      required
+                      value={address.country}
+                      onChange={handleAddress}
+                    />
+                </Form.Group>
+                  <Button variant="primary" type="submit" onClick={handleSubmit}>
+                      Sign Up
+                  </Button>
+                </div>
+                
+            </div>
+          </div>
+        </Form> 
       </div>
   )
 }

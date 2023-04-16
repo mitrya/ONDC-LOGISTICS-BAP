@@ -6,12 +6,8 @@ import { Card } from 'react-bootstrap'
 import ReactStars from "react-rating-stars-component";
 import { ListGroup } from 'react-bootstrap'
 
-// import fontawesome from '@fortawesome/fontawesome'
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-// import  '@fortawesome/fontawesome-free-solid'
 const Preview = () => {
 	const location = useLocation();
-//   const [id,setid] = useState(location.state.previewId);	
 	const [service, setServie] = useState(location.state.previewService);
 
 	useEffect(() => {
