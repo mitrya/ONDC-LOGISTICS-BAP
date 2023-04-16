@@ -9,7 +9,10 @@ const User = require('../models/person');
 const JWT_SECRET = 'secRET';// require(process.env)
 
 router.post("/signup",(req,res) => {
-	const {name,email,phone,password} = req.body;
+	const {signUpDetails,address} = req.body;
+	// console.log(signUpDetails,address);
+	// return res.status(200)
+;	const {displayName,email,contact,password} = signUpDetails;
 	User.findOne( {email})
 		.then(savedUser => {
 			if(savedUser) {
@@ -19,9 +22,10 @@ router.post("/signup",(req,res) => {
 			}
 			bcrypt.hash(password,12).then((hashedpassword) => {
 				const user = new User({
-					name,
+					name:displayName,
 					email,
-					phone,
+					phone:contact,
+					address,
 					password : hashedpassword
 				});
 				user.save().then((user) => {

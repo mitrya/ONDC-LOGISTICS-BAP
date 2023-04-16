@@ -6,12 +6,12 @@ const Address = new Schema({
 		type: String,
 		required: true
 	},
-	name : {
-		type: String
-	},
-	building : {
-		type: String
-	},
+	// name : {
+	// 	type: String
+	// },
+	// building : {
+	// 	type: String
+	// },
 	street : {
 		type: String,
 		required: true
@@ -55,9 +55,9 @@ const Person = new Schema({
 	}
 });
 
-Person.virtual('fullName').get(function() {
-	return this.name.first + ' ' + this.name.middle + ' ' + this.name.last;
-  });
+// Person.virtual('fullName').get(function() {
+// 	return this.name.first + ' ' + this.name.middle + ' ' + this.name.last;
+//   });
 
 
 const User = mongoose.model('user',Person);
