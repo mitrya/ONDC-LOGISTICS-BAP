@@ -33,6 +33,10 @@ function Header() {
       useNavigate('/');
     }
 
+    function toProfile() {
+      useNavigate('/profile');
+    }
+
     // function handleHover(){
 
     // }
@@ -69,7 +73,8 @@ function Header() {
                 (user)?
 
                 <NavDropdown title={user.name} id="navbarScrollingDropdown" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                <NavDropdown.Item href="#action3" style={{':hover' : {"color" : "black"} }}>Current Shipments</NavDropdown.Item>
+                <NavDropdown.Item href="#action3" onClick={toProfile}>My Account</NavDropdown.Item>
+                <NavDropdown.Item href="#action3">Current Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">History</NavDropdown.Item>
                 <NavDropdown.Item href="#action4" onClick={LogoutHandler}>Logout</NavDropdown.Item>

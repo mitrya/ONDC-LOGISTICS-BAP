@@ -8,7 +8,9 @@ import SignIn from './components/sign-in/sign-in.component';
 import ServiceList from './components/serviceList/serviceList.component';
 import About from './components/about/about.component';
 import Contact from './components/contact/contact.component';
+import Profile from './pages/Dashboard/profile.component';
 import {Route, Routes} from 'react-router-dom'
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
             <Route path="/results" element={ <ServiceList/> } />
             <Route path="/about" element={<About/>}/>
             <Route path="/contact" element={<Contact/>}/>
+            <Route path="/profile" element={<Profile/>}/>
           </Routes>
         </div>
       </div>
