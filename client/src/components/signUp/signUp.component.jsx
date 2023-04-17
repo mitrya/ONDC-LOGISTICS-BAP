@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import './sign-up.styles.css'
+import './signUp.styles.css'
 // import axios
 const SignUp = () => {
     useEffect(() => {
@@ -72,7 +72,7 @@ const SignUp = () => {
     }
     
     return (
-      <div className="forms mt-3">
+      <div className="forms  mt-5 d-flex justify-content-center">
         <Form>
           <div className='form container'> 
             <div className='row'>

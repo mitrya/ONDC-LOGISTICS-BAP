@@ -22,7 +22,7 @@ const MultiStepForm = () => {
     width:"",
     height:"",
     value:"",
-    objectType:"",
+    objectType:"glass",
     serviceType:"Immediate",
   });    
   const [fillCount,setFillCount] = useState(0);
@@ -82,7 +82,8 @@ const MultiStepForm = () => {
     }, [searchQuery])
     
     return (
-    <>
+    <div className='d-flex justify-content-center mt-5'>
+        <div style={{width: 300}}>
         {    
             (()=>{
                 switch (step) {
@@ -151,8 +152,8 @@ const MultiStepForm = () => {
             }
             
         </div>
-
-    </>
+        </div>
+    </div>
   )
 }
 

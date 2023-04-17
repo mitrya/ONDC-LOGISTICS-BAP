@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import './multiStepForm.styles.css'
-
 import {lookup as PINLookup} from 'india-pincode-lookup'
 
 const LocationDetails = ({searchQuery,handleChange,setIsValidPIN}) => {

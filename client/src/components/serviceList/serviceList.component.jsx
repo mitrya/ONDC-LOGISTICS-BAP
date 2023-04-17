@@ -43,7 +43,7 @@ const ServiceList = () => {
   }
 
   return (
-    <div className='p-5' style={{width:"70%"}}>
+    <div className='p-5' style={{width:"100%"}}>
       <div className='filter d-flex flex-row justify-content-around' > 
           <Form>
             <div className="mb-3">

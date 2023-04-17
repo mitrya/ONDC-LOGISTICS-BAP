@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-import ReactStars from "react-rating-stars-component";
+import { RatingStar } from "rating-star";
 import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -34,11 +34,7 @@ const ServiceCard = ({service,query}) => {
                     <ListGroup.Item>Code : {service.serviceDescriptor.serviceName}</ListGroup.Item>
                     <ListGroup.Item className='font-weight-bold'>Price : {service.price * query.weight} INR</ListGroup.Item>
                     <ListGroup.Item>Customer Rating	  
-                        <ReactStars
-                        count={service.rating}
-                        size={24}
-                        activeColor="#ffd700"
-                        />
+                    <RatingStar id="123" rating={service.rating} />
                     </ListGroup.Item>
                 </ListGroup>
 

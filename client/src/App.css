@@ -1,25 +1,12 @@
-.background-1
+.btn
 {
-    position: absolute;
-    top: 50;
-    left: 0;
-    width: 100%;
-    height: max-content;
-    background-color: #2c4053;
+    background-color: #577D86 !important;
 }
-.background-2
-{
-    position: relative;
-    top: 100;
-    left: 0;
-    /* background-image: linear-gradient(to bottom,#EEEEEE, #ffffff); */
-    /* background-color: white; */
-    width: 100%;
-    height: max-content;
-    display: flex;
-    justify-content: center;  
-    animation: slideshow 16s infinite;
-}
+
+/* .body
+{ 
+  animation: slideshow 16s infinite;
+} */
 
 
 @keyframes slideshow {

@@ -6,11 +6,11 @@ section {
     background-color: #9e9b9b29;
 }
   
-  /*Contact Section*/
+
 #contact {
     width: 100%;
     height: auto;
-    background: linear-gradient(180deg, #2c4053 60%, #403066); 
+    background: linear-gradient(180deg, #577D86 60%, #4f7982); 
 }
 #contact #myaddress p {
     color: white;
@@ -151,6 +151,15 @@ section {
     border-bottom: 1px solid black; 
 }
   
+.danger {
+    background-color: #ffdddd;;
+    border-left: 6px solid #f44336;
+}  
+
+.success {
+    background-color: #e0ffdd;
+    border-left: 6px solid green;
+}
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
