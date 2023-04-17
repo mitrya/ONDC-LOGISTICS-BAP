@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './signUp.styles.css'
+import { FormGroup } from 'react-bootstrap';
 // import axios
 const SignUp = () => {
     useEffect(() => {
@@ -28,7 +29,7 @@ const SignUp = () => {
       country:'',
       area_code:''
     })
-
+    const [hide,sethide] = useState(false);
 
     const handleChange = (event) => {
         setSignUpDetails({ ...signUpDetails, [event.target.name]: event.target.value });
@@ -37,10 +38,14 @@ const SignUp = () => {
     const handleAddress = (event) => {
       setAddress({ ...address, [event.target.name]: event.target.value });
     };
+
+    const hideAddress=  () => {
+        sethide(!hide)
+    }
     
     const handleSubmit = async event => {
         event.preventDefault();
-        console.log(signUpDetails)
+  
         try {
 			let res = await fetch("http://localhost:8000/signup", {
 				method: "post",
@@ -50,10 +55,6 @@ const SignUp = () => {
 				body: JSON.stringify({
           signUpDetails,
           address
-					// name:signUpDetails.displayName,
-					// email: signUpDetails.email,
-					// password:signUpDetails.password,
-          //           Contact : signUpDetails.contact
 				}),
 			})
 			let data = await res.json();
@@ -61,8 +62,7 @@ const SignUp = () => {
 			if (data.error) {
 				alert(data.error);
 			} else {
-				// alert(data.message);
-        
+       
         navigate('/signin')
 			}
 		}
@@ -146,9 +146,16 @@ const SignUp = () => {
                       onChange={handleChange}
                     />
                 </Form.Group>
+                <FormGroup>
+                  <Form.Check 
+                    type="checkbox" 
+                    label="Skip Address" 
+                    onChange={hideAddress}
+                  />
+                </FormGroup>
 
                 </div>
-                <div className="col">
+                <div className={(!hide) ? 'col' : 'hidden'}>
                   <div className="form-subheading">Address Details</div>
                   <Form.Group className="mb-3" controlId="signUpFormAddDoor">
                       <Form.Label>Door Number</Form.Label>
@@ -217,12 +224,15 @@ const SignUp = () => {
                       onChange={handleAddress}
                     />
                 </Form.Group>
-                  <Button variant="primary" type="submit" onClick={handleSubmit}>
-                      Sign Up
-                  </Button>
+                  
                 </div>
-                
+                <div className="row justify-content-center">
+                <Button variant="primary" className='myBtn' type="submit" onClick={handleSubmit}>
+                  Sign Up
+                </Button>
             </div>
+            </div>
+            
           </div>
         </Form> 
       </div>

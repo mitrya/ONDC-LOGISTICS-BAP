@@ -15,8 +15,7 @@ function Header() {
     const [width, setWidth] = useState(window.innerWidth);
     const breakpoint =  980;
     const navigate = useNavigate();
-    // console.log(localStorage.getItem('user'));
-    // console.log(user);
+
     React.useEffect(() => {
         const handleResizeWindow = () => setWidth(window.innerWidth);
          // subscribe to window resize event "onComponentDidMount"
@@ -31,22 +30,19 @@ function Header() {
     function LogoutHandler() {
       setuser('');
       localStorage.clear();
-      useNavigate('/');
+      // useNavigate('/');
+      location.assign('/')
     }
 
     function toProfile() {
       useNavigate('/profile');
     }
-
-    // function handleHover(){
-
-    // }
      
   return (
     <>
         <Navbar  expand="lg " >
           <Container fluid>
-            <Navbar.Brand href="#">ONDC Logistics</Navbar.Brand>
+            <Navbar.Brand >ONDC Logistics</Navbar.Brand>
             <Navbar.Toggle aria-controls='offcanvasNavbar-expand-lg' />
             <Navbar.Offcanvas
               id='offcanvasNavbar-expand-lg'
@@ -70,7 +66,7 @@ function Header() {
                       (user)?
                       <div>
                           <NavDropdown title={user.name} id="offcanvasNavbarDropdown-expand-lg" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                              <NavDropdown.Item href="#action3" onClick={toProfile}>My Account</NavDropdown.Item>
+                              <NavDropdown.Item href="#action3"><Nav.Link as={Link} to = "/profile">My Account</Nav.Link></NavDropdown.Item>
                                 <NavDropdown.Item href="#action3">Current Shipments</NavDropdown.Item>
                                 <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">History</NavDropdown.Item>

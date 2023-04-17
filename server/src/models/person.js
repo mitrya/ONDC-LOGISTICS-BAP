@@ -46,7 +46,7 @@ const Person = new Schema({
 	// 	last :String
 	// },
 	name: String,
-	// address : {type : Address},
+	address : {type : Address},
 	phone: String,
 	email: String,
 	password:{
