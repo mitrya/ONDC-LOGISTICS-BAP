@@ -14,6 +14,10 @@ const Preview = () => {
         document.title=service.name
     })
 
+	const checkoutHandler = async(e) => {
+		
+	}
+
   return (
 	<div className='mx-auto mt-5 d-flex flex-row justify-content-around'>
 	<Card style={{ width: '50rem' }}>
@@ -32,7 +36,7 @@ const Preview = () => {
 				{service.serviceDescriptor.description}
 			</Card.Text>
 			
-			<Button id={service.id} variant="primary" >Order</Button>
+			<Button id={service.id} variant="primary" onClick={checkoutHandler}>Order</Button>
 		</Card.Body>
 	</Card>
 	</div>
