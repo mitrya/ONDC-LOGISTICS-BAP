@@ -12,7 +12,7 @@ import Profile from './pages/Dashboard/profile.component';
 import Preview from './pages/preview/preview.component';
 import Grievance from './components/grievance/grievance.component';
 import {Route, Routes} from 'react-router-dom'
-
+import Payment from './components/payment/payment.component';
 
 
 function App() {
@@ -28,6 +28,8 @@ function App() {
             <Route path="/about" element={<About/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="/payment" element={<Payment/>}/>
+
             <Route path="/grievance" element={<Grievance/>}/>
           </Routes>
     </div>

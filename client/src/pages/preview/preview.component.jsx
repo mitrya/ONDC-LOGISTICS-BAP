@@ -8,14 +8,29 @@ import { ListGroup } from 'react-bootstrap'
 
 const Preview = () => {
 	const location = useLocation();
-	const [service, setServie] = useState(location.state.previewService);
+	const navigate = useNavigate();
+	const [service, setService] = useState(location.state.previewService);
+	const [item, setitem] = useState(location.state.path);
+	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
 
 	useEffect(() => {
         document.title=service.name
     })
-
+	console.log(item);
 	const checkoutHandler = async(e) => {
-		
+
+		const order = {
+			username: user.name,
+			email: user.email,
+			courier:{
+				id:service.id,
+				name:service.name
+			},
+			price:service.Orderprice,
+			...item,
+		}
+		localStorage.setItem('order',JSON.stringify(order))
+		navigate('/payment',{state:{order}})
 	}
 
   return (
@@ -25,7 +40,7 @@ const Preview = () => {
 			<Card.Title>{service.name}</Card.Title>
 			<ListGroup className="list-group-flush">
 				<ListGroup.Item>Code : {service.serviceDescriptor.serviceName}</ListGroup.Item>
-				<ListGroup.Item className='font-weight-bold'>Price : {service.Orderprice} INR</ListGroup.Item>
+				<ListGroup.Item className='font-weight-bold'>Final Price : {service.Orderprice} INR</ListGroup.Item>
 				<ListGroup.Item>Customer Rating	  
 				<RatingStar id="123" rating={service.rating} />
 

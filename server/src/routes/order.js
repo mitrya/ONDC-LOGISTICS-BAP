@@ -18,7 +18,8 @@ router.post("/submit",async (req,res) => {
 })
 
 // Create a new order
-router.post("/", async (req, res) => {
+router.post("/neworder", async (req, res) => {
+  return res.json({message : "success"})
   try {
     const { pickupaddress, deliveryaddress, items, userId, paymentdetails, providercontact} = req.body;
     if (!pickupaddress || !deliveryaddress || !items || !userId || !paymentdetails) {
@@ -45,7 +46,7 @@ router.post("/", async (req, res) => {
 });
 
 // Get all orders
-router.get("/", async (req, res) => {
+router.get("/allorders", async (req, res) => {
   try {
     const orders = await Order.find();
     res.json(orders);
