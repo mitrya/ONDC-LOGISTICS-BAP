@@ -6,11 +6,11 @@ section {
     background-color: #9e9b9b29;
 }
   
-  /*Contact Section*/
+
 #contact {
     width: 100%;
     height: auto;
-    background: linear-gradient(180deg, #2c4053 60%, #403066); 
+    background: linear-gradient(180deg, #577D86 60%, #4f7982); 
 }
 #contact #myaddress p {
     color: white;

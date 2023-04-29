@@ -1,29 +1,3 @@
-/* .navbar-header{
-    background-color: #0E2C53;
-} */
-.navbar,
-.navbar-default {
-    background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; /* override background image gradient w/ flat color */
-    color: aliceblue !important;
-}
-.navbar-brand
-{
-    color:aliceblue !important;
-}
-.nav-link{
-    color: aliceblue !important;
-}
-.dropdown-menu {
-    background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; /* override background image gradient w/ flat color */
-}
-.dropdown-item, .dropdown-item:active {
-    color: aliceblue !important;
-    text-decoration: none;
-}
-hr
-{
-   background-color: aliceblue;
-}
 
 .link{
     color: aliceblue;
@@ -35,7 +9,3 @@ hr
     display: flex;
     flex-direction: column;
 }
-/* 
-.ms-1 {
-    margin-left: ($spacer * .25) !important;
-} */

@@ -1,0 +1,14 @@
+.hidden { display:none; }
+
+.myBtn {
+	width: 13em !important;
+	height: 2.2em !important;
+	margin: 0.7em;
+}
+
+.myFlex {
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	margin: auto;
+}

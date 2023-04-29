@@ -9,7 +9,13 @@ const User = require('../models/person');
 const JWT_SECRET = 'secRET';// require(process.env)
 
 router.post("/signup",(req,res) => {
-	const {name,email,phone,password} = req.body;
+	const {signUpDetails,address} = req.body;
+	const {displayName,email,contact,password} = signUpDetails;
+	if(!displayName || !email || !contact || !password) {
+		return res.status(404).json({
+			error : "All fields are required"
+		})
+	}
 	User.findOne( {email})
 		.then(savedUser => {
 			if(savedUser) {
@@ -19,9 +25,10 @@ router.post("/signup",(req,res) => {
 			}
 			bcrypt.hash(password,12).then((hashedpassword) => {
 				const user = new User({
-					name,
+					name:displayName,
 					email,
-					phone,
+					phone:contact,
+					address,
 					password : hashedpassword
 				});
 				user.save().then((user) => {
@@ -56,13 +63,37 @@ router.post("/signin", async (req,res) => {
 					user : {
 						name: saveduser.name,
 						email: saveduser.email,
-						
+						address : (saveduser.address) ? saveduser.address : {}
 					}
 				});
 			} else return res.status(422).json({error : "Invalid credentials"});
 		})
 
 
+})
+
+router.post("/updateaddress", async (req,res) => {
+	const {email,address} = req.body;
+	let user = await User.findOne({email})
+	if(!user) {
+		return res.status(404).json({
+			error: "Error Retreiving user"
+		})
+	} 
+	user.address = address;
+	user.save().then(() => {
+		res.json({
+			message:"Succefully updated your Address",
+			user : {
+				email:user.email,
+				name:user.name,
+				address:user.address
+			}
+		});
+	})
+	.catch(err => {
+		console.log("user saving error",err);
+	})
 })
 
 module.exports = router

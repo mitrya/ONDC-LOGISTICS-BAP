@@ -1,13 +1,6 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 
-import { Link, useNavigate } from 'react-router-dom';
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import fontawesome from '@fortawesome/fontawesome'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import  '@fortawesome/fontawesome-free-solid'
 
@@ -93,7 +86,7 @@ function Contact() {
 
     return (
         <>
-            <div className='container-fluid box mt-3 mb-2 mx-5'>
+            <div className='container-fluid box mt-3 mb-2 mx-1'>
 
                 <div class="contact-box">
                     <section id="contact">

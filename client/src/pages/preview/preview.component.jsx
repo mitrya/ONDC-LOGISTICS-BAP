@@ -3,15 +3,11 @@ import { useState, useEffect } from 'react'
 import { useNavigate ,useLocation} from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
-import ReactStars from "react-rating-stars-component";
+import { RatingStar } from "rating-star";
 import { ListGroup } from 'react-bootstrap'
 
-// import fontawesome from '@fortawesome/fontawesome'
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-// import  '@fortawesome/fontawesome-free-solid'
 const Preview = () => {
 	const location = useLocation();
-//   const [id,setid] = useState(location.state.previewId);	
 	const [service, setServie] = useState(location.state.previewService);
 
 	useEffect(() => {
@@ -19,7 +15,7 @@ const Preview = () => {
     })
 
   return (
-	<div className='mx-auto mt-5'>
+	<div className='mx-auto mt-5 d-flex flex-row justify-content-around'>
 	<Card style={{ width: '50rem' }}>
 		<Card.Body>
 			<Card.Title>{service.name}</Card.Title>
@@ -27,11 +23,8 @@ const Preview = () => {
 				<ListGroup.Item>Code : {service.serviceDescriptor.serviceName}</ListGroup.Item>
 				<ListGroup.Item className='font-weight-bold'>Price : {service.Orderprice} INR</ListGroup.Item>
 				<ListGroup.Item>Customer Rating	  
-					<ReactStars
-					count={service.rating}
-					size={24}
-					activeColor="#ffd700"
-					/>
+				<RatingStar id="123" rating={service.rating} />
+
 				</ListGroup.Item>
 			</ListGroup>
 

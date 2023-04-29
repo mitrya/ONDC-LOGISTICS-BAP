@@ -69,7 +69,7 @@ const orderSchema = new Schema({
     },
     tracking: { type: Boolean },
     //billing: { type: BillingSchema },
-    // items: { type: [ItemsSchema] , required: true},
+    items: { type: [ItemsSchema] , required: true},
     state: { type: String , required: true}, //["PENDING-CONFIRMATION", "Ordered", "CANCELLED", "Pending", "Active", "Processing"]
     userId: {type: String},
    // payment: { type: PaymentSchema },

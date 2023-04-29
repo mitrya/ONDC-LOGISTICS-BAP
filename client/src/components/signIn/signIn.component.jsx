@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import './sign-in.styles.css'
+import './signIn.styles.css'
 const SignIn = () => {
 
     useEffect(() => {
@@ -52,8 +52,8 @@ const SignIn = () => {
     }
 
     return (
-        <div className="forms mt-5">
-            <div className='form'> 
+        <div className="forms mt-5 d-flex justify-content-center">
+            <div className='form1'> 
                 <div className="form-heading">Sign In</div>
                 <div className="form-subheading">Sign in with your email and password</div>
                 <Form>
