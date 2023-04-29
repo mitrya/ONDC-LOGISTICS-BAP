@@ -1,53 +1,56 @@
 import React, {useState, useEffect} from "react";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-import { loadStripe } from "@stripe/stripe-js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation } from "react-router-dom";
+import ListGroup from 'react-bootstrap/ListGroup';
 
-
-import React from 'react'
-
+import './payment.styles.css';
 const Payment = () => {
-
-	const [order,setorder] = useState({
-		name : "courier",
-		price: 50,
-		user : "Vineeth",
-		quantity: 1
-	});
+	
+	const location = useLocation();
+	const navigate = useNavigate();
+	const [order,setorder] = useState(location.state.order);
+	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
 
 	const makePayment = async (e) => {
 		e.preventDefault();
-		const stripe =await loadStripe("pk_live_51N09tHSEY8xPCQ3e8r5YZLe2HSvzPpTlSESYzpZOZ6NBHvW67dwkhetlFUwTuvyD1COsZQWLqaW3Zb93SiAQeRDe00I5JFrFTy");
-		const res = await fetch("http://localhost:8000/create-checkout-ssession", {
-			method:"POST",
+		const res = await fetch('http://localhost:8000/neworder', {
+			method: "post",
 			headers: {
-				"Content-Type" : "application/json"
+				"Content-Type": "application/json",
 			},
-			body: {
+			body: JSON.stringify({
 				order
-			}
-		});
-		const session = await res.json();
-		const data  = stripe.redirectToCheckout({
-			sessionId : session.id,
-		});
-
+			}),
+		})
+		let data = await res.json();
 		if(data.error) {
-			console.log(data.error);
+			alert('Error Please reload and try again');
+		} else {
+
+			navigate('/');
 		}
 		
 	}
 
 	return (
-		<div>
+		<div className="container">
 			<Card style={{width:"20rem"}}>
 				<Card.Body>
 					<Card.Title> Order </Card.Title>
-					<Card.Text>{order.user} costs you {order.price*order.quantity}</Card.Text>
+					<Card.Text className=''>Please confirm the details before payment</Card.Text>
+					<ListGroup className="list-group-flush">
+						<ListGroup.Item>Customer Name : {order.username}</ListGroup.Item>
+						<ListGroup.Item>Courier Name : {order.courier.name}</ListGroup.Item>
+						<ListGroup.Item>Pickup : {order.source}</ListGroup.Item>
+						<ListGroup.Item>Drop : {order.destination}</ListGroup.Item>
+						<ListGroup.Item>Item Type : {order.type}</ListGroup.Item>
+						<ListGroup.Item >Amount to Pay : {order.price} INR</ListGroup.Item>
+						
+					</ListGroup>
 
-					<Button onClick={makepayment}>
+					<Button onClick={makePayment}>
 						Pay
 					</Button>
 				</Card.Body>

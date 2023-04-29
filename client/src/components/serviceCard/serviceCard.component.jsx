@@ -4,16 +4,24 @@ import { RatingStar } from "rating-star";
 import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-
+                 
 import './serviceCard.styles.css'
 const ServiceCard = ({service,query}) => {
     const navigate = useNavigate();
     function previewHandler(s) {
       // const {price} 
-      navigate('/preview',{state:{previewService: {
+      navigate('/preview',{state:{
+        previewService: {
         ...service,
         Orderprice : service.price * query.weight,
-      }}})
+        },
+        path: {
+          source:query.source,
+          destination:query.destination,
+          value:query.value,
+          type:query.objectType,
+        }
+      }})
     }
     // console.log(service)
     return (

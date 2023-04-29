@@ -11,7 +11,7 @@ import Contact from './components/contact/contact.component';
 import Profile from './pages/Dashboard/profile.component';
 import Preview from './pages/preview/preview.component';
 import {Route, Routes} from 'react-router-dom'
-
+import Payment from './components/payment/payment.component';
 
 
 function App() {
@@ -27,6 +27,8 @@ function App() {
             <Route path="/about" element={<About/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="/payment" element={<Payment/>}/>
+
           </Routes>
     </div>
   )
