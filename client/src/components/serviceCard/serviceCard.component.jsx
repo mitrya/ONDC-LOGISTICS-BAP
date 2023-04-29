@@ -19,7 +19,7 @@ const ServiceCard = ({service,query}) => {
     return (
         
         <Card className='mt-3' style={{ width: 'max-content' }}>
-          <div className='card-rows'>    
+          <div className='card-rows' onClick={previewHandler} >    
               <div className="card-row">
                   <div className='card-img-top'>
                     <img src={service.logo} className='image'/>
@@ -42,7 +42,7 @@ const ServiceCard = ({service,query}) => {
                     {service.serviceDescriptor.description}
                 </Card.Text>
                 
-                <Button id={service.id} variant="primary" onClick={previewHandler}>Preview</Button>
+                {/* <Button id={service.id} variant="primary" onClick={previewHandler}>Preview</Button> */}
                 </Card.Body>
                 </div>
             

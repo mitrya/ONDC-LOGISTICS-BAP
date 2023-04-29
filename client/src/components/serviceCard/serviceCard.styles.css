@@ -18,8 +18,17 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.card-rows:hover{
+    /* background-color: rgba(255, 248, 220, 1); */
+    border: solid skyblue;
+}
 .card-row{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.card {
+    border: none !important;
 }
