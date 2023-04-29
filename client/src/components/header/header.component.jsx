@@ -35,7 +35,7 @@ function Header() {
     }
 
     function toProfile() {
-      useNavigate('/profile');
+      location.assign('/profile');
     }
      
   return (
@@ -66,13 +66,12 @@ function Header() {
                       (user)?
                       <div>
                           <NavDropdown title={user.name} id="offcanvasNavbarDropdown-expand-lg" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                              <NavDropdown.Item href="#action3"><Nav.Link as={Link} to = "/profile">My Account</Nav.Link></NavDropdown.Item>
+                              <NavDropdown.Item href="#action3" onClick={toProfile} className='temp'>My Account</NavDropdown.Item>
                                 <NavDropdown.Item href="#action3">Current Shipments</NavDropdown.Item>
                                 <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">History</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4" onClick={LogoutHandler}>Logout</NavDropdown.Item>
-                  
-                                <NavDropdown.Item href="#action5">
+                                <NavDropdown.Item href="#action5" className='temp1'>
                                   Raise Grievance
                                 </NavDropdown.Item>
                         </NavDropdown>

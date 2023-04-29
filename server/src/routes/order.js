@@ -9,7 +9,6 @@ const multer = require('multer');
 const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
-const router = express.Router();
 const Order = require("../models/order");
 const JWT_SECRET = 'secRET';// require(process.env)
 
