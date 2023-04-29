@@ -38,6 +38,10 @@ function Header() {
       location.assign('/profile');
     }
 
+    function toOrders() {
+      location.assign('/orders')
+    }
+
     function toGrievanceSection() {
       location.assign('/grievance');
     }
@@ -70,12 +74,12 @@ function Header() {
                       (user)?
                       <div>
                           <NavDropdown title={user.name} id="offcanvasNavbarDropdown-expand-lg" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                              <NavDropdown.Item href="#action3" onClick={toProfile} className='temp'>My Account</NavDropdown.Item>
-                                <NavDropdown.Item href="#action3">Current Shipments</NavDropdown.Item>
-                                <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">History</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4" onClick={LogoutHandler}>Logout</NavDropdown.Item>
-                                <NavDropdown.Item href="#action5" onClick={toGrievanceSection} className='temp1'>
+                              <NavDropdown.Item onClick={toProfile} className='temp'>My Account</NavDropdown.Item>
+                                <NavDropdown.Item onClick={toOrders}>Current Shipments</NavDropdown.Item>
+                                <NavDropdown.Item onClick={toOrders}>Track Shipments</NavDropdown.Item>
+                                <NavDropdown.Item onClick={toOrders}>History</NavDropdown.Item>
+                                <NavDropdown.Item onClick={LogoutHandler}>Logout</NavDropdown.Item>
+                                <NavDropdown.Item onClick={toGrievanceSection} className='temp1'>
                                   Raise Grievance
                                 </NavDropdown.Item>
                         </NavDropdown>

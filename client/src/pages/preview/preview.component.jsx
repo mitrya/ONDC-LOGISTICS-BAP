@@ -16,7 +16,7 @@ const Preview = () => {
 	useEffect(() => {
         document.title=service.name
     })
-	console.log(item);
+	// console.log(item);
 	const checkoutHandler = async(e) => {
 
 		const order = {

@@ -24,9 +24,13 @@ const Payment = () => {
 				order
 			}),
 		})
+		console.log(res);
+
 		let data = await res.json();
+		console.log(data);
+		
 		if(data.error) {
-			alert('Error Please reload and try again');
+			alert('Error Please reload and try again',data.error);
 		} else {
 
 			navigate('/');

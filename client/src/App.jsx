@@ -13,7 +13,7 @@ import Preview from './pages/preview/preview.component';
 import Grievance from './components/grievance/grievance.component';
 import {Route, Routes} from 'react-router-dom'
 import Payment from './components/payment/payment.component';
-
+import OrderHistory from './components/orderHistory/orderHistory.component';
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/payment" element={<Payment/>}/>
+            <Route path="/orders" element={<OrderHistory/>}/>
 
             <Route path="/grievance" element={<Grievance/>}/>
           </Routes>
