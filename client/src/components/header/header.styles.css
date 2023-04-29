@@ -52,10 +52,17 @@
 }
 
 .dropdown-menu a:hover {
-    background-color: rgb(182, 32, 32);
-    color: white;
+    background-color: white;
 }
 
 .dropdown-menu .nav-link {
     color: rgba(0, 0, 0, 0.71) !important;
+}
+
+.temp {
+    margin-top:-10px;
+}
+
+.temp1 {
+    margin-bottom:-10px;
 }
