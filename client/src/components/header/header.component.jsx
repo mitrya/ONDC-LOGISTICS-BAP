@@ -37,6 +37,10 @@ function Header() {
     function toProfile() {
       location.assign('/profile');
     }
+
+    function toGrievanceSection() {
+      location.assign('/grievance');
+    }
      
   return (
     <>
@@ -71,7 +75,7 @@ function Header() {
                                 <NavDropdown.Item href="#action3">Track Shipments</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">History</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4" onClick={LogoutHandler}>Logout</NavDropdown.Item>
-                                <NavDropdown.Item href="#action5" className='temp1'>
+                                <NavDropdown.Item href="#action5" onClick={toGrievanceSection} className='temp1'>
                                   Raise Grievance
                                 </NavDropdown.Item>
                         </NavDropdown>

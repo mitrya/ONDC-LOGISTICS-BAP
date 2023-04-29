@@ -1,48 +1,65 @@
-section {
+#grievance-helper {
+    height:100%;
+    min-height: 80vh;
+}
+
+#grievance-header,#grievance-flex_user,#grievance-message-section {
+    width: 80%;
+}
+
+#grievance-header span {
+    margin-left:400px;
+}
+
+/**/
+
+.grievance-section {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    background-color: #9e9b9b29;
+    background: linear-gradient(180deg, #577D86 60%, #4f7982); 
+
 }
   
 
-#contact {
+#grievance {
     width: 100%;
     height: auto;
     background: linear-gradient(180deg, #577D86 60%, #4f7982); 
+
 }
-#contact #myaddress p {
+#grievance #my-grievance-address p {
     color: white;
     font-size: 1.5rem;
     font-weight: 550;
     display: inline-block; 
 }
-#contact #myaddress #contact-location span {
+#grievance #my-grievance-address #grievance-location span {
     color: white;
     font-size: 1.5rem;
     display: inline-block;
     margin-bottom: 1rem; 
 }
-#contact #myaddress #contact-mobile span {
+#grievance #my-grievance-address #grievance-mobile span {
     color: white;
     font-size: 1.5rem;
     display: inline-block;
     margin-bottom: 1rem; 
 }
-#contact #myaddress #contact-email span {
+#grievance #my-grievance-address #grievance-email span {
     color: white;
     font-size: 1.5rem;
     display: inline-block;
     margin-bottom: 1rem;
 }
-#contact #message-submit {
+#grievance #grievance-message-submit {
     margin: auto;
     margin-top: 1rem;
     display: block; 
 }
   
-#contact-header {
+#grievance-header {
     color: white;
     font-size: 2.9rem;
     font-weight: 530;
@@ -50,7 +67,7 @@ section {
     margin-bottom: 3.5rem; 
 }
 
-#flex_user {
+#grievance-flex_user {
     height: auto;
     width: 100%;
     display: flex;
@@ -59,7 +76,7 @@ section {
     flex-wrap: wrap; 
 }
 
-.box {
+.grievance-box {
     height: auto;
     min-height: 70vh;
     padding: 1rem;
@@ -67,45 +84,45 @@ section {
     flex-direction: column; 
 }
     
-.contact-header {
+.grievance-header {
     padding: 1rem;
     font-size: 2rem;
     color: red;
     height: 10%; 
 }
 
-.contact-box {
+.grievance-box {
     height: 90%;
     min-height: 63vh;
     padding: 1rem; 
 }
 
-#other-info {
+#grievance-other-info {
     box-sizing: border-box;
     width: 35%;
     margin: auto; 
 }
-#other-info #connect span {
+#grievance-other-info #grievance-connect span {
     display: inline-block;
     color: white;
     font-size: 1.8rem;
     font-weight: 550; 
 }
-#other-info #connect #connect-text {
+#grievance-other-info #grievance-connect #grievance-connect-text {
     display: inline-block;
     color: white;
     font-size: 1.2rem;
     text-align: justify; 
 }
         
-/*Contact Section's message-section*/
-#message-section {
+/*grievance Section's message-section*/
+#grievance-message-section {
     box-sizing: border-box;
     width: 35%;
     margin: auto; 
 }
 
-#contact input[type="text"] {
+.grievance-section input[type="text"] {
     border: 0;
     outline: 0;
     border-bottom: 2px solid white;
@@ -118,7 +135,15 @@ section {
     padding-left: 0.4rem; 
 }
           
-#contact input[type="submit"] {
+#grievance input[type="submit"] {
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 0.8rem 0.8rem;
+    font-weight: 550;
+    display: inline-block;
+}
+#grievance-message-submit {
     color: white;
     background-color: transparent;
     border: 2px solid white;
@@ -127,7 +152,7 @@ section {
     display: inline-block;
 }
 
-#contact #message-submit:hover {
+#grievance #grievance-message-submit:hover {
     background-color: white;
     color: blue; 
 }
@@ -143,20 +168,20 @@ section {
     } 
 }
 
-.dropdown-menu {
+.grievance-dropdown-menu {
     padding: 0px;
 }
 
-.dropdown-menu a {
+.grievance-dropdown-menu a {
     border-bottom: 1px solid black; 
 }
   
-.danger {
+.grievance-danger {
     background-color: #ffdddd;;
     border-left: 6px solid #f44336;
 }  
 
-.success {
+.grievance-success {
     background-color: #e0ffdd;
     border-left: 6px solid green;
 }

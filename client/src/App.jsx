@@ -10,6 +10,7 @@ import About from './components/about/about.component';
 import Contact from './components/contact/contact.component';
 import Profile from './pages/Dashboard/profile.component';
 import Preview from './pages/preview/preview.component';
+import Grievance from './components/grievance/grievance.component';
 import {Route, Routes} from 'react-router-dom'
 
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/about" element={<About/>}/>
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="/grievance" element={<Grievance/>}/>
           </Routes>
     </div>
   )
