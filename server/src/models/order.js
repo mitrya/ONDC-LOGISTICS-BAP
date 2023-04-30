@@ -60,16 +60,19 @@ const ContactSchema = new mongoose.Schema(
 
 const orderSchema = new Schema({
     pickupaddress:{
-        type:[AddressSchema],
+        type:String,
+        // type:[AddressSchema],
         required: true
     },
     deliveryaddress:{
-        type:[AddressSchema],
+        type:String,
+        // type:[AddressSchema],
         required: true
     },
     tracking: { type: Boolean },
     //billing: { type: BillingSchema },
-    items: { type: [itemSchema] , required: true},
+    // items: { type: [itemSchema] , required: true},
+    items: { type: {type:String} , value:{type:String}},
     state: { type: String , required: true}, //["PENDING-CONFIRMATION", "Ordered", "CANCELLED", "Pending", "Active", "Processing"]
     userId: {type: String},
    // payment: { type: PaymentSchema },
@@ -79,7 +82,7 @@ const orderSchema = new Schema({
         enum: ['PAID', 'NOT-PAID'], 
         default: null 
     },
-    paymentdeatils:{
+    paymentdetails:{
         amount:{
             type: Number,
             required: true

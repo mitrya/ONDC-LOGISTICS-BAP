@@ -31,7 +31,7 @@ router.post("/signup",(req,res) => {
 					address,
 					password : hashedpassword
 				});
-				user.save().then((user) => {
+				user.save().then((savedUser) => {
 					res.json({message:"Registration Successful"});
 				})
 				.catch(err => {

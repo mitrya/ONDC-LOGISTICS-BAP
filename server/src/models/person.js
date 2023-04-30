@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
-
+const { ObjectId } = mongoose.Schema.Types;
 const Address = new Schema({
 	door : {
 		type: String,
-		required: true
+		// required: true
 	},
 	// name : {
 	// 	type: String
@@ -14,7 +14,7 @@ const Address = new Schema({
 	// },
 	street : {
 		type: String,
-		required: true
+		// required: true
 	},
 	locality: {
 		type: String
@@ -22,20 +22,20 @@ const Address = new Schema({
 	ward: String,
 	city : {
 		type: String,
-		required: true
+		// required: true
 	},
 	state: {
 		type: String,
-		required: true
+		// required: true
 	},
 	country: {
 		type: String,
-		required: true,
+		// required: true,
 		default : "INDIA"
 	},
 	area_code : {
 		type: String,
-		required: true
+		// required: true
 	}
 }, {_id: false});
 
@@ -52,7 +52,13 @@ const Person = new Schema({
 	password:{
 		type : String,
 		required: true
-	}
+	},
+	orders: [
+		{
+			type: ObjectId,
+			ref: "Order",
+		},
+	],
 });
 
 // Person.virtual('fullName').get(function() {
