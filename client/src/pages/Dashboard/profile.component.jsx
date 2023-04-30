@@ -8,7 +8,8 @@ const Profile = () => {
   const [user, setuser] = useState(JSON.parse(localStorage.getItem('user')));
   const [upAdd, setupAdd] = useState(false)
   const addr = (user) ? user.address : {};
-  // console.log((addr));
+
+
   function handleClick(e) {
     setupAdd(!upAdd)
   }

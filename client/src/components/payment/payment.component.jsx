@@ -12,7 +12,7 @@ const Payment = () => {
 	const navigate = useNavigate();
 	const [order,setorder] = useState(location.state.order);
 	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
-
+	console.log(order);
 	const makePayment = async (e) => {
 		e.preventDefault();
 		const res = await fetch('http://localhost:8000/neworder', {
@@ -51,7 +51,11 @@ const Payment = () => {
 						<ListGroup.Item>Drop : {order.destination}</ListGroup.Item>
 						<ListGroup.Item>Item Type : {order.type}</ListGroup.Item>
 						<ListGroup.Item >Amount to Pay : {order.price} INR</ListGroup.Item>
-						
+						{
+							Object.keys(order.address).map((key) => {
+								return <ListGroup.Item>{key + " : " + order.address[key]}</ListGroup.Item>
+							})
+						}
 					</ListGroup>
 
 					<Button onClick={makePayment}>

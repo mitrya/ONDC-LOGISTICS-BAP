@@ -5,11 +5,11 @@ const PersonSchema = require('./person.js');
 const AddressSchema = new mongoose.Schema(
     {
         door: { type: String },
-        name: { type: String },
-        building: { type: String },
+        rName: { type: String },
+        // building: { type: String },
         street: { type: String },
-        locality: { type: String },
-        ward: { type: String },
+        // locality: { type: String },
+        // ward: { type: String },
         city: { type: String },
         state: { type: String },
         country: { type: String },
@@ -60,13 +60,11 @@ const ContactSchema = new mongoose.Schema(
 
 const orderSchema = new Schema({
     pickupaddress:{
-        type:String,
-        // type:[AddressSchema],
+        type:[AddressSchema],
         required: true
     },
     deliveryaddress:{
-        type:String,
-        // type:[AddressSchema],
+        type:[AddressSchema],
         required: true
     },
     tracking: { type: Boolean },

@@ -16,8 +16,8 @@ const JWT_SECRET = 'secRET';// require(process.env)
 // Create a new order
 router.post("/neworder", async (req, res) => {
 	try {
-		const { source, destination, value, type, email, courier,price} = req.body.order;
-		if (!source || !destination || !value || !type || !email || !courier || !price) {
+		const { source, destination, value, type, email, courier,price ,address} = req.body.order;
+		if (!source || !destination || !value || !type || !email || !courier || !price || !address) {
 			console.log('missing fields for new order');
 			return res.status(400).json({ error: "Missing required fields" });
 		}
@@ -30,8 +30,9 @@ router.post("/neworder", async (req, res) => {
 		} 
 
 		const order = new Order({
-			pickupaddress:source,
-			deliveryaddress:destination,
+			pickupaddress:user.address,
+
+			deliveryaddress:address,
 			items:{value,type},
 			paymentStatus: 'PAID',
 			paymentdetails : {
@@ -69,7 +70,7 @@ router.post("/neworder", async (req, res) => {
 router.post("/allorders", async (req, res) => {
 	const {email} = req.body;
 	console.log(email);
-	return res.json({email})
+	// return res.json({email})
 	try {
 		const user = await User.findOne({email});
 		if(!user) {

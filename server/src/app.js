@@ -21,7 +21,7 @@ mongoose.connect(
 		}
 	)
 	.then(() => {
-		console.log("connection established!");
+		console.log("mongodb connection established!");
 	})
 	.catch((err) => {
 		console.log("error ",err);

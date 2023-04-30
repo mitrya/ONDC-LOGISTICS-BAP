@@ -42,10 +42,27 @@ const SignUp = () => {
     const hideAddress=  () => {
         sethide(!hide)
     }
+    function validateObj(obj) {
+      if (typeof obj === 'object' && obj !== null) {
+        for (const key in address) {
+          if(address[key]=="") {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
     
     const handleSubmit = async event => {
         event.preventDefault();
-  
+        if(!validateObj(signUpDetails)) {
+          alert('Please Fill all Personal details')
+          return;
+        }
+        if(!hide && !validateObj(address)) {
+          alert('Please Fill all details in address')
+          return;
+        }
         try {
 			let res = await fetch("http://localhost:8000/signup", {
 				method: "post",

@@ -23,8 +23,22 @@ const AddressForm = () => {
     setaddress({ ...address, [event.target.name]: event.target.value });
   };
 
+  function validateObj(obj) {
+		if (typeof obj === 'object' && obj !== null) {
+			for (const key in address) {
+				if(address[key]=="") {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
   const handleSubmit = async e => {
     e.preventDefault();
+    if(!validateObj(address)) {
+			alert('Please Fill all details in the address')
+			return;
+		}
     try {
       let res = await fetch('http://localhost:8000/updateaddress', {
 				method: "post",
@@ -51,7 +65,7 @@ const AddressForm = () => {
   }
 
   return (
-    <div className="form container">
+    <div className="container form">
       <div className="row">
         <Form>
           <div className="form-subheading">Please fill Address Details</div>

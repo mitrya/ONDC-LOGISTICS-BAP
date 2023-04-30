@@ -19,9 +19,20 @@ const SignIn = () => {
         
         setSignInDetails({ ...signInDetails, [event.target.name]: event.target.value });
     };
+
+    function validateObj(obj) {
+		if (typeof obj === 'object' && obj !== null) {
+			for (const key in address) {
+				if(address[key]=="") {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
     const handleSubmit = async event => {
         event.preventDefault();
-        // console.log(signInDetails)
+        
         const {email,password}=signInDetails;
         
         try {
@@ -39,8 +50,8 @@ const SignIn = () => {
             if(data.error) {
                 alert(data.error);
             } else {
-                // console.log(data);
-                // alert(data.message);
+                let addr = data.user.address;
+                if(addr.door=="") data.user.address = {};
                 localStorage.setItem('user',JSON.stringify(data.user));
                 localStorage.setItem('token',JSON.stringify(data.token));
                 // history('/');

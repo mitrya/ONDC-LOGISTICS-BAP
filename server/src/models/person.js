@@ -16,10 +16,10 @@ const Address = new Schema({
 		type: String,
 		// required: true
 	},
-	locality: {
-		type: String
-	},
-	ward: String,
+	// locality: {
+	// 	type: String
+	// },
+	// ward: String,
 	city : {
 		type: String,
 		// required: true
