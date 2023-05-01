@@ -61,4 +61,3 @@ const ServiceCard = ({service,query}) => {
 }
 
 export default ServiceCard
-

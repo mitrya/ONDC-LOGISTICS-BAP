@@ -1,70 +1,86 @@
 import React, {useState, useEffect} from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
+import Card from 'react-bootstrap/Card';
 
 import './orderHistory.styles.css';
+import '../serviceCard/serviceCard.styles.css'
 const OrderHistory = () => {
-    const [orders, setorders] = useState([]);
-	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
+    
+    const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
+    const [orders, setOrders] = useState(undefined);
 
     async function getOrderDetails(orderID){
         const response = await fetch(`http://localhost:8000/${orderID}`)
-        const details = await response.json();
-        return details
+        return response.json();
     }
 
     useEffect( () => {
         fetch(`http://localhost:8000/allorders/${user.email}`)
         .then(res => {
 			return res.json()
-        }).then(data =>{
-            let orderList = [];
+        })
+        .then(async data =>{
+            const promises = []
             data.orders.map(async orderID => {
-                let details = await getOrderDetails(orderID);  
-                orderList.push(details) 
+                promises.push(getOrderDetails(orderID));                   
             })
-            console.log(orderList)
-            return orderList;
-        }).then(list =>{
-            console.log(list)
-            console.log(list.length)
-
-            setorders(list)
-        }).catch(
+            return Promise.all(promises)
+        })
+        .then(orderList => {
+            setOrders(orderList)
+        })
+        .catch(
 			error => {
 				console.log(error);
 			}
 		)        
     
     }, [user])
-    
-    
-    
+   
 
-    return (
         
-        <div>Order History
-            <ListGroup className="list-group-flush">
-            {
-                orders.map((order ) => {
-                    console.log(order);
-                    <ListGroup className="list-group-flush">
-						<ListGroup.Item>Courier Name : {order.providercontact.name}</ListGroup.Item>
-						<ListGroup.Item>Pickup : {order.pickupaddress}</ListGroup.Item>
-						<ListGroup.Item>Drop : {order.deliveryaddress}</ListGroup.Item>
-						<ListGroup.Item>Item Type : {order.items.type}</ListGroup.Item>
-						<ListGroup.Item >Amount to Pay : {order.paymentdetails.price} INR</ListGroup.Item>
-						
-					</ListGroup>
+        
+        return (
+            <div>
+                <div style={{fontSize:'large'}}>Order History</div>
+                
+                { 
+                    orders && orders.length?
+                    
+                        orders.map((order ) => {
+                            return (<div key={order._id}>
+                                    <Card  className='mt-3' style={{ width: 'max-content' }}>
+                                                <div className='card-rows'>    
+                                                    <div className="card-row">
+                                                            <Card.Body>
+                                                                <Card.Title>To {order.deliveryaddress[0].rName}</Card.Title>
+                                                            
+                                                                    <ListGroup className="list-group-flush">
+                                                                        <ListGroup.Item>Pickup : {order.pickupaddress[0].city}</ListGroup.Item>
+                                                                        <ListGroup.Item>Drop : {order.deliveryaddress[0].city}</ListGroup.Item>
+                                                                        <ListGroup.Item>Item Type : {order.items.type}</ListGroup.Item>
+                                                                        <ListGroup.Item className='font-weight-bold'>Paid amount : {order.paymentdetails.amount} INR</ListGroup.Item>
+                                                                    </ListGroup>
 
-                }) 
-            }
-            {
-            orders.length==0 ? <div>No orders </div> : <></>
-            }
-            </ListGroup>
+                                                                    <Card.Text className='mt-2'>
+                                                                        State : {order.state}
+                                                                    </Card.Text>
+                                                                    
+                                                            </Card.Body>
+                                                    </div>
+                                                
+                                                </div>
+                                    </Card>
+                            </div>)
+            
+                        })      
+                    :
+                        <>No Orders</>
 
-        </div>
-    )
+                }
+
+                </div>
+            )
 }
 
 export default OrderHistory
