@@ -15,7 +15,7 @@ const Payment = () => {
 	console.log(order);
 	const makePayment = async (e) => {
 		e.preventDefault();
-		const res = await fetch('http://localhost:8000/neworder', {
+		const res = await fetch('https://logigo-backend.netlify.app/neworder', {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",

@@ -32,7 +32,7 @@ function Contact() {
         event.preventDefault();
         console.log(messageBody);
         try {
-			let res = await fetch("http://localhost:8000/message", {
+			let res = await fetch("https://logigo-backend.netlify.app/message", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
