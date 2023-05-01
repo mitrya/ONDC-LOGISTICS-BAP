@@ -47,7 +47,7 @@ const MultiStepForm = () => {
         return;
     }
         try {
-			let res = await fetch("https://gateway-ondc.netlify.app:9000/", {
+			let res = await fetch("https://ondc-sample-gateway.onrender.com/", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
