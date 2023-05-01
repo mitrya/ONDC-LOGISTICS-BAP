@@ -22,8 +22,8 @@ const SignIn = () => {
 
     function validateObj(obj) {
 		if (typeof obj === 'object' && obj !== null) {
-			for (const key in address) {
-				if(address[key]=="") {
+			for (const key in obj) {
+				if(obj[key]=="") {
 					return false;
 				}
 			}

@@ -13,19 +13,19 @@ const stripe =require('stripe');
 dotenv.config();
 //asdsa
 mongoose.connect(
-	
-		// 'mongodb+srv://miniPROJ:AAKPV2023@cluster0.7sn4kdq.mongodb.net/?retryWrites=true&w=majority',{
-			'mongodb://127.0.0.1:27017/courier_app',{
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-		}
-	)
-	.then(() => {
-		console.log("mongodb connection established!");
-	})
-	.catch((err) => {
-		console.log("error ",err);
-	});
+
+	'mongodb+srv://miniPROJ:AAKPV2023@cluster1.l81voxo.mongodb.net/?retryWrites=true&w=majority',{
+	// 'mongodb://127.0.0.1:27017/courier_app',{
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	}
+)
+.then(() => {
+	console.log("mongodb connection established!");
+})
+.catch((err) => {
+	console.log("error ",err);
+});
 	
 
 	app.use(express.json())

@@ -69,8 +69,7 @@ router.post("/neworder", async (req, res) => {
 // Get all orders
 router.get("/allorders/:email", async (req, res) => {
 	const email = req.params.email;
-	console.log(email);
-	// return res.json({email})
+	
 	try {
 		const user = await User.findOne({email});
 		if(!user) {
@@ -90,7 +89,6 @@ router.get("/:orderId", async (req, res) => {
 		if (!order) {
 		return res.status(404).json({ error: "Order not found" });
 		}
-		console.log(order)
 		res.json(order);
 	} catch (error) {
 		console.error(error);
