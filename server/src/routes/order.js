@@ -67,8 +67,8 @@ router.post("/neworder", async (req, res) => {
 });
 
 // Get all orders
-router.post("/allorders", async (req, res) => {
-	const {email} = req.body;
+router.get("/allorders/:email", async (req, res) => {
+	const email = req.params.email;
 	console.log(email);
 	// return res.json({email})
 	try {
@@ -90,6 +90,7 @@ router.get("/:orderId", async (req, res) => {
 		if (!order) {
 		return res.status(404).json({ error: "Order not found" });
 		}
+		console.log(order)
 		res.json(order);
 	} catch (error) {
 		console.error(error);
