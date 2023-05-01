@@ -7,6 +7,9 @@
 {
     color:aliceblue !important;
 }
+.navbar-brand img{
+    padding: 0.1em;
+}
 .nav-link{
     color: aliceblue !important;
 }

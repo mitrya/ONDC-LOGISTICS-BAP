@@ -7,7 +7,7 @@ import { FormGroup } from 'react-bootstrap';
 // import axios
 const SignUp = () => {
     useEffect(() => {
-        document.title='Sign Up'
+        document.title='Sign Up - LogiGo'
     })
     const navigate = useNavigate();
     const [signUpDetails, setSignUpDetails] = useState({

@@ -6,7 +6,7 @@ import './signIn.styles.css'
 const SignIn = () => {
 
     useEffect(() => {
-        document.title='Login'
+        document.title='Login - LogiGo'
     })
 
     const history=useNavigate();
