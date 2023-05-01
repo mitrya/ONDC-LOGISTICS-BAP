@@ -65,7 +65,7 @@ const SignUp = () => {
         //   return;
         // }
         try {
-			let res = await fetch("https://logigo-backend.netlify.app:8000/signup", {
+			let res = await fetch("https://logigoapi.onrender.com/signup", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
