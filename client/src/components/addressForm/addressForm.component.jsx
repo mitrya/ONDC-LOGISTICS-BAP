@@ -40,7 +40,7 @@ const AddressForm = () => {
 			return;
 		}
     try {
-      let res = await fetch('https://logigo-backend.netlify.app/updateaddress', {
+      let res = await fetch('https://logigo-backend.netlify.app:8000/updateaddress', {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",

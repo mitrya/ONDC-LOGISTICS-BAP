@@ -10,12 +10,12 @@ const OrderHistory = () => {
     const [orders, setOrders] = useState(undefined);
 
     async function getOrderDetails(orderID){
-        const response = await fetch(`https://logigo-backend.netlify.app/${orderID}`)
+        const response = await fetch(`https://logigo-backend.netlify.app:8000/${orderID}`)
         return response.json();
     }
 
     useEffect( () => {
-        fetch(`https://logigo-backend.netlify.app/allorders/${user.email}`)
+        fetch(`https://logigo-backend.netlify.app:8000/allorders/${user.email}`)
         .then(res => {
 			return res.json()
         })

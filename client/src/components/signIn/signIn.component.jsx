@@ -36,7 +36,7 @@ const SignIn = () => {
         const {email,password}=signInDetails;
         
         try {
-            let res = await fetch('https://logigo-backend.netlify.app/signin',{
+            let res = await fetch('https://logigo-backend.netlify.app:8000/signin',{
                 method: "post",
                 headers: {
                     "Content-Type" : "application/json",
