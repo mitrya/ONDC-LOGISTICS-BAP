@@ -55,6 +55,7 @@ const SignUp = () => {
     
     const handleSubmit = async event => {
         event.preventDefault();
+        console.log('The data to be sent is',signUpDetails);
         if(!validateObj(signUpDetails)) {
           alert('Please Fill all Personal details')
           return;

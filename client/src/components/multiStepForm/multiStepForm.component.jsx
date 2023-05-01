@@ -56,8 +56,9 @@ const MultiStepForm = () => {
 					searchQuery
 				}),
 			})
+            console.log('sending data ....');
 			let data = await res.json();
-            // console.log(data)
+            console.log('data received is',data);
 			if (data.error) {
 				alert(data.error);
 			} else {
