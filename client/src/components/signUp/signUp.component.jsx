@@ -42,27 +42,28 @@ const SignUp = () => {
     const hideAddress=  () => {
         sethide(!hide)
     }
-    function validateObj(obj) {
-      if (typeof obj === 'object' && obj !== null) {
-        for (const key in obj) {
-          if(obj[key]=="") {
-            return false;
-          }
-        }
-      }
-      return true;
-    }
+    // function validateObj(obj) {
+    //   if (typeof obj === 'object' && obj !== null) {
+    //     for (const key in obj) {
+    //       if(obj[key]=="") {
+    //         return false;
+    //       }
+    //     }
+    //   }
+    //   return true;
+    // }
     
     const handleSubmit = async event => {
         event.preventDefault();
-        if(!validateObj(signUpDetails)) {
-          alert('Please Fill all Personal details')
-          return;
-        }
-        if(!hide && !validateObj(address)) {
-          alert('Please Fill all details in address')
-          return;
-        }
+        console.log('The data to be sent is',signUpDetails);
+        // if(!validateObj(signUpDetails)) {
+        //   alert('Please Fill all Personal details')
+        //   return;
+        // }
+        // if(!hide && !validateObj(address)) {
+        //   alert('Please Fill all details in address')
+        //   return;
+        // }
         try {
 			let res = await fetch("https://logigo-backend.netlify.app:8000/signup", {
 				method: "post",

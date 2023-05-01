@@ -15,6 +15,7 @@ const JWT_SECRET = 'secRET';// require(process.env)
 
 // Create a new order
 router.post("/neworder", async (req, res) => {
+	console.log('Received a new order');
 	try {
 		const { source, destination, value, type, email, courier,price ,address} = req.body.order;
 		if (!source || !destination || !value || !type || !email || !courier || !price || !address) {

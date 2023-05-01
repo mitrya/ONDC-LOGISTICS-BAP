@@ -7,9 +7,11 @@ app.use(express.json())
 
 
 app.use(cors({
-	methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],origin: '*' // for react app
-  }));
-
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+    credentials: true
+}));
 
 app.use('/',require('./routes/index.js'))
 
