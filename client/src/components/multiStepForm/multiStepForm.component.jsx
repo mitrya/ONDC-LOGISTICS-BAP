@@ -47,7 +47,7 @@ const MultiStepForm = () => {
         return;
     }
         try {
-			let res = await fetch("https://ondc-sample-gateway.onrender.com/", {
+			let res = await fetch("https://ondc-sample-gateway.onrender.com/search", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
