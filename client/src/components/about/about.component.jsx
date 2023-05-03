@@ -24,10 +24,10 @@ function About() {
       </div>
       <div class="image-container">
   <img src="https://howtostartabusinessindubai.com/wp-content/uploads/2020/07/logistics-business.jpg" alt="your-image"></img>
-  <div class="text-overlay">ONE STOP FOR ALL YOUR NEEDS</div>
+
   
 </div>
-      
+
       <div className="content">
         <Container>
           <h2 className="section-header">Our Mission</h2>
