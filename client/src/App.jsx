@@ -14,25 +14,30 @@ import Grievance from './components/grievance/grievance.component';
 import {Route, Routes} from 'react-router-dom'
 import Payment from './components/payment/payment.component';
 import OrderHistory from './components/orderHistory/orderHistory.component';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
     <div className='body'>
-      <Header/>
-          <Routes>
-            <Route path="/" element={ <HomePage/> } />
-            <Route path="/signIn" element={ <SignIn/> } />
-            <Route path="/signUp" element={ <SignUp/> } />
-            <Route path="/results" element={ <ServiceList/> } />
-            <Route path="/preview" element={ <Preview/> } />
-            <Route path="/about" element={<About/>}/>
-            <Route path="/contact" element={<Contact/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-            <Route path="/payment" element={<Payment/>}/>
-            <Route path="/orders" element={<OrderHistory/>}/>
+      <main className="body-content">
+        
+        <Header/>
+        <Routes>
+          <Route path="/" element={ <HomePage/> } />
+          <Route path="/signIn" element={ <SignIn/> } />
+          <Route path="/signUp" element={ <SignUp/> } />
+          <Route path="/results" element={ <ServiceList/> } />
+          <Route path="/preview" element={ <Preview/> } />
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/payment" element={<Payment/>}/>
+          <Route path="/orders" element={<OrderHistory/>}/>
 
-            <Route path="/grievance" element={<Grievance/>}/>
-          </Routes>
+          <Route path="/grievance" element={<Grievance/>}/>
+        </Routes>
+      </main>
+      <Footer></Footer>
     </div>
   )
 }
