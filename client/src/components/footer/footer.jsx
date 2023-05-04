@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+import './footer.component.css';
 function Footer() {
   return (
     <div className="footer">
@@ -23,11 +23,10 @@ function Footer() {
         <div className="footer-column">
           <h3>Follow Us</h3>
           <ul>
-          <link rel="icon" href="favicon.ico" />
-            <li><a className='footer-link' href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-1.75x" aria-hidden="true"></i></a></li>
-            <li><a className='footer-link' href="https://www.youtube.com/"><i class="fa fa-youtube-square fa-1.75x" aria-hidden="true"></i></a></li>
-            <li><a className='footer-link' href="https://github.com/mitrya/ONDC-LOGISTICS-BAP"><i class="fa fa-github-square fa-1.75x" aria-hidden="true"></i></a></li>
-            
+          <link rel="icon" href="favicon.ico"/>
+            <li><a className='footer-link footer-icon' href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-1.75x" aria-hidden="true"></i></a></li>
+            <li><a className='footer-link footer-icon' href="https://www.youtube.com/"><i class="fa fa-youtube-square fa-1.75x" aria-hidden="true"></i></a></li>
+            <li><a className='footer-link footer-icon' href="https://github.com/mitrya/ONDC-LOGISTICS-BAP"><i class="fa fa-github-square fa-1.75x" aria-hidden="true"></i></a></li>
           </ul>
         </div>
       </div>

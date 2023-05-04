@@ -37,7 +37,11 @@
   justify-content: center;
 }
 
-.footer-link{
+.footer-link {
   color:whitesmoke;
   text-decoration: none;
+}
+
+.footer-icon {
+  font-size: 20px;
 }
