@@ -3,13 +3,22 @@
     background-color: #577D86 !important;
 }
 
+html,#root,body{
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+ }
+ 
 body {
   min-height: 100vh !important;
   display: flex;
   flex-direction: column;
 }
 
-.body-container{
+.body-content{
   flex: 1;
+  min-height: 75vh;
 }
 

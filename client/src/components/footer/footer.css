@@ -1,11 +1,6 @@
-.footer {
-  margin-top: auto;
-  position: sticky;
-  top: 100vh;
-  margin-bottom: -7vh;
+.footer {  
   background-color: #577D86;
   color: #fff;
-  height: 23vh !important;
   display: flex;
   flex-direction: column;
   text-align: center;
