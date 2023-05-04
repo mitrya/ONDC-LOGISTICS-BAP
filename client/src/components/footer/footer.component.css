@@ -1,27 +1,25 @@
 .footer {
-  margin-top: auto;
-  position: sticky;
-  top: 100vh;
-  margin-bottom: -7vh;
-  background-color: #577D86;
-  color: #fff;
-  height: 23vh !important;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  min-height: 250px;
+  
+  background-color: #577D86;
+  color: #fff;
+  
+  padding: 30px;
 }
 
-.footer-row{
+.footer-content {
+  position: relative;
+  
   display: flex;
   flex-direction: row;
-  text-align: center;
-  margin: auto;
-  padding: 0.5em;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer-column {
-  width: 50vw;
-  text-align: left;
+  width: 30%;
 }
 
 .footer-column ul {
@@ -30,13 +28,16 @@
   margin: 0;
 }
 
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
 .footer-links {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-a{
+.footer-link{
   color:whitesmoke;
   text-decoration: none;
 }

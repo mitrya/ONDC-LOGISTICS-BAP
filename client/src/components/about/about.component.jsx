@@ -16,7 +16,7 @@ function About() {
     <div className="about">
       <div className="hero">
         <h1 className="hero-text">
-          Welcome to <span>ONDC Logistics</span>
+          Welcome to <span>LogiGO</span>
         </h1>
         <p className="hero-subtext">
           Your reliable and efficient courier service provider based on the Open Network for Digital Commerce (ONDC) framework!
