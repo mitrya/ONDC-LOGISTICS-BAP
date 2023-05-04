@@ -15,7 +15,7 @@ function Footer() {
         <div className="footer-column">
           <h3>Links</h3>
           <ul>
-            <li><a className='footer-link' href="/about">About Us</a></li>
+            {/* <li><a className='footer-link' href="/about">About Us</a></li> */}
             <li><a className='footer-link' href="/contact">Feedback/Inquire</a></li>
             <li><a className='footer-link' href="/contact">Terms & Conditons</a></li>
           </ul>

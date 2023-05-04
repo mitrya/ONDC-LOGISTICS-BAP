@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import LocationDetails from './locationDetails.component'
 import PayloadDimensions from './payloadDimensions.component'
@@ -12,11 +12,11 @@ import './multiStepForm.styles.css'
 
 const MultiStepForm = () => {
   const navigate = useNavigate();
-
+    const location = useLocation()
   const [step, setStep] = useState(1)
   const [searchQuery,setSearchQuery] = useState({
-    source:"",
-    destination:"",
+    source:location.state?.locationData?.source,
+    destination:location.state?.locationData?.destination,
     weight:"",
     length:"",
     width:"",
@@ -26,7 +26,7 @@ const MultiStepForm = () => {
     serviceType:"Immediate",
   });    
   const [fillCount,setFillCount] = useState(0);
-  const [isValidPIN,setIsValidPIN] = useState(false)
+  const [isValidPIN,setIsValidPIN] = useState(location.state?.locationData?.isValidPIN)
   
   const handleChange = (event) => {
     setSearchQuery({ ...searchQuery, [event.target.name]: event.target.value });
@@ -40,7 +40,6 @@ const MultiStepForm = () => {
   
   const submitFormData = async (e) => {
     e.preventDefault();
-    // console.log(searchQuery)
     if(!localStorage.getItem('user')) {
         alert('Please Login/Register')
         return
@@ -87,7 +86,7 @@ const MultiStepForm = () => {
     }, [searchQuery])
     
     return (
-    <div className='msform d-flex justify-content-center mt-5'>
+    <div className='d-flex justify-content-center mt-5'>
         <div style={{width: 300}}>
         {    
             (()=>{
