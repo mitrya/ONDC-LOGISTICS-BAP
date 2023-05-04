@@ -94,8 +94,8 @@ function Contact() {
                 <div class="contact-box">
                     <section id="contact">
                         <div id="contact-header">
-                            <span>Contact</span>
-                            <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-address-book" /></span>
+                            <span>Feedback</span>
+                            {/* <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-address-book" /></span> */}
                         </div>
                         <div id="flex_user">
                             <div id="message-section">
