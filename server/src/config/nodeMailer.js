@@ -8,7 +8,7 @@ port:587,
 secure:false,
 auth:{
     user:'revlogistics121@gmail.com',
-    pass:'tixbxhwyrdkyqmjx'
+    pass:'dfdrywtdxnuqoykw'
 }});
 
 let renderTemplate = function(data,relativePath){
