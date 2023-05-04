@@ -87,7 +87,7 @@ const MultiStepForm = () => {
     }, [searchQuery])
     
     return (
-    <div className='d-flex justify-content-center mt-5'>
+    <div className='msform d-flex justify-content-center mt-5'>
         <div style={{width: 300}}>
         {    
             (()=>{

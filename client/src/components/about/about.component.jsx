@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import MultiStepForm from '../multiStepForm/multiStepForm.component';
 import  './about.styles.css'
 
 
@@ -19,14 +19,18 @@ function About() {
           Welcome to <span>LogiGO</span>
         </h1>
         <p className="hero-subtext">
-          Your reliable and efficient courier service provider based on the Open Network for Digital Commerce (ONDC) framework!
+          Your reliable and efficient courier service provider. Visit our website on the Open Network for Digital Commerce (ONDC) Network!
         </p>
       </div>
-      <div class="image-container">
-  <img src="https://howtostartabusinessindubai.com/wp-content/uploads/2020/07/logistics-business.jpg" alt="your-image"></img>
+      <div class="image-container" style={{ 
+        backgroundImage: `url("https://howtostartabusinessindubai.com/wp-content/uploads/2020/07/logistics-business.jpg")` 
+      }}>
+        {/* <img src="https://howtostartabusinessindubai.com/wp-content/uploads/2020/07/logistics-business.jpg" alt="your-image"></img> */}
+        <div className="formContainer">
+        <MultiStepForm></MultiStepForm>
 
-  
-</div>
+        </div>
+      </div>
 
       <div className="content">
         <Container>
