@@ -41,6 +41,10 @@ const MultiStepForm = () => {
   const submitFormData = async (e) => {
     e.preventDefault();
     // console.log(searchQuery)
+    if(!localStorage.getItem('user')) {
+        alert('Please Login/Register')
+        return
+    }
     if(fillCount !== 9) 
     {
         alert("All fields are required");
