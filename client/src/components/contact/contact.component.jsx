@@ -89,6 +89,19 @@ function Contact() {
 
     return (
         <>
+        
+        <div className="hero">
+                <h1 className="hero-text">
+                We'd love to hear from you!
+                </h1>
+                <p className="hero-subtext">
+                Have questions about our products, features, trials, or pricing? Need a demo?
+                </p>
+                <p className="hero-subtext">
+                     Our teams will help you.
+                </p>
+           </div>
+           
             <div className='container-fluid box mt-3 mb-2 mx-1'>
 
                 <div class="contact-box">
