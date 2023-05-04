@@ -7,9 +7,30 @@ section {
 }
   
 
+.hero {
+    background-color: #769ea8;
+    padding: 50px;
+    text-align: center;
+    
+  }
+  
+  .hero-text {
+    font-size: 50px;
+    margin-bottom: 20px;
+    align-content: center;
+    background: white;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+      
+  }
+  .hero-subtext{
+    color:white;
+  }
 #contact {
     width: 100%;
     height: auto;
+    padding-bottom: 50px;
     background: linear-gradient(180deg, #577D86 60%, #4f7982); 
 }
 #contact #myaddress p {
@@ -65,6 +86,7 @@ section {
     padding: 1rem;
     display: flex;
     flex-direction: column; 
+    
 }
     
 .contact-header {
@@ -75,15 +97,17 @@ section {
 }
 
 .contact-box {
-    height: 90%;
+    height: 100%;
     min-height: 63vh;
     padding: 1rem; 
+    
 }
 
 #other-info {
     box-sizing: border-box;
     width: 35%;
     margin: auto; 
+    align-items: top;
 }
 #other-info #connect span {
     display: inline-block;
@@ -129,7 +153,7 @@ section {
 
 #contact #message-submit:hover {
     background-color: white;
-    color: blue; 
+    color:#4f7982; 
 }
 
 @media screen and (max-width: 728px) {
@@ -163,4 +187,4 @@ section {
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
- }
+  }
