@@ -14,6 +14,7 @@ import Grievance from './components/grievance/grievance.component';
 import {Route, Routes} from 'react-router-dom'
 import Payment from './components/payment/payment.component';
 import OrderHistory from './components/orderHistory/orderHistory.component';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
 
             <Route path="/grievance" element={<Grievance/>}/>
           </Routes>
+          <Footer/>
     </div>
   )
 }

@@ -7,7 +7,7 @@ import { FormGroup } from 'react-bootstrap';
 // import axios
 const SignUp = () => {
     useEffect(() => {
-        document.title='Sign Up'
+        document.title='Sign Up - LogiGo'
     })
     const navigate = useNavigate();
     const [signUpDetails, setSignUpDetails] = useState({
@@ -65,7 +65,7 @@ const SignUp = () => {
         //   return;
         // }
         try {
-			let res = await fetch("https://logigo-backend.netlify.app:8000/signup", {
+			let res = await fetch("https://logigoapi.onrender.com/signup", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",

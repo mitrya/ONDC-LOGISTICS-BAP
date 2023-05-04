@@ -12,7 +12,7 @@ const ServiceList = () => {
 
 
   useEffect(() => {
-    document.title='Search Results'
+    document.title='Search Results - LogiGo'
   })
   // console.log(location.state)
   // console.log(data)

@@ -50,7 +50,16 @@ function Header() {
     <>
         <Navbar  expand="lg " >
           <Container fluid>
-            <Navbar.Brand >ONDC Logistics</Navbar.Brand>
+            <Navbar.Brand href='/'>
+              <img
+                src="/logigo.jpeg"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+              LogiGo
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls='offcanvasNavbar-expand-lg' />
             <Navbar.Offcanvas
               id='offcanvasNavbar-expand-lg'
