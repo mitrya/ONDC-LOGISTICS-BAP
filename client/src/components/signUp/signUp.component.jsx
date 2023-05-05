@@ -21,11 +21,7 @@ const SignUp = () => {
 
     const [address,setAddress] = useState({
       door:'',
-      name:'',
-      building:'',
       street:'',
-      locality:'',
-      ward:'',
       city:'',
       state:'',
       country:'',
