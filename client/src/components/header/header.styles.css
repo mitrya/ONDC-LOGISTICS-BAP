@@ -54,9 +54,9 @@
     --bs-dropdown-link-hover-bg:#577D86 !important;
 }
 
-.dropdown-menu a:hover {
+/* .dropdown-menu a:hover {
     background-color: white;
-}
+} */
 
 .dropdown-menu .nav-link {
     color: rgba(0, 0, 0, 0.71) !important;
@@ -68,4 +68,26 @@
 
 .temp1 {
     margin-bottom:-10px;
+}
+
+.helper {
+    color: black;
+    text-decoration: none;
+    display:block;
+    margin-left:-13px;
+    margin-right:-13px;
+}
+
+.helper:hover{
+    background-color: white;
+    color:black;
+}
+
+.logo-helper {
+    color: black;
+    text-decoration: none;
+}
+
+.logo-helper:hover {
+    color:black;
 }
