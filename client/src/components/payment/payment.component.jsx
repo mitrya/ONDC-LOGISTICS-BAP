@@ -32,10 +32,8 @@ const Payment = () => {
 		if(data.error) {
 			alert('Error Please reload and try again',data.error);
 		} else {
-
 			navigate('/');
 		}
-		
 	}
 
 	return (
