@@ -9,11 +9,7 @@ const AddressForm = () => {
   const user = JSON.parse(localStorage.getItem('user'))
   const [address, setaddress] = useState({
     door:'',
-    name:'',
-    building:'',
     street:'',
-    locality:'',
-    ward:'',
     city:'',
     state:'',
     country:'',
