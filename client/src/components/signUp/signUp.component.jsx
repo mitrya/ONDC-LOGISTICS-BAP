@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './signUp.styles.css'
 import { FormGroup } from 'react-bootstrap';
+import {ThreeDots} from "react-loading-icons"
+
 // import axios
 const SignUp = () => {
     useEffect(() => {
@@ -21,11 +23,7 @@ const SignUp = () => {
 
     const [address,setAddress] = useState({
       door:'',
-      name:'',
-      building:'',
       street:'',
-      locality:'',
-      ward:'',
       city:'',
       state:'',
       country:'',
