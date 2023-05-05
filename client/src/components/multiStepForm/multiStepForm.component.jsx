@@ -10,10 +10,15 @@ import FormEntryPreview from './formEntryPreview.component';
 import Button from 'react-bootstrap/Button';
 import './multiStepForm.styles.css'
 
+import LoadingIcons from 'react-loading-icons'
+
 const MultiStepForm = () => {
   const navigate = useNavigate();
-    const location = useLocation()
+  const location = useLocation()
   const [step, setStep] = useState(1)
+  const [loading,setLoading] = useState(false);
+  const [error,setError] = useState("");
+
   const [searchQuery,setSearchQuery] = useState({
     source:location.state?.locationData?.source,
     destination:location.state?.locationData?.destination,
@@ -40,13 +45,18 @@ const MultiStepForm = () => {
   
   const submitFormData = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
     if(!localStorage.getItem('user')) {
-        alert('Please Login/Register')
+        setError("Please Login/Register");
+        setLoading(false);
         return
     }
     if(fillCount !== 9) 
     {
-        alert("All fields are required");
+        // alert("All fields are required");
+        setError("All fields are required");
+        setLoading(false);
         return;
     }
         try {
@@ -59,11 +69,15 @@ const MultiStepForm = () => {
 					searchQuery
 				}),
 			})
+
             console.log('sending data ....');
 			let data = await res.json();
             console.log('data received is',data);
+
+            setLoading(false);
 			if (data.error) {
-				alert(data.error);
+				setError(data.error);
+                setLoading(false);
 			} else {
 				// alert(data.message);
                 navigate('/results',{state:{data : data, query : searchQuery}});
@@ -76,6 +90,8 @@ const MultiStepForm = () => {
 
 
   useEffect(() => {
+    setLoading(false);
+    setError("");
     let count = 0
     Object.entries(searchQuery).map(([key, val], i) => 
     {
@@ -83,7 +99,8 @@ const MultiStepForm = () => {
             count = count + 1
     })
     setFillCount(count)
-    }, [searchQuery])
+  }, [searchQuery])
+  
     
     return (
     <div className='d-flex justify-content-center mt-5'>
@@ -133,11 +150,10 @@ const MultiStepForm = () => {
             <></>
         }
 
-        {  step === 5 &&
-            fillCount !== 9 ?
-                <span className='color-danger fw-bolder'>all fields are required</span>
-            :
-            <></>
+
+        { 
+            error!="" &&
+                 <span className='color-danger'>Error - {error}</span>
         }
 
         <div className="h-50 w-100 d-flex align-items-start flex-column ">
@@ -146,9 +162,11 @@ const MultiStepForm = () => {
             }
             {
                 step === 5 ?
+
                     <Button variant="primary" onClick={submitFormData}>
-                    Submit
+                        {loading ? <span> Loading</span>: <span>Submit</span>} &nbsp; {loading && <span><LoadingIcons.SpinningCircles/></span>}
                     </Button>
+                    
               :
                   <Button onClick={handleNext} >
                       Next
