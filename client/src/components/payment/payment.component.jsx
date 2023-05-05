@@ -35,7 +35,6 @@ const Payment = () => {
 
 			navigate('/orders');
 		}
-		
 	}
 
 	return (
