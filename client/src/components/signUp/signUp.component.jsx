@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './signUp.styles.css'
 import { FormGroup } from 'react-bootstrap';
+import {ThreeDots} from "react-loading-icons"
+
 // import axios
 const SignUp = () => {
     useEffect(() => {
