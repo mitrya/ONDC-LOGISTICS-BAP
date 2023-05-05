@@ -50,10 +50,12 @@ const Homepage = () => {
 
 	const submitLocationData = async (e) => {
 		e.preventDefault();
-		// console.log(e);
 		if(locationQuery.source=="" || locationQuery.destination=="") {
-			// return;
 			alert('Please enter the pincodes')
+			return
+		}
+		if(!localStorage.getItem('user')) {
+			navigate('/login')
 			return
 		}
 		navigate('/form',{state : {locationData : {
@@ -89,7 +91,7 @@ const Homepage = () => {
 				</p>
 			</div>
 			<div className="image-container" style={{ 
-				backgroundImage: `url("https://howtostartabusinessindubai.com/wp-content/uploads/2020/07/logistics-business.jpg")` 
+				backgroundImage: `url("/banner.jpg")` 
 			}}>
 				<div className="formContainer">
 					<Form>

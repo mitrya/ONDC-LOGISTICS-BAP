@@ -16,6 +16,8 @@ import Payment from './components/payment/payment.component';
 import OrderHistory from './components/orderHistory/orderHistory.component';
 import Footer from './components/footer/footer';
 import Formpage from './pages/Form/formpage.component';
+import Track from './components/track/track.component';
+
 function App() {
   return (
     <div className='body'>
@@ -34,6 +36,8 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/orders" element={<OrderHistory />} />
           <Route path="/grievance" element={<Grievance />} />
+          <Route path="/track" element={<Track />} />
+
         </Routes>
       </main>
       <Footer/>

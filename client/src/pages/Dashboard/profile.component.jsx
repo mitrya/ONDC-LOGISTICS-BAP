@@ -28,7 +28,7 @@ const Profile = () => {
        {
         (JSON.stringify(addr) === '{}') ? 
         <div className="row">
-          <Button className={upAdd ? 'hidden myBtn' : 'myBtn'} onClick={handleClick}>{upAdd ? 'Cancel' : 'Update Address'}</Button>
+          <Button className={upAdd ? 'hidden myBtn' : 'myBtn'} onClick={handleClick}>{upAdd ? 'Cancel' : 'Update My Address'}</Button>
         </div> : <></>
       }
        {/* </div> */}
