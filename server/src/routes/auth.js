@@ -7,13 +7,16 @@ const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
 const JWT_SECRET = 'secRET';// require(process.env)
+const Address = require('../models/address');
 
 router.get("/test",(req,res) => {
 	res.json({message : "Test Route working"})
 })
 
-router.post("/signup",(req,res) => {
+router.post("/signup", async (req,res) => {
+	console.log('sign up request received');
 	const {signUpDetails,address} = req.body;
+	let userAddress = await Address.create(address);
 	const {displayName,email,contact,password} = signUpDetails;
 	if(!displayName || !email || !contact || !password) {
 		return res.status(404).json({
@@ -32,7 +35,7 @@ router.post("/signup",(req,res) => {
 					name:displayName,
 					email,
 					phone:contact,
-					address,
+					address:userAddress,
 					password : hashedpassword
 				});
 				user.save().then((savedUser) => {
@@ -84,7 +87,8 @@ router.post("/updateaddress", async (req,res) => {
 			error: "Error Retreiving user"
 		})
 	} 
-	user.address = address;
+	let userAddress = await Address.create(address);
+	user.address = userAddress;
 	user.save().then(() => {
 		res.json({
 			message:"Succefully updated your Address",

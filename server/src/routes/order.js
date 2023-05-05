@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
 const Order = require("../models/order");
+const Address = require('../models/address');
 const JWT_SECRET = 'secRET';// require(process.env)
 
 
@@ -29,9 +30,9 @@ router.post("/neworder", async (req, res) => {
 				error: "Error Retreiving user"
 			})
 		} 
-
+		let pickUpAddress = await Address.create(user.address);
 		const order = new Order({
-			pickupaddress:user.address,
+			pickupaddress:pickUpAddress,
 
 			deliveryaddress:address,
 			items:{value,type},
