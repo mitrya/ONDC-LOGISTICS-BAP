@@ -104,7 +104,7 @@ function Contact() {
            
             <div className='container-fluid box mt-3 mb-2 mx-1'>
 
-                <div class="contact-box">
+                <div className="contact-box">
                     <section id="contact">
                         <div id="contact-header">
                             <span>Feedback</span>

@@ -10,7 +10,7 @@ import FormEntryPreview from './formEntryPreview.component';
 import Button from 'react-bootstrap/Button';
 import './multiStepForm.styles.css'
 
-import LoadingIcons from 'react-loading-icons'
+import {ThreeDots} from 'react-loading-icons'
 
 const MultiStepForm = () => {
   const navigate = useNavigate();
@@ -59,27 +59,27 @@ const MultiStepForm = () => {
         setLoading(false);
         return;
     }
-        try {
-			let res = await fetch("https://ondc-sample-gateway.onrender.com/search", {
-				method: "post",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					searchQuery
-				}),
-			})
-			let data = await res.json();
-            setLoading(false);
-			if (data.error) {
-				setError(data.error);
-			} else {
-                navigate('/results',{state:{data : data, query : searchQuery}});
-			}
-		}
-		catch(err){
-			console.log("There is some error", err);
-		}
+    try {
+        let res = await fetch("https://ondc-sample-gateway.onrender.com/search", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                searchQuery
+            }),
+        })
+        let data = await res.json();
+        setLoading(false);
+        if (data.error) {
+            setError(data.error);
+        } else {
+            navigate('/results',{state:{data : data, query : searchQuery}});
+        }
+    }
+    catch(err){
+        console.log("There is some error", err);
+    }
   };
 
 
@@ -158,7 +158,7 @@ const MultiStepForm = () => {
                 step === 5 ?
 
                     <Button variant="primary" onClick={submitFormData}>
-                        {loading ? <span> Loading</span>: <span>Submit</span>} &nbsp; {loading && <span><LoadingIcons.SpinningCircles/></span>}
+                        {loading ? <span> Loading</span>: <span>Submit</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
                     </Button>
                     
               :

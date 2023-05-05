@@ -18,6 +18,7 @@ const AddressForm = () => {
     country:'',
     area_code:''
   })
+  const [loading,setLoading] = useState(false);
 
   const handleAddress = (event) => {
     setaddress({ ...address, [event.target.name]: event.target.value });
@@ -35,7 +36,9 @@ const AddressForm = () => {
 	}
   const handleSubmit = async e => {
     e.preventDefault();
+			setLoading(true);
     if(!validateObj(address)) {
+			setLoading(false);
 			alert('Please Fill all details in the address')
 			return;
 		}
@@ -52,14 +55,17 @@ const AddressForm = () => {
 			})
       let data = await res.json();
       if(data.error) {
+        setLoading(false);
         alert(data.error);
       } else {
+        setLoading(false);
         alert(data.message);
         localStorage.setItem('user',JSON.stringify(data.user))
         location.reload();
       }
 
     } catch (err) {
+			setLoading(false);
       console.log("Error: ",err);
     }
   }
@@ -137,7 +143,7 @@ const AddressForm = () => {
                 />
             </Form.Group>
             <Button variant="primary" type="submit" onClick={handleSubmit}>
-                Submit
+            {loading ? <span> Loading</span>: <span>Submit</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
             </Button>
         </Form>
       </div>

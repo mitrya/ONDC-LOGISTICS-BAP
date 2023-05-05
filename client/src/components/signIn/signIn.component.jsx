@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import {ThreeDots} from 'react-loading-icons'
+
 import './signIn.styles.css'
 const SignIn = () => {
 
@@ -10,10 +12,12 @@ const SignIn = () => {
     })
 
     const history=useNavigate();
-   const [signInDetails, setSignInDetails] = useState({
+    const [signInDetails, setSignInDetails] = useState({
         email:'',
         password:'',
     })
+    const [loading,setLoading] = useState(false);
+    
     
     const handleChange = (event) => {
         
@@ -32,6 +36,7 @@ const SignIn = () => {
 	}
     const handleSubmit = async event => {
         event.preventDefault();
+        setLoading(true);
         
         const {email,password}=signInDetails;
         
@@ -48,8 +53,11 @@ const SignIn = () => {
             })
             let data = await res.json();
             if(data.error) {
+			setLoading(false);
                 alert(data.error);
             } else {
+			setLoading(false);
+
                 let addr = data.user.address;
                 if(addr.door=="") data.user.address = {};
                 localStorage.setItem('user',JSON.stringify(data.user));
@@ -58,6 +66,8 @@ const SignIn = () => {
                 location.assign('/');
             }
         } catch (error) {
+			setLoading(false);
+
             alert(error);
         }
     }
@@ -95,7 +105,7 @@ const SignIn = () => {
                         />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={handleSubmit}>
-                        Sign In
+                    {loading ? <span> Loading</span>: <span>Login</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
                     </Button>
                 </Form>
             </div>

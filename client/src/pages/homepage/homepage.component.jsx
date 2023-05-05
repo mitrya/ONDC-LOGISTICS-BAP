@@ -87,7 +87,7 @@ const Homepage = () => {
 					Welcome to <span>LogiGO</span>
 				</h1>
 				<p className="hhero-subtext">
-					Your reliable and efficient courier service provider. Visit our website on the Open Network for Digital Commerce (ONDC) Network!
+					Your reliable and efficient courier service provider. <a href="https://logigo.netlify.app/">Visit</a> our website on the Open Network for Digital Commerce (ONDC) Network!
 				</p>
 			</div>
 			<div className="image-container" style={{ 

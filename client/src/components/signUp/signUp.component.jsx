@@ -17,6 +17,8 @@ const SignUp = () => {
         password:'',
         confirmPassword:''
     })
+    const [loading,setLoading] = useState(false);
+
     const [address,setAddress] = useState({
       door:'',
       name:'',
@@ -42,52 +44,59 @@ const SignUp = () => {
     const hideAddress=  () => {
         sethide(!hide)
     }
-    // function validateObj(obj) {
-    //   if (typeof obj === 'object' && obj !== null) {
-    //     for (const key in obj) {
-    //       if(obj[key]=="") {
-    //         return false;
-    //       }
-    //     }
-    //   }
-    //   return true;
-    // }
+    function validateObj(obj) {
+      if (typeof obj === 'object' && obj !== null) {
+        for (const key in obj) {
+          if(obj[key]=="") {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
     
     const handleSubmit = async event => {
         event.preventDefault();
-        console.log('The data to be sent is',signUpDetails);
-        // if(!validateObj(signUpDetails)) {
-        //   alert('Please Fill all Personal details')
-        //   return;
-        // }
-        // if(!hide && !validateObj(address)) {
-        //   alert('Please Fill all details in address')
-        //   return;
-        // }
-        try {
-			let res = await fetch("https://logigoapi.onrender.com/signup", {
-				method: "post",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-          signUpDetails,
-          address
-				}),
-			})
-			let data = await res.json();
+        setLoading(true);
 
-			if (data.error) {
-				alert(data.error);
-			} else {
-       
-        navigate('/signin')
-			}
-		}
-		catch(err){
-			console.log("There is some error", err);
-		}
-    }
+        // console.log('The data to be sent is',signUpDetails);
+        if(!validateObj(signUpDetails)) {
+          setLoading(false);
+          alert('Please Fill all Personal details')
+          return;
+        }
+        if(!hide && !validateObj(address)) {
+          setLoading(false);
+          alert('Please Fill all details in address')
+          return;
+        }
+        try {
+          let res = await fetch("https://logigoapi.onrender.com/signup", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              signUpDetails,
+              address
+            }),
+          })
+          let data = await res.json();
+
+          if (data.error) {
+            setLoading(false);
+            alert(data.error);
+          } else {
+			      setLoading(false);
+          
+            navigate('/signin')
+          }
+        }
+        catch(err){
+          setLoading(false);
+          console.log("There is some error", err);
+        }
+      }
     
     return (
       <div className="forms  mt-5 d-flex justify-content-center">
@@ -246,7 +255,7 @@ const SignUp = () => {
                 </div>
                 <div className="row justify-content-center">
                 <Button variant="primary" className='myBtn' type="submit" onClick={handleSubmit}>
-                  Sign Up
+                {loading ? <span> Loading</span>: <span>Register</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
                 </Button>
             </div>
             </div>
