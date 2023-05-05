@@ -38,15 +38,17 @@ function Header() {
     <>
         <Navbar  expand="lg " >
           <Container fluid>
-            <Navbar.Brand href='/'>
-              <img
-                src="/logigo.jpeg"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-                alt="React Bootstrap logo"
-              />
-              LogiGo
+            <Navbar.Brand>
+            <Link to="/" className='logo-helper'>
+               <img
+                  src="/logigo.jpeg"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top"
+                  alt="React Bootstrap logo"
+                />
+                LogiGo
+            </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='offcanvasNavbar-expand-lg' />
             <Navbar.Offcanvas
@@ -69,13 +71,20 @@ function Header() {
                       (user)?
                       <div>
                           <NavDropdown title={user.name} id="offcanvasNavbarDropdown-expand-lg" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                              <NavDropdown.Item  href="/profile" className='temp'>My Account</NavDropdown.Item>
-                                <NavDropdown.Item  href="/track">Track Shipments</NavDropdown.Item>
-                                <NavDropdown.Item  href="/orders">History</NavDropdown.Item>
-                                <NavDropdown.Item  href="" onClick={LogoutHandler}>Logout</NavDropdown.Item>
-                                <NavDropdown.Item  href="/grievance" className='temp1'>
+                              {/* <NavDropdown.Item  href="/profile" className='temp'>My Account</NavDropdown.Item> */}
+                                {/* <NavDropdown.Item  href="/track">Track Shipments</NavDropdown.Item> */}
+                                {/* <NavDropdown.Item  href="/orders">History</NavDropdown.Item> */}
+                                {/* <NavDropdown.Item  href="" onClick={LogoutHandler}>Logout</NavDropdown.Item> */}
+                                {/* <NavDropdown.Item  href="/grievance" className='temp1'>
                                   Raise Grievance
-                                </NavDropdown.Item>
+                                </NavDropdown.Item> */}
+                                <NavDropdown.Item className='temp'><Link to="/profile" className="helper">My Account</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to="/track" className="helper">Track Shipments</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to="/orders" className="helper">History</Link></NavDropdown.Item>
+                                <NavDropdown.Item onClick={LogoutHandler}><Link to="" className="helper">Logout</Link></NavDropdown.Item>
+                                <NavDropdown.Item className='temp1'><Link to="/grievance" className="helper">Raise Grievance</Link></NavDropdown.Item>
+
+                                
                         </NavDropdown>
                       </div>
                       :

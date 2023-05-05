@@ -72,10 +72,26 @@ router.get("/allorders/:email", async (req, res) => {
 	const email = req.params.email;
 	
 	try {
-		const user = await User.findOne({email});
-		if(!user) {
-			res.status(500).json({error : "Cannot find user"});
-		}
+		// const user = await User.findOne({email});
+		// if(!user) {
+		// 	res.status(500).json({error : "Cannot find user"});
+		// }
+		// res.json({orders: user.orders});
+		let user = await User.findOne({email})
+		.populate({
+			path:'orders',
+			populate:[
+				{
+					path:'pickupaddress',
+				},
+				{
+					path:'deliveryaddress',
+				},
+				{
+					path:'providercontact'
+				}
+			]
+		});
 		res.json({orders: user.orders});
 	} catch (error) {
 		console.error(error);
