@@ -4,7 +4,7 @@
 
 .hhero {
   background-color: white;
-  padding: 50px;
+  padding: 2em;
   
 }
 
@@ -24,7 +24,7 @@
   padding-bottom: 5%;
   padding-top: 0px;
   top: 0;
-  height: 100vh;
+  height: 70vh;
   object-fit: cover;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .content {
-  padding: 50px;
+  padding: 2em;
 }
 
 .image {

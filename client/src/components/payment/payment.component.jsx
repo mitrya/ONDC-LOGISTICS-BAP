@@ -24,7 +24,7 @@ const Payment = () => {
 				order
 			}),
 		})
-		console.log(res);
+		// console.log(res);
 
 		let data = await res.json();
 		console.log(data);
@@ -33,7 +33,7 @@ const Payment = () => {
 			alert('Error Please reload and try again',data.error);
 		} else {
 
-			navigate('/');
+			navigate('/orders');
 		}
 		
 	}
