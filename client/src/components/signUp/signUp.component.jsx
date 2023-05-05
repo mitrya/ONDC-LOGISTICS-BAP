@@ -47,7 +47,7 @@ const SignUp = () => {
     function validateObj(obj) {
       if (typeof obj === 'object' && obj !== null) {
         for (const key in obj) {
-          if(obj[key]=="") {
+          if(obj[key]==="") {
             return false;
           }
         }
