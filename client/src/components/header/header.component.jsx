@@ -33,18 +33,6 @@ function Header() {
       // useNavigate('/');
       location.assign('/')
     }
-
-    function toProfile() {
-      location.assign('/profile');
-    }
-
-    function toOrders() {
-      location.assign('/orders')
-    }
-
-    function toGrievanceSection() {
-      location.assign('/grievance');
-    }
      
   return (
     <>
@@ -74,21 +62,18 @@ function Header() {
               
               <Offcanvas.Body>
                 <Nav className="justify-content-start flex-grow-1 pe-3">
-                    <Nav.Link as={Link} to = "/">Home</Nav.Link>
-                    {/* <Nav.Link as={Link} to = "/about">About</Nav.Link>
-                    <Nav.Link as={Link} to ="/contact">Contact Us</Nav.Link> */}
+                    {/* <Nav.Link as={Link} to = "/form">New Courier</Nav.Link> */}
                 </Nav>
                 
                 {
                       (user)?
                       <div>
                           <NavDropdown title={user.name} id="offcanvasNavbarDropdown-expand-lg" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
-                              <NavDropdown.Item onClick={toProfile} className='temp'>My Account</NavDropdown.Item>
-                                <NavDropdown.Item onClick={toOrders}>Current Shipments</NavDropdown.Item>
-                                <NavDropdown.Item onClick={toOrders}>Track Shipments</NavDropdown.Item>
-                                <NavDropdown.Item onClick={toOrders}>History</NavDropdown.Item>
-                                <NavDropdown.Item onClick={LogoutHandler}>Logout</NavDropdown.Item>
-                                <NavDropdown.Item onClick={toGrievanceSection} className='temp1'>
+                              <NavDropdown.Item  href="/profile" className='temp'>My Account</NavDropdown.Item>
+                                <NavDropdown.Item  href="/track">Track Shipments</NavDropdown.Item>
+                                <NavDropdown.Item  href="/orders">History</NavDropdown.Item>
+                                <NavDropdown.Item  href="" onClick={LogoutHandler}>Logout</NavDropdown.Item>
+                                <NavDropdown.Item  href="/grievance" className='temp1'>
                                   Raise Grievance
                                 </NavDropdown.Item>
                         </NavDropdown>

@@ -3,3 +3,9 @@
     width: 100%;
     margin-bottom: 2%;
 }
+
+.msform {
+    background-color: white;
+    /* padding: 1em; */
+    width: max-content;
+}

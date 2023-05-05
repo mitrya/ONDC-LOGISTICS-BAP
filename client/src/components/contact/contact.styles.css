@@ -8,24 +8,17 @@ section {
   
 
 .hero {
-    background-color: #769ea8;
+    background-color: white;
     padding: 50px;
     text-align: center;
     
-  }
+  }ß
   
   .hero-text {
     font-size: 50px;
     margin-bottom: 20px;
     align-content: center;
-    background: white;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
       
-  }
-  .hero-subtext{
-    color:white;
   }
 #contact {
     width: 100%;
