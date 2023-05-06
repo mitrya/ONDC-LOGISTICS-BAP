@@ -8,7 +8,6 @@ const LocationDetails = ({searchQuery,handleChange,setIsValidPIN}) => {
     const pinError  = "invalid PIN"
     const [sourceDescription, setSourceDescription] = useState(pinExample)
     const [destinationDescription, setDestinationDescription] = useState(pinExample)
-    
     const returnDescription = (pinString) => {
         if(pinString.length==0)
             return pinExample;
@@ -21,9 +20,9 @@ const LocationDetails = ({searchQuery,handleChange,setIsValidPIN}) => {
         
         if(PINLookup(Number(pinString))[0] === undefined ||  PINLookup(Number(pinString).length === 0))
             return pinError
- 
         return (PINLookup(Number(pinString))[0].taluk)
     }
+        
 
     const returnIsValid = (description) => {
         if(description === pinExample || description ===  pinError)
