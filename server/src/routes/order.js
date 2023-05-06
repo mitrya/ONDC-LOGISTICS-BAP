@@ -31,10 +31,25 @@ router.post("/neworder", async (req, res) => {
 			})
 		} 
 		let pickUpAddress = await Address.create(user.address);
+		let deliveryinstance = await Address.create(address)
+		// pickupInstance = new Address(user.address)
+		// let pkid = await pickupInstance.save()
+		// if(pkid.error) {
+		// 	console.log(pkid.error);
+		// 	res.status(402).json({error : pkid.error})
+		// }
+		// log
+		// deliveryInstance = new Address(address)
+		// let dlid = await pickupInstance.save()
+		// if(dlid.error) {
+		// 	console.log(dlid.error);
+		// 	res.status(402).json({error : dlid.error})
+		// }
 		const order = new Order({
-			pickupaddress:pickUpAddress,
-
-			deliveryaddress:address,
+			// pickupaddress:pkid._id,
+			// deliveryaddress:dlid._id,
+			pickupAddress:pickUpAddress._id,
+			deliveryaddress:deliveryinstance._id,
 			items:{value,type},
 			paymentStatus: 'PAID',
 			paymentdetails : {

@@ -14,8 +14,8 @@ dotenv.config();
 //asdsa
 mongoose.connect(
 
-	'mongodb+srv://miniPROJ:AAKPV2023@cluster1.l81voxo.mongodb.net/?retryWrites=true&w=majority',{
-	// 'mongodb://127.0.0.1:27017/courier_app',{
+	// 'mongodb+srv://miniPROJ:AAKPV2023@cluster1.l81voxo.mongodb.net/?retryWrites=true&w=majority',{
+	'mongodb://127.0.0.1:27017/courier_app',{
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	}

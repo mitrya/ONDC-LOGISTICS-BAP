@@ -12,8 +12,7 @@ const AddressSchema = new mongoose.Schema(
         state: { type: String },
         country: { type: String },
         areaCode: { type: String }
-    },
-    { _id: false }
+    }
 );
 
 const Address = mongoose.model('Address',AddressSchema);
