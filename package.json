@@ -11,5 +11,8 @@
   "dependencies": {
     "braintree-web": "^3.92.1",
     "braintree-web-drop-in-react": "^1.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
   }
 }

@@ -10,9 +10,7 @@ const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
 const Order = require("../models/order");
-const Address = require('../models/address');
 const JWT_SECRET = 'secRET';// require(process.env)
-
 
 // Create a new order
 router.post("/neworder", async (req, res) => {
@@ -88,26 +86,10 @@ router.get("/allorders/:email", async (req, res) => {
 	const email = req.params.email;
 	
 	try {
-		// const user = await User.findOne({email});
-		// if(!user) {
-		// 	res.status(500).json({error : "Cannot find user"});
-		// }
-		// res.json({orders: user.orders});
-		let user = await User.findOne({email})
-		.populate({
-			path:'orders',
-			populate:[
-				{
-					path:'pickupaddress',
-				},
-				{
-					path:'deliveryaddress',
-				},
-				{
-					path:'providercontact'
-				}
-			]
-		});
+		const user = await User.findOne({email});
+		if(!user) {
+			res.status(500).json({error : "Cannot find user"});
+		}
 		res.json({orders: user.orders});
 	} catch (error) {
 		console.error(error);
