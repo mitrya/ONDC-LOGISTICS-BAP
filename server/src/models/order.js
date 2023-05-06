@@ -2,6 +2,22 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const PersonSchema = require('./person.js');
 
+const AddressSchema = new mongoose.Schema(
+    {
+        door: { type: String },
+        rName: { type: String },
+        // building: { type: String },
+        street: { type: String },
+        // locality: { type: String },
+        // ward: { type: String },
+        city: { type: String },
+        state: { type: String },
+        country: { type: String },
+        areaCode: { type: String }
+    },
+    { _id: false }
+);
+
 const itemSchema = new Schema(
     {
     weight:{
@@ -42,30 +58,13 @@ const ContactSchema = new mongoose.Schema(
 );
 
 
-const AddressSchema = new mongoose.Schema(
-    {
-        door: { type: String },
-        rName: { type: String },
-        // building: { type: String },
-        street: { type: String },
-        // locality: { type: String },
-        // ward: { type: String },
-        city: { type: String },
-        state: { type: String },
-        country: { type: String },
-        areaCode: { type: String }
-    },
-    { _id: false }
-);
-
-
 const orderSchema = new Schema({
     pickupaddress:{
         type:[AddressSchema],
         required: true
     },
     deliveryaddress:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:[AddressSchema],
         required: true
     },
     tracking: { type: Boolean },
@@ -94,8 +93,7 @@ const orderSchema = new Schema({
     bppId: { type: String },
     bapOrderId: { type: String },
     providercontact:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Contact'
+        type:[ContactSchema]
     },
     message: { type: String },//handle with care: example
     
