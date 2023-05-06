@@ -40,7 +40,7 @@ const AddressForm = () => {
 			return;
 		}
     try {
-      let res = await fetch('https://logigoapi.onrender.com/updateaddress', {
+      let res = await fetch('http://localhost:8000/updateaddress', {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",

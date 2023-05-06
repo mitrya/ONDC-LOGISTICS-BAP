@@ -25,4 +25,9 @@ body {
 svg{
   height: 1.5em !important;
   width: 2.5em !important;
+  /* color: black !important; */
+}
+.loader{
+  /* background-color: green; */
+  color: green !important;
 }

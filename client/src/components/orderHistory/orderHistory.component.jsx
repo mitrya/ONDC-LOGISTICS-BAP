@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
+import {ThreeDots} from "react-loading-icons"
 
 import './orderHistory.styles.css';
 import '../serviceCard/serviceCard.styles.css'
@@ -8,14 +9,15 @@ const OrderHistory = () => {
     
     const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
     const [orders, setOrders] = useState(undefined);
-
+    const [loading,setLoading] = useState(false);
     async function getOrderDetails(orderID){
-        const response = await fetch(`https://logigoapi.onrender.com/${orderID}`)
+        const response = await fetch(`http://localhost:8000/${orderID}`)
         return response.json();
     }
 
     useEffect( () => {
-        fetch(`https://logigoapi.onrender.com/allorders/${user.email}`)
+        setLoading(true)
+        fetch(`http://localhost:8000/allorders/${user.email}`)
         .then(res => {
 			return res.json()
         })
@@ -27,10 +29,12 @@ const OrderHistory = () => {
             return Promise.all(promises)
         })
         .then(orderList => {
+            setLoading(false)
             setOrders(orderList)
         })
         .catch(
 			error => {
+                setLoading(false)
 				console.log(error);
 			}
 		)        
@@ -41,8 +45,8 @@ const OrderHistory = () => {
         
         
         return (
-            <div>
-                <div style={{fontSize:'large'}}>Order History</div>
+            <div className="mt-5 container justify-content-center">
+                <h1 >Order History</h1>
                 
                 { 
                     orders && orders.length?
@@ -73,9 +77,10 @@ const OrderHistory = () => {
                                     </Card>
                             </div>)
             
-                        })      
+                        })       
                     :
-                        <>No Orders</>
+                <>{loading ? <h3> Loading...</h3>: <h3>No orders </h3> }</>
+            
 
                 }
 

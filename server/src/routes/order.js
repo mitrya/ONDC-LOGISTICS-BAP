@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
 const Order = require("../models/order");
+const { add } = require("kue/lib/queue/events");
 const JWT_SECRET = 'secRET';// require(process.env)
 
 // Create a new order
@@ -28,8 +29,8 @@ router.post("/neworder", async (req, res) => {
 				error: "Error Retreiving user"
 			})
 		} 
-		let pickUpAddress = await Address.create(user.address);
-		let deliveryinstance = await Address.create(address)
+		// let pickUpAddress = await Address.create(user.address);
+		// let deliveryinstance = await Address.create(address)
 		// pickupInstance = new Address(user.address)
 		// let pkid = await pickupInstance.save()
 		// if(pkid.error) {
@@ -46,8 +47,10 @@ router.post("/neworder", async (req, res) => {
 		const order = new Order({
 			// pickupaddress:pkid._id,
 			// deliveryaddress:dlid._id,
-			pickupAddress:pickUpAddress._id,
-			deliveryaddress:deliveryinstance._id,
+			// pickupAddress:pickUpAddress._id,
+			// deliveryaddress:deliveryinstance._id,
+			pickupaddress:user.address,
+			deliveryaddress:address,
 			items:{value,type},
 			paymentStatus: 'PAID',
 			paymentdetails : {
