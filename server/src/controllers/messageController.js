@@ -3,6 +3,7 @@ const messageAdminWorker = require('../workers/message_email_worker');
 const queue = require('../config/kue');
 
 module.exports.sendMessage = function(req,res) {
+    console.log('Need to send message');
     if(!req.body.messageBody.name||!req.body.messageBody.email||!req.body.messageBody.content){
         return res.status(400).json({
             error:"All Fields are required"
