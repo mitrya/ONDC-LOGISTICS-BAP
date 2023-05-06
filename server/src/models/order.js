@@ -2,15 +2,70 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const PersonSchema = require('./person.js');
 
+const itemSchema = new Schema(
+    {
+    weight:{
+        type : Number,
+        required: true
+    },
+    dimensions:{
+        length:{
+            type:Number
+        },
+        breadth:{
+            type:Number
+        },
+        height:{
+            type:Number
+        }
+    },
+    
+    id: { type: String, required: true },
+    quantity: { type: Number, required: true },
+    category:{
+        type:String,
+        required: true
+    },
+    product:{type:String, required: false},
+    
+    },
+    { _id: false }
+);
+
+const ContactSchema = new mongoose.Schema(
+    {
+        phone: { type: String },
+        email: { type: String },
+        tags: { type: Map }
+    },
+    { _id: false }
+);
+
+
+const AddressSchema = new mongoose.Schema(
+    {
+        door: { type: String },
+        rName: { type: String },
+        // building: { type: String },
+        street: { type: String },
+        // locality: { type: String },
+        // ward: { type: String },
+        city: { type: String },
+        state: { type: String },
+        country: { type: String },
+        areaCode: { type: String }
+    },
+    { _id: false }
+);
+
+
 const orderSchema = new Schema({
     pickupaddress:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Address',
+        type:[AddressSchema],
         required: true
     },
     deliveryaddress:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Address',
         required: true
     },
     tracking: { type: Boolean },
