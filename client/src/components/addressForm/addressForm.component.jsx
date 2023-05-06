@@ -4,24 +4,55 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {ThreeDots} from "react-loading-icons"
+import {lookup as PINLookup} from 'india-pincode-lookup'
 
 const AddressForm = () => {
-  const user = JSON.parse(localStorage.getItem('user'))
-  const [address, setaddress] = useState({
-    door:'',
-    street:'',
-    city:'',
-    state:'',
-    country:'',
-    area_code:''
-  })
-  const [loading,setLoading] = useState(false);
+	const pinExample = "Example 110001"
+    const pinError  = "invalid PIN"
+	const user = JSON.parse(localStorage.getItem('user'))
+	const [address, setaddress] = useState({
+		door:'',
+		street:'',
+		country:'India',
+	})
+	const [area_code,setArea] = useState('')
+	const [state, setState] = useState('')
+	const [city, setCity] = useState('')
+	
+	const [loading,setLoading] = useState(false);
+	const returnDescription = (pinString) => {
+		if(pinString.length==0)
+			return pinError;
 
-  const handleAddress = (event) => {
-    setaddress({ ...address, [event.target.name]: event.target.value });
-  };
+		if(isNaN(pinString))
+			return pinError
+		
+		if(pinString.length<6 || pinString.length>6)
+			return pinError
+		// let data 
+		if(PINLookup(Number(pinString))[0] === undefined ||  PINLookup(Number(pinString).length === 0))
+			return pinError
 
-  function validateObj(obj) {
+		return (PINLookup(Number(pinString))[0])
+	}
+	const handleAddress = (event) => {
+		setaddress({ ...address, [event.target.name]: event.target.value });
+	};
+
+	const handlePin = (event) => {
+		setArea(event.target.value)
+		let pinData = returnDescription(event.target.value)
+
+		if(pinData!=pinError) {
+			setState(pinData.stateName);
+			setCity(pinData.taluk)
+		} else {
+			setState('');
+			setCity('')
+		}
+	}
+
+	function validateObj(obj) {
 		if (typeof obj === 'object' && obj !== null) {
 			for (const key in obj) {
 				if(obj[key]=="") {
@@ -40,14 +71,20 @@ const AddressForm = () => {
 			return;
 		}
     try {
-      let res = await fetch('https://logigoapi.onrender.com/updateaddress', {
+      let res = await fetch('http://localhost:8000/updateaddress', {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-          email:user.email,
-          address
+				email:user.email,
+				address: {
+					...address,
+					state,
+					city,
+					area_code
+				}
+
 				}),
 			})
       let data = await res.json();
@@ -101,8 +138,8 @@ const AddressForm = () => {
                   type="text" 
                   placeholder="Enter Area Code" 
                   required
-                  value={address.area_code}
-                  onChange={handleAddress}
+                  value={area_code}
+                  onChange={handlePin}
                 />
             </Form.Group>
             <Form.Group className="mb-3" controlId="signUpFormCity">
@@ -112,8 +149,8 @@ const AddressForm = () => {
                   type="text" 
                   placeholder="Enter city" 
                   required
-                  value={address.city}
-                  onChange={handleAddress}
+                  value={city}
+                //   onChange={handlePin}
                 />
             </Form.Group>
             <Form.Group className="mb-3" controlId="signUpFormState">
@@ -123,8 +160,8 @@ const AddressForm = () => {
                   type="text" 
                   placeholder="Enter State" 
                   required
-                  value={address.state}
-                  onChange={handleAddress}
+                  value={state}
+                //   onChange={handlePin}
                 />
             </Form.Group>
             
@@ -136,7 +173,7 @@ const AddressForm = () => {
                   placeholder="Enter country" 
                   required
                   value={address.country}
-                  onChange={handleAddress}
+				  disabled={true}
                 />
             </Form.Group>
             <Button variant="primary" type="submit" onClick={handleSubmit}>

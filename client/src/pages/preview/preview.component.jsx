@@ -7,30 +7,67 @@ import { RatingStar } from "rating-star";
 import { ListGroup } from 'react-bootstrap'
 import { Form } from 'react-bootstrap'
 // import AddressForm from '../../components/addressForm/addressForm.component'
+import {ThreeDots} from "react-loading-icons"
+import {lookup as PINLookup} from 'india-pincode-lookup'
+
 const Preview = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const [service, setService] = useState(location.state.previewService);
 	const [item, setitem] = useState(location.state.path);
 	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
-	const [address, setaddress] = useState({
-		rName:'',
-		door:'',
-		street:'',
-		city:'',
-		state:'',
-		country:'',
-		areaCode:''
-	})
-
-	const handleAddress = (event) => {
-	setaddress({ ...address, [event.target.name]: event.target.value });
-	};
 	
 	useEffect(() => {
         document.title=service.name
     })
-	
+	const pinExample = "Example 110001"
+    const pinError  = "invalid PIN"
+
+	const [address, setaddress] = useState({
+		rName:'',
+		door:'',
+		street:'',
+		country:'India',
+	})
+	const [area_code,setArea] = useState('')
+	const [state, setState] = useState('')
+	const [city, setCity] = useState('')
+
+	const [loading,setLoading] = useState(false);
+	const returnDescription = (pinString) => {
+		if(pinString.length==0)
+			return pinError;
+
+		if(isNaN(pinString))
+			return pinError
+		
+		if(pinString.length<6 || pinString.length>6)
+			return pinError
+		// let data 
+		if(PINLookup(Number(pinString))[0] === undefined ||  PINLookup(Number(pinString).length === 0))
+			return pinError
+
+		return (PINLookup(Number(pinString))[0])
+	}
+
+
+	const handleAddress = (event) => {
+	setaddress({ ...address, [event.target.name]: event.target.value });
+	};
+
+	const handlePin = (event) => {
+	setArea(event.target.value)
+	let pinData = returnDescription(event.target.value)
+
+	if(pinData!=pinError) {
+		setState(pinData.stateName);
+		setCity(pinData.taluk)
+	} else {
+		setState('');
+		setCity('')
+	}
+}
+
 	function validateObj(obj) {
 		if (typeof obj === 'object' && obj !== null) {
 			for (const key in obj) {
@@ -60,11 +97,58 @@ const Preview = () => {
 			},
 			price:service.Orderprice,
 			...item,
-			address
-		}
+			address: {
+				...address,
+				state,
+				city,
+				area_code
+			}
+	}
 		// localStorage.setItem('order',JSON.stringify(order))
 		navigate('/payment',{state:{order}})
 	}
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+			setLoading(true);
+    if(!validateObj(address)) {
+			setLoading(false);
+			alert('Please Fill all details in the address')
+			return;
+		}
+    try {
+      let res = await fetch('http://localhost:8000/updateaddress', {
+				method: "post",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+				email:user.email,
+				address: {
+					...address,
+					state,
+					city,
+					area_code
+				}
+
+				}),
+			})
+      let data = await res.json();
+      if(data.error) {
+        setLoading(false);
+        alert(data.error);
+      } else {
+        setLoading(false);
+        alert(data.message);
+        localStorage.setItem('user',JSON.stringify(data.user))
+        location.reload();
+      }
+
+    } catch (err) {
+			setLoading(false);
+      console.log("Error: ",err);
+    }
+  }
 
   return (
 	<div className='mx-auto mt-5 d-flex flex-row justify-content-around'>
@@ -85,7 +169,9 @@ const Preview = () => {
 				</Card.Text>
 				<div className="container form">
 					<div className="row">
-						<Form>
+					
+						
+					<Form>
 						<div className="form-subheading">Please fill the receivers address</div>
 							<Form.Group className="mb-3" controlId="signUpFormAddName">
 								<Form.Label>Receiver's Name </Form.Label>
@@ -123,12 +209,12 @@ const Preview = () => {
 							<Form.Group className="mb-3" controlId="signUpFormAreaCode">
 								<Form.Label>Area Code</Form.Label>
 								<Form.Control 
-								name="areaCode"
+								name="area_code"
 								type="text" 
 								placeholder="Enter Area Code" 
 								required
-								value={address.areaCode}
-								onChange={handleAddress}
+								value={area_code}
+								onChange={handlePin}
 								/>
 							</Form.Group>
 							<Form.Group className="mb-3" controlId="signUpFormCity">
@@ -138,8 +224,8 @@ const Preview = () => {
 								type="text" 
 								placeholder="Enter city" 
 								required
-								value={address.city}
-								onChange={handleAddress}
+								value={city}
+								//   onChange={handlePin}
 								/>
 							</Form.Group>
 							<Form.Group className="mb-3" controlId="signUpFormState">
@@ -149,8 +235,8 @@ const Preview = () => {
 								type="text" 
 								placeholder="Enter State" 
 								required
-								value={address.state}
-								onChange={handleAddress}
+								value={state}
+								//   onChange={handlePin}
 								/>
 							</Form.Group>
 							
@@ -162,8 +248,9 @@ const Preview = () => {
 								placeholder="Enter country" 
 								required
 								value={address.country}
-								onChange={handleAddress}
+								disabled={true}
 								/>
+
 							</Form.Group>
 						</Form>
 					</div>

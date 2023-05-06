@@ -4,18 +4,23 @@ import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate , useLocation } from "react-router-dom";
 import ListGroup from 'react-bootstrap/ListGroup';
+import {ThreeDots} from "react-loading-icons"
 
 import './payment.styles.css';
 const Payment = () => {
 	
 	const location = useLocation();
-	const navigate = useNavigate();
+	const navigate = useNavigate();  
+	const [loading,setLoading] = useState(false);
+
 	const [order,setorder] = useState(location.state.order);
 	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
 	console.log(order);
 	const makePayment = async (e) => {
 		e.preventDefault();
-		const res = await fetch('https://logigoapi.onrender.com/neworder', {
+		setLoading(true);
+
+		const res = await fetch('http://localhost:8000/neworder', {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",
@@ -24,15 +29,15 @@ const Payment = () => {
 				order
 			}),
 		})
-		// console.log(res);
 
 		let data = await res.json();
 		console.log(data);
 		
 		if(data.error) {
+			setLoading(false);
 			alert('Error Please reload and try again',data.error);
 		} else {
-
+			setLoading(false);
 			navigate('/orders');
 		}
 	}
@@ -58,7 +63,7 @@ const Payment = () => {
 					</ListGroup>
 
 					<Button onClick={makePayment}>
-						Pay
+						{loading ? <span> Loading</span>: <span>Pay</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
 					</Button>
 				</Card.Body>
 			</Card>

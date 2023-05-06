@@ -24,7 +24,6 @@ const Homepage = () => {
 		setlocationQuery({ ...locationQuery, [event.target.name]: event.target.value });
 	  };
 
-	
     const returnDescription = (pinString) => {
         if(pinString.length==0)
             return pinExample;
