@@ -8,17 +8,69 @@
 }
 
 #grievance-header span {
-    margin-left:400px;
+    margin-left:5px;
+    font-size: 38px;
+    margin-right:5px
+
 }
+#big-box {
+    padding-top:0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .grievance-box {
+    width: 35%;
+  }
+  
+  #second-box {
+    width: 65%;
+  }
+#promotion {
+    font-size: 100px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  #promotion-sub {
+    font-size: 35px;
+    font-weight:600;
+    margin-bottom: 50px;
+    color:white;
+  }
 
 /**/
+
+  .grievance-container-fluid {
+    padding-top:0px;
+    background-image: url('https://wevaluenature.eu/sites/default/files/styles/article/public/2020-12/shutterstock_1469983160.jpg?itok=-aDNs1UX');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    
+  }
+  
+  .grievance-container-fluid::before {
+    content: "";
+    position: absolute;
+    padding-top:0px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 157, 218, 0.5); /* Change the opacity as desired */
+    z-index: -1;
+  }
+
 
 .grievance-section {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    background: linear-gradient(180deg, #577D86 60%, #4f7982); 
+    background: white;
 
 }
   
@@ -60,7 +112,7 @@
 }
   
 #grievance-header {
-    color: white;
+    color: black;
     font-size: 2.9rem;
     font-weight: 530;
     margin-top: 1.5rem;
@@ -77,25 +129,32 @@
 }
 
 .grievance-box {
+ 
     height: auto;
     min-height: 70vh;
     padding: 1rem;
     display: flex;
     flex-direction: column; 
-}
-    
-.grievance-header {
+    border: 2px solid black;
+  }
+  
+  .grievance-header {
     padding: 1rem;
     font-size: 2rem;
     color: red;
     height: 10%; 
-}
-
-.grievance-box {
+  }
+  
+  .grievance-box {
     height: 90%;
     min-height: 63vh;
+    margin-left: 50px;
     padding: 1rem; 
-}
+    width: 35%;
+    border: 2px solid black;
+    position: left;
+  }
+  
 
 #grievance-other-info {
     box-sizing: border-box;
@@ -104,13 +163,13 @@
 }
 #grievance-other-info #grievance-connect span {
     display: inline-block;
-    color: white;
+    color: black;
     font-size: 1.8rem;
     font-weight: 550; 
 }
 #grievance-other-info #grievance-connect #grievance-connect-text {
     display: inline-block;
-    color: white;
+    color: black;
     font-size: 1.2rem;
     text-align: justify; 
 }
@@ -118,19 +177,19 @@
 /*grievance Section's message-section*/
 #grievance-message-section {
     box-sizing: border-box;
-    width: 35%;
+    width: 60%;
     margin: auto; 
 }
 
 .grievance-section input[type="text"] {
     border: 0;
     outline: 0;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid black;
     background-color: transparent;
     display: inline-block;
     margin-bottom: 2.7rem;
     width: 100%;
-    color: white;
+    color: black;
     height: 2rem;
     padding-left: 0.4rem; 
 }
@@ -143,13 +202,26 @@
     font-weight: 550;
     display: inline-block;
 }
-#grievance-message-submit{
-    color: white;
-    background-color: transparent;
-    border: 2px solid white;
-    padding: 0.8rem 0.8rem;
-    font-weight: 550;
+#grievance-message-submit {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
     display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+
+#grievance-message-submit:hover{
+    background-color: #4CAF50;
+    color: white;
 }
 
 #grievance #grievance-message-submit:hover {
@@ -186,6 +258,6 @@
     border-left: 6px solid green;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
+    color: black;
     opacity: 1; /* Firefox */
   }
