@@ -29,26 +29,7 @@ router.post("/neworder", async (req, res) => {
 				error: "Error Retreiving user"
 			})
 		} 
-		// let pickUpAddress = await Address.create(user.address);
-		// let deliveryinstance = await Address.create(address)
-		// pickupInstance = new Address(user.address)
-		// let pkid = await pickupInstance.save()
-		// if(pkid.error) {
-		// 	console.log(pkid.error);
-		// 	res.status(402).json({error : pkid.error})
-		// }
-		// log
-		// deliveryInstance = new Address(address)
-		// let dlid = await pickupInstance.save()
-		// if(dlid.error) {
-		// 	console.log(dlid.error);
-		// 	res.status(402).json({error : dlid.error})
-		// }
 		const order = new Order({
-			// pickupaddress:pkid._id,
-			// deliveryaddress:dlid._id,
-			// pickupAddress:pickUpAddress._id,
-			// deliveryaddress:deliveryinstance._id,
 			pickupaddress:user.address,
 			deliveryaddress:address,
 			items:{value,type},
@@ -89,10 +70,11 @@ router.get("/allorders/:email", async (req, res) => {
 	const email = req.params.email;
 	
 	try {
-		const user = await User.findOne({email});
-		if(!user) {
-			res.status(500).json({error : "Cannot find user"});
-		}
+		let user = await User.findOne({email})
+		.populate({
+			path:'orders'
+		})
+		console.log(user);
 		res.json({orders: user.orders});
 	} catch (error) {
 		console.error(error);

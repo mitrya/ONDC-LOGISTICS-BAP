@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
-import Card from 'react-bootstrap/Card';
+import {Card ,Button} from 'react-bootstrap/Card';
 import {ThreeDots} from "react-loading-icons"
 
 import './orderHistory.styles.css';
@@ -42,50 +42,55 @@ const OrderHistory = () => {
     }, [user])
    
 
+    const handleCancel = (e) => {
+        e.preventDefault()
+
+    }
         
         
-        return (
-            <div className="mt-5 container justify-content-center">
-                <h1 >Order History</h1>
+    return (
+        <div className="mt-5 container justify-content-center">
+            <h1 >Order History</h1>
+            
+            { 
+                orders && orders.length?
                 
-                { 
-                    orders && orders.length?
-                    
-                        orders.map((order ) => {
-                            return (<div key={order._id}>
-                                    <Card  className='mt-3' style={{ width: 'max-content' }}>
-                                                <div className='card-rows'>    
-                                                    <div className="card-row">
-                                                            <Card.Body>
-                                                                <Card.Title>To {order.deliveryaddress[0].rName}</Card.Title>
-                                                            
-                                                                    <ListGroup className="list-group-flush">
-                                                                        <ListGroup.Item>Pickup : {order.pickupaddress[0].city}</ListGroup.Item>
-                                                                        <ListGroup.Item>Drop : {order.deliveryaddress[0].city}</ListGroup.Item>
-                                                                        <ListGroup.Item>Item Type : {order.items.type}</ListGroup.Item>
-                                                                        <ListGroup.Item className='font-weight-bold'>Paid amount : {order.paymentdetails.amount} INR</ListGroup.Item>
-                                                                    </ListGroup>
+                    orders.map((order ) => {
+                        return (<div key={order._id}>
+                                <Card  className='mt-3' style={{ width: 'max-content' }}>
+                                            <div className='card-rows'>    
+                                                <div className="card-row">
+                                                        <Card.Body>
+                                                            <Card.Title>To {order.deliveryaddress[0].rName}</Card.Title>
+                                                        
+                                                                <ListGroup className="list-group-flush">
+                                                                    <ListGroup.Item>Pickup : {order.pickupaddress[0].city}</ListGroup.Item>
+                                                                    <ListGroup.Item>Drop : {order.deliveryaddress[0].city}</ListGroup.Item>
+                                                                    <ListGroup.Item>Item Type : {order.items.type}</ListGroup.Item>
+                                                                    <ListGroup.Item className='font-weight-bold'>Paid amount : {order.paymentdetails.amount} INR</ListGroup.Item>
+                                                                </ListGroup>
 
-                                                                    <Card.Text className='mt-2'>
-                                                                        State : {order.state}
-                                                                    </Card.Text>
-                                                                    
-                                                            </Card.Body>
-                                                    </div>
-                                                
+                                                                <Card.Text className='mt-2'>
+                                                                    State : {order.state}
+                                                                </Card.Text>
+                                                                <Card.Text><Button id={} onClick={handleCancel}>Cancel</Button></Card.Text>
+                                                                
+                                                        </Card.Body>
                                                 </div>
-                                    </Card>
-                            </div>)
-            
-                        })       
-                    :
-                <>{loading ? <h3> Loading...</h3>: <h3>No orders </h3> }</>
-            
+                                            
+                                            </div>
+                                </Card>
+                        </div>)
+        
+                    })       
+                :
+            <>{loading ? <h3> Loading...</h3>: <h3>No orders </h3> }</>
+        
 
-                }
+            }
 
-                </div>
-            )
+            </div>
+        )
 }
 
 export default OrderHistory
