@@ -117,7 +117,7 @@ const Preview = () => {
 			return;
 		}
     try {
-      let res = await fetch('http://localhost:8000/updateaddress', {
+      let res = await fetch('https://logigoapi.onrender.com/updateaddress', {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",

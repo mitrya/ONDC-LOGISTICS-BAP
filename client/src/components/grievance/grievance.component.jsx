@@ -30,7 +30,7 @@ function Grievance() {
         event.preventDefault();
         console.log(messageBody);
         try {
-			let res = await fetch("http://localhost:8000/message", {
+			let res = await fetch("https://logigoapi.onrender.com/message", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",

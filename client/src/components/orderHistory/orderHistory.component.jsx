@@ -11,13 +11,13 @@ const OrderHistory = () => {
     const [orders, setOrders] = useState(undefined);
     const [loading,setLoading] = useState(false);
     async function getOrderDetails(orderID){
-        const response = await fetch(`http://localhost:8000/${orderID}`)
+        const response = await fetch(`https://logigoapi.onrender.com/${orderID}`)
         return response.json();
     }
 
     useEffect( () => {
         setLoading(true)
-        fetch(`http://localhost:8000/allorders/${user.email}`)
+        fetch(`https://logigoapi.onrender.com/allorders/${user.email}`)
         .then(res => {
 			return res.json()
         })
