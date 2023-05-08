@@ -131,11 +131,11 @@ router.post("/delete/:orderId", async (req, res) => {
 	const {id} = req.body
 	console.log('delete req for user ', id);
 	try {
-		const order = await Order.findById(req.params.orderId);
-		if (!order) {
-		return res.status(404).json({ error: "Order not found" });
-		}
-		await order.remove();
+		await Order.findByIdAndDelete(req.params.orderId);
+		// if (!order) {
+		// return res.status(404).json({ error: "Order not found" });
+		// }
+		// await order.remove();
 		await User.findByIdAndUpdate(id,{$pull:{orders:req.params.orderId}})
 		res.json({ message: "Order deleted successfully" });
 	} catch (error) {
