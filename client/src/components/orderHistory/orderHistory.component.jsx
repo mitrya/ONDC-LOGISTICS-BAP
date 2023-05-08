@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
-import {Card ,Button} from 'react-bootstrap/Card';
+import {Card ,Button} from 'react-bootstrap';
 import {ThreeDots} from "react-loading-icons"
 
 import './orderHistory.styles.css';
@@ -10,10 +10,11 @@ const OrderHistory = () => {
     const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
     const [orders, setOrders] = useState(undefined);
     const [loading,setLoading] = useState(false);
-    async function getOrderDetails(orderID){
-        const response = await fetch(`https://logigoapi.onrender.com/${orderID}`)
-        return response.json();
-    }
+    const [userData, setUserData] = useState()
+    // async function getOrderDetails(orderID){
+    //     const response = await fetch(`https://logigoapi.onrender.com/${orderID}`)
+    //     return response.json();
+    // }
 
     useEffect( () => {
         setLoading(true)
@@ -21,16 +22,9 @@ const OrderHistory = () => {
         .then(res => {
 			return res.json()
         })
-        .then(async data =>{
-            const promises = []
-            data.orders.map(async orderID => {
-                promises.push(getOrderDetails(orderID));                   
-            })
-            return Promise.all(promises)
-        })
-        .then(orderList => {
-            setLoading(false)
-            setOrders(orderList)
+        .then(data => {
+            setUserData(data.user)
+            setOrders(data.user.orders)
         })
         .catch(
 			error => {
@@ -42,9 +36,34 @@ const OrderHistory = () => {
     }, [user])
    
 
-    const handleCancel = (e) => {
+    const handleCancel = async (e) => {
         e.preventDefault()
-
+        // let id =  t
+        let oid = e.target.attributes.id.value;
+        try {
+            let res = await fetch(`https://logigoapi.onrender.com/delete/${oid}`, {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id:userData._id
+              }),
+            })
+            let data = await res.json();
+  
+            if (data.error) {
+              setLoading(false);
+              alert(data.error);
+            } else {
+                setLoading(false);
+                alert('Order Cancelled Successfully')
+            }
+          }
+          catch(err){
+            setLoading(false);
+            console.log("There is some error", err);
+          }
     }
         
         
@@ -73,7 +92,7 @@ const OrderHistory = () => {
                                                                 <Card.Text className='mt-2'>
                                                                     State : {order.state}
                                                                 </Card.Text>
-                                                                <Card.Text><Button id={} onClick={handleCancel}>Cancel</Button></Card.Text>
+                                                                <Card.Text><Button id={order._id} onClick={handleCancel}>Cancel</Button></Card.Text>
                                                                 
                                                         </Card.Body>
                                                 </div>

@@ -75,7 +75,7 @@ router.get("/allorders/:email", async (req, res) => {
 			path:'orders'
 		})
 		console.log(user);
-		res.json({orders: user.orders});
+		res.json({user: user});
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error: "Internal server error" });
