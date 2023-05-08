@@ -11,10 +11,6 @@ const OrderHistory = () => {
     const [orders, setOrders] = useState(undefined);
     const [loading,setLoading] = useState(false);
     const [userData, setUserData] = useState()
-    // async function getOrderDetails(orderID){
-    //     const response = await fetch(`https://logigoapi.onrender.com/${orderID}`)
-    //     return response.json();
-    // }
 
     useEffect( () => {
         setLoading(true)
