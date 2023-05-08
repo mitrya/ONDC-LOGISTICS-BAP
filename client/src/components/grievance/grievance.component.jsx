@@ -86,7 +86,7 @@ function Grievance() {
                     </select>
                     <br/><br/>
                     <label style={{color:'white'}}>Describe Your Complaint</label><br/>
-                    <textarea name="content" placeholder="Message" onChange={handleChange} style={{width:'100%'}}/>
+                    <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%'}}/>
                     <input type="submit" id="grievance-message-submit" value="SUBMIT" />
                 </form>
             </>
@@ -95,12 +95,14 @@ function Grievance() {
 
     return (
         <>
-            <div className='container-fluid box mt-3 mx-1 temp'>
-
+            <div className='grievance-container-fluid box mt-3 mx-1 temp'>
+                    
+                <div id="big-box">
                 <div class="grievance-box">
                     <div id="grievance grievance-helper" className='grievance-section'>
+                        
                         <div id="grievance-header">
-                            <span>Raise Complaint</span>
+                            <span>Raise A Complaint Form</span>
                         </div>
                         <div id="grievance-flex_user">
                             <div id="grievance-message-section">
@@ -109,6 +111,23 @@ function Grievance() {
                         </div>
                     </div>
                 </div> 
+                <div id="second-box">
+                    <div id="promotion">
+                           <span>Do you have any Grievances?</span> 
+                    </div>
+                    <div id="promotion-sub">
+                            <span>
+                            We value your feedback! 
+                            Tell us about your experience
+                            </span>
+                           
+                        </div>
+                    
+                </div>
+                    </div>  
+                    
+
+                
             </div>  
         </>
     );
