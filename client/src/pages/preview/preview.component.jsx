@@ -11,29 +11,11 @@ import {ThreeDots} from "react-loading-icons"
 import {lookup as PINLookup} from 'india-pincode-lookup'
 
 const Preview = () => {
-	const location = useLocation();
-	const navigate = useNavigate();
-	const [service, setService] = useState(location.state.previewService);
-	const [item, setitem] = useState(location.state.path);
-	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
-	
-	useEffect(() => {
-        document.title=service.name
-    })
+	//global vars
 	const pinExample = "Example 110001"
     const pinError  = "invalid PIN"
-
-	const [address, setaddress] = useState({
-		rName:'',
-		door:'',
-		street:'',
-		country:'India',
-	})
-	const [area_code,setArea] = useState('')
-	const [state, setState] = useState('')
-	const [city, setCity] = useState('')
-
-	const [loading,setLoading] = useState(false);
+	const location = useLocation();
+	const navigate = useNavigate();
 	const returnDescription = (pinString) => {
 		if(pinString.length==0)
 			return pinError;
@@ -49,6 +31,33 @@ const Preview = () => {
 
 		return (PINLookup(Number(pinString))[0])
 	}
+
+	//usestate
+	const [service, setService] = useState(location.state.previewService);
+	const [item, setitem] = useState(location.state.path);
+	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
+	let query = location.state.path;
+	
+	let pinDetails = returnDescription(Number(query.destination))
+
+
+	//useeffect
+	useEffect(() => {
+        document.title=service.name
+    })
+
+	const [address, setaddress] = useState({
+		rName:'',
+		door:'',
+		street:'',
+		country:'India',
+	})
+	const [area_code,setArea] = useState(query?Number(query.destination):'')
+	const [state, setState] = useState(pinDetails!=pinError?pinDetails.stateName:'')
+	const [city, setCity] = useState(pinDetails!=pinError?pinDetails.taluk:'')
+
+	const [loading,setLoading] = useState(false);
+	
 
 
 	const handleAddress = (event) => {
@@ -152,7 +161,7 @@ const Preview = () => {
 
   return (
 	<div className='mx-auto mt-5 d-flex flex-row justify-content-around'>
-		<Card style={{ width: '50rem' }}>
+		<Card style={{ width: '30rem' }}>
 			<Card.Body>
 				<Card.Title>{service.name}</Card.Title>
 				<ListGroup className="list-group-flush">

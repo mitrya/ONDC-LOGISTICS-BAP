@@ -55,7 +55,7 @@ const Homepage = () => {
 			return
 		}
 		if(!localStorage.getItem('user')) {
-			navigate('/login')
+			navigate('/signin')
 			return
 		}
 		navigate('/form',{state : {locationData : {
