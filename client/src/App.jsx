@@ -19,6 +19,7 @@ import Formpage from './pages/Form/formpage.component';
 import Track from './components/track/track.component';
 import Terms from './components/terms_and_conditions/terms.component';
 import Verifyotp from './components/verifyOTP/verifyotp.component';
+import ForgotPassword from './components/forgotPassword/forgotPassword.component';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/track" element={<Track />} />
           <Route path="/terms_and_conditions" element={<Terms />} />
           <Route path="/verifyOTP" element={<Verifyotp/>} />
+          <Route path="/forgotPassword" element={<ForgotPassword/>} />
         </Routes>
       </main>
       <Footer/>
