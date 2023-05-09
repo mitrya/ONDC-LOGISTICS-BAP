@@ -4,24 +4,21 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {ThreeDots} from 'react-loading-icons'
 
-const Verifyotp = () => {
+const ForgotPassword = () => {
 
     useEffect(() => {
-        document.title='OTP-Verification'
+        document.title='Password-Reset'
     })
 
     const history=useNavigate();
     const navigate = useNavigate();
-    const [otp, setOTP] = useState('');
     const [email,setEmail] = useState('');
     const [loading,setLoading] = useState(false);
     const [info,setInfo] = useState('');
     const [result,setResult] = useState(false);
-
-    
     
     const handleChange = (event) => {
-        setOTP(event.target.value);
+        setEmail(email);
         setInfo('');
         setResult(false);
     };
@@ -83,30 +80,29 @@ const Verifyotp = () => {
     return (
         <div className="forms mt-5 d-flex justify-content-center">
             <div className='form1'> 
-                <div className="form-heading">OTP Verification</div>
-                <div className="form-subheading">Please enter the otp sent to your email.</div>
+                <div className="form-heading">Reset Password</div>
+                <div className="form-subheading">Please enter the email id associated to your account.</div>
                 <Form>
 
                     <Form.Group className="mb-3" controlId="signInFormBasicPassword">
-                        <Form.Label>OTP</Form.Label>
+                        <Form.Label>Email</Form.Label>
                         <Form.Control 
-                            name="otp"
-                            type="text" 
-                            placeholder="Enter OTP" 
+                            name="email"
+                            type="email" 
+                            placeholder="Enter email" 
                             required
-                            value={otp}
+                            value={email}
                             onChange={handleChange}
                         />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={handleSubmit}>
-                    {loading ? <span> Loading</span>: <span>Verify</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
+                    {loading ? <span> Loading</span>: <span>Get OTP</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
                     </Button>
                 </Form>
                 {info.length>0 && displayMessage(info)}
-                <div className="form-subheading"><b>Note:</b> Don't forget to check your spam folder for the otp.</div>
             </div>
         </div>
     )
 }
 
-export default Verifyotp;
+export default ForgotPassword;
