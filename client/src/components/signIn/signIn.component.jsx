@@ -62,7 +62,6 @@ const SignIn = () => {
                 if(addr.door=="") data.user.address = {};
                 localStorage.setItem('user',JSON.stringify(data.user));
                 localStorage.setItem('token',JSON.stringify(data.token));
-                // history('/');
                 location.assign('/');
             }
         } catch (error) {
