@@ -18,6 +18,7 @@ import Footer from './components/footer/footer';
 import Formpage from './pages/Form/formpage.component';
 import Track from './components/track/track.component';
 import Terms from './components/terms_and_conditions/terms.component';
+import Verifyotp from './components/verifyOTP/verifyotp.component';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
           <Route path="/grievance" element={<Grievance />} />
           <Route path="/track" element={<Track />} />
           <Route path="/terms_and_conditions" element={<Terms />} />
-
+          <Route path="/verifyOTP" element={<Verifyotp/>} />
         </Routes>
       </main>
       <Footer/>
