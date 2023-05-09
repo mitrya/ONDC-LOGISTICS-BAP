@@ -39,21 +39,19 @@
   padding-top: 0;
 }
 
-.image {
+
+.image-homepage{
+  width: 150%;
+  height: auto;
+  display: block;
+  margin: auto;
   margin: 10px auto;
   max-width: fit-content;
   display: block;
   padding-right: 3em;
 }
 
-.image img {
-  width: 150%;
-  height: auto;
-  display: block;
-  margin: auto;
-}
-
-p {
+.content p {
   font-size: 18px;
   line-height: 1.5;
 }
