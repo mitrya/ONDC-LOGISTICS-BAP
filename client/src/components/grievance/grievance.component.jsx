@@ -31,7 +31,7 @@ function Grievance() {
         event.preventDefault();
         console.log(messageBody);
         try {
-			let res = await fetch("http://localhost:8000/grievance", {
+			let res = await fetch("https://logigoapi.onrender.com/grievance", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
@@ -41,7 +41,7 @@ function Grievance() {
 				}),
 			})
 			let data = await res.json();
-            // console.log(data)
+            //console.log(data);
 			if (data.error) {
                 setInfo(data.error);
                 setResult(false);
@@ -88,6 +88,7 @@ function Grievance() {
                     <br/><br/>
                     <label style={{color:'white'}}>Describe Your Complaint</label><br/>
                     <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%'}}/>
+                    {info.length>0 && displayMessage(info)}
                     <input type="submit" id="grievance-message-submit" value="SUBMIT" />
                 </form>
             </>
