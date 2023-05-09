@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
 import {Card ,Button} from 'react-bootstrap';
 import {ThreeDots} from "react-loading-icons"
-
+import { Link } from 'react-router-dom';
 import './orderHistory.styles.css';
 import '../serviceCard/serviceCard.styles.css'
 const OrderHistory = () => {
@@ -61,12 +61,23 @@ const OrderHistory = () => {
             console.log("There is some error", err);
           }
     }
-        
-        
+
     return (
         <div className="mt-5 container justify-content-center">
-            <h1 >Order History</h1>
+            <h1 id="order-headline">Order History</h1>
+            <div id="sub-head-order">
+            <div id="order-subhead-part1">
+                <span>Account Holder #{user.name}</span>
+            </div>
+            <div id="order-subhead-part2">
             
+              <Button className="new_order" as={Link} to="/">Place New Order</Button>
+        
+            </div>
+            </div>
+
+
+            <div className="card-container">
             { 
                 orders && orders.length?
                 
@@ -76,7 +87,7 @@ const OrderHistory = () => {
                                             <div className='card-rows'>    
                                                 <div className="card-row">
                                                         <Card.Body>
-                                                            <Card.Title>To {order.deliveryaddress[0].rName}</Card.Title>
+                                                            <Card.Title>Order Recipient: {order.deliveryaddress[0].rName.toUpperCase()}</Card.Title>
                                                         
                                                                 <ListGroup className="list-group-flush">
                                                                     <ListGroup.Item>Pickup : {order.pickupaddress[0].city}</ListGroup.Item>
@@ -88,7 +99,7 @@ const OrderHistory = () => {
                                                                 <Card.Text className='mt-2'>
                                                                     State : {order.state}
                                                                 </Card.Text>
-                                                                <Card.Text><Button id={order._id} onClick={handleCancel}>Cancel</Button></Card.Text>
+                                                                <Card.Text><Button className="cancel_order" id={order._id} onClick={handleCancel}>Cancel</Button></Card.Text>
                                                                 
                                                         </Card.Body>
                                                 </div>
@@ -96,13 +107,14 @@ const OrderHistory = () => {
                                             </div>
                                 </Card>
                         </div>)
+                        
         
                     })       
                 :
             <>{loading ? <h3> Loading...</h3>: <h3>No orders </h3> }</>
         
 
-            }
+            }</div>
 
             </div>
         )
