@@ -3,6 +3,7 @@ import {useLocation} from 'react-router-dom';
 import ServiceCard from '../serviceCard/serviceCard.component';
 import Form from 'react-bootstrap/Form';
 import useStateCallback from '../../hooks/useStateCallback';
+
 const ServiceList = () => {
   
   const location = useLocation();
@@ -44,12 +45,18 @@ const ServiceList = () => {
 
   return (
     <div className='p-5' style={{width:"100%"}}>
+      <div className="mb-3 text-center">
+    <h1>Showing Results for Your Requirements</h1>
+    <h3>Price and other details may vary based on company size and conditions.</h3>
+    <h4>Options available..</h4>
+  </div>
       <div className='filter d-flex flex-row justify-content-around' > 
           <Form>
             <div className="mb-3">
               <Form.Check
                 inline
-                label="sort by price"
+                label="Sort by Price"
+                la
                 name="price"
                 type="radio"
                 checked={sortType === "price"}
@@ -57,7 +64,7 @@ const ServiceList = () => {
               />
               <Form.Check
                 inline
-                label="sort by ratings"
+                label="Sort by Ratings"
                 name="rating"
                 type="radio"
                 checked={sortType === "rating"}
@@ -66,6 +73,7 @@ const ServiceList = () => {
             </div>
         </Form>
       </div>
+      
       {
 
         data.map((service) => {
