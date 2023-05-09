@@ -50,7 +50,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    gap: 20px;
+    gap: 10px;
     padding-bottom: 5%;
   }
   #order-card-rows{
@@ -65,8 +65,9 @@
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    width: 100%;
-    margin-right: 4rem;
+    width:375px;
+    height:650px;
+    margin-right: 2rem;
     margin-top: 4rem;;
     
   }
@@ -75,7 +76,6 @@
     width: 30%;
     /* border: 2px solid black; */
     /* your other card styles */ 
-   
     
   }
   .order-card-row:hover,
