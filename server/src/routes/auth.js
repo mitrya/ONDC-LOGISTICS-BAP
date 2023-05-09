@@ -10,7 +10,11 @@ const JWT_SECRET = 'secRET';// require(process.env)
 
 router.get("/test",(req,res) => {
 	res.json({message : "Test Route working"})
-})
+});
+
+router.post("/generateOTP",(req,res)=>{
+	
+});
 
 router.post("/signup",(req,res) => {
 	const {signUpDetails,address} = req.body;

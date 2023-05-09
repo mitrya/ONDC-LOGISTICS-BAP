@@ -14,18 +14,25 @@
 
 }
 #big-box {
-    padding-top:0px;
+    padding:0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-self: center;
+    width:100%;
+    margin:fit-content;
   }
   
   .grievance-box {
     width: 35%;
+    margin-right: 6%;
   }
   
   #second-box {
     width: 65%;
+    flex:1;
+    margin-left: 7%;
+    /* padding: 3rem; */
   }
 #promotion {
     font-size: 100px;
@@ -44,7 +51,7 @@
 /**/
 
   .grievance-container-fluid {
-    padding-top:0px;
+    padding:0px;
    
     text-align: center;
     
@@ -55,12 +62,14 @@
     position: absolute;
     padding-top:0px;
     top: 0;
+    bottom:0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: url('/shutterstock_1469983160.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     text-align: center;
     background-color: rgba(100, 157, 218, 0.5); /* Change the opacity as desired */
     z-index: -1;
@@ -134,7 +143,7 @@
  
     height: auto;
     min-height: 70vh;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column; 
     /* border: 2px solid black; */
@@ -153,9 +162,9 @@
     margin-left: 50px;
     padding: 1rem; 
     width: 32%;
-    border: 2px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* border: 2px solid rgba(0, 0, 0, 0.125);
+    border-radius: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     padding: 1rem;
     box-sizing: border-box;
     position: left;

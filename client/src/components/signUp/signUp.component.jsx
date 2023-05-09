@@ -69,26 +69,38 @@ const SignUp = () => {
           return;
         }
         try {
-          let res = await fetch("https://logigoapi.onrender.com/signup", {
-            method: "post",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              signUpDetails,
-              address
-            }),
-          })
-          let data = await res.json();
+          // let res = await fetch("https://logigoapi.onrender.com/signup", {
+          //   method: "post",
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify({
+          //     signUpDetails,
+          //     address
+          //   }),
+          // })
+          // let data = await res.json();
 
-          if (data.error) {
-            setLoading(false);
-            alert(data.error);
-          } else {
-			      setLoading(false);
+          // if (data.error) {
+          //   setLoading(false);
+          //   alert(data.error);
+          // } else {
+			    //   setLoading(false);
           
-            navigate('/signin')
-          }
+          //   navigate('/signin')
+          // }
+          let res = await fetch('http://localhost:8000/generate',{
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                signUpDetails,
+                address
+              }),
+          });
+          let data = await res.json();
+          console.log('data is ',data);
         }
         catch(err){
           setLoading(false);
