@@ -62,7 +62,7 @@ router.post("/signup",(req,res) => {
 router.post("/signin", async (req,res) => {
 	const {email,password} = req.body;
 	saveduser =  await User.findOne({email:email})
-
+	console.log(saveduser);
 	if(!saveduser||!savedUser.otp_verified) {
 		return res.json({error : "User not registered" });
 	}

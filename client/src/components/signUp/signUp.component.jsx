@@ -102,7 +102,8 @@ const SignUp = () => {
             }
             else{
               setLoading(false);
-              navigate('/verifyOTP')
+              navigate('/verifyOTP');
+              localStorage.setItem('email', JSON.stringify(signUpDetails.email));
             }
           }
         }

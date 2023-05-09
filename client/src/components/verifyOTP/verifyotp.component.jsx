@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect,useLocation} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -12,6 +12,7 @@ const Verifyotp = () => {
 
     const history=useNavigate();
     const [otp, setOTP] = useState('');
+    const [email,setEmail] = useState('');
     const [loading,setLoading] = useState(false);
     
     
@@ -21,6 +22,7 @@ const Verifyotp = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
+        const email = JSON.parse(localStorage.getItem('email'));
         setLoading(true);
         try {
             let res = await fetch('http://localhost:8000/validateOTP',{
@@ -29,22 +31,19 @@ const Verifyotp = () => {
                     "Content-Type" : "application/json",
                 },
                 body:JSON.stringify( {
-                    otp
+                    otp:otp,
+                    email:email
                 })
             });
             let data = await res.json();
             if(data.error) {
 			    setLoading(false);
+                console.log(data.error);
                 alert(data.error);
             } else {
 			    setLoading(false);
-
-                // let addr = data.user.address;
-                // if(addr.door=="") data.user.address = {};
-                // localStorage.setItem('user',JSON.stringify(data.user));
-                // localStorage.setItem('token',JSON.stringify(data.token));
-                // // history('/');
-                // navigate('/signin');
+                console.log(data.message);
+                navigate('/signin');
             }
         } catch (error) {
 			setLoading(false);
