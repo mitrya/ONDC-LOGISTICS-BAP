@@ -53,6 +53,11 @@ const Person = new Schema({
 		type : String,
 		required: true
 	},
+	otp_verified: {
+		type:Boolean,
+		default:false,
+		required:true
+	},
 	orders: [
 		{
 			type: ObjectId,

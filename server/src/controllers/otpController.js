@@ -1,6 +1,7 @@
 const User = require('../models/person');
 const Otp = require('../models/otp');
-const otpGenerator = require('otp-generator')
+const otpGenerator = require('otp-generator');
+const messageMailer = require('../mailers/messageMailer'); 
 
 module.exports.generateOTP = async function(req,res){
     try{
@@ -12,7 +13,17 @@ module.exports.generateOTP = async function(req,res){
             user:user._id,
             otp:otp
         });
-
+        const message = {
+            messageBody:{
+                name:user.name,
+                otp:otp,
+                email:user.email
+            }
+        }
+        messageMailer.sendOTP(message);
+        return res.status(200).json({
+            message:"OTP delivered successfully"
+        });
     }catch(err){
         console.log(err);
         if(err){

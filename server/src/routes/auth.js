@@ -26,9 +26,14 @@ router.post("/signup",(req,res) => {
 	}
 	User.findOne( {email})
 		.then(savedUser => {
-			if(savedUser) {
-				 return res.json({
+			if(savedUser&&savedUser.otp_verified) {
+			 	return res.json({
 					error : "Contact details are already registered, Please sign in or use different email and password"
+				})
+			}
+			else if(savedUser&&!savedUser.otp_verified){
+				return res.json({
+					message : "Confirm OTP"
 				})
 			}
 			bcrypt.hash(password,12).then((hashedpassword) => {
@@ -39,8 +44,9 @@ router.post("/signup",(req,res) => {
 					address,
 					password : hashedpassword
 				});
+				user.otp_verified = false;
 				user.save().then((savedUser) => {
-					res.json({message:"Registration Successful"});
+					res.json({message:"Confirm OTP"});
 				})
 				.catch(err => {
 					console.log("user saving error",err);
@@ -57,7 +63,7 @@ router.post("/signin", async (req,res) => {
 	const {email,password} = req.body;
 	saveduser =  await User.findOne({email:email})
 
-	if(!saveduser) {
+	if(!saveduser||!savedUser.otp_verified) {
 		return res.json({error : "User not registered" });
 	}
 
