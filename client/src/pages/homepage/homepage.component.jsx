@@ -90,47 +90,48 @@ const Homepage = () => {
 					Your reliable and efficient courier service provider. <a href="https://logigo.netlify.app/">Visit</a> our website on the Open Network for Digital Commerce (ONDC) Network!
 				</p>
 			</div>
-			<div className="image-container" style={{ 
-				backgroundImage: `url("/banner.jpg")` 
-			}}>
-				<div className="formContainer">
-					<Form>
-						<Form.Group className="mb-3">
-							<h3>Courier Details</h3>
-						</Form.Group>
-						<Form.Group className="mb-3">
-							<Form.Label>Source Pincode*</Form.Label>
-							<Form.Control 
-								name="source"
-								type="text" 
-								placeholder="Enter source PIN code"
-								required
-								value={locationQuery.source}
-								onChange={handleChange}
-							/>
-							<Form.Text className="text-muted">
-								<span className={(returnIsValid(sourceDescription))?"text-success fw-bolder":""}>{sourceDescription}</span>
-							</Form.Text>
-						</Form.Group>
-							<Form.Group className="mb-3">
-							<Form.Label>Destination Pincode*</Form.Label>
-							<Form.Control 
-								name="destination"
-								type="text" 
-								placeholder="Enter destination PIN code" 
-								required
-								value={locationQuery.destination}
-								onChange={handleChange}
-							/>
-							<Form.Text className="text-muted">
-								<span className={(returnIsValid(destinationDescription))?"text-success fw-bolder":""}>{destinationDescription}</span>
-							</Form.Text>
-						</Form.Group>
-						<Button variant="primary" onClick={submitLocationData}>
-							Submit
-						</Button>
-					</Form>
-				</div>
+			<div className="image-container" >
+				<img src='/banner.jpg' className='img-fluid' alt='Sample' />
+					<div className='d-flex justify-content-center align-items-center'>
+						<div className="formContainer">
+							<Form>
+								<Form.Group className="mb-3 ">
+									<h3>Courier Details</h3>
+								</Form.Group>
+								<Form.Group className="mb-3 ">
+									<Form.Label>Source Pincode*</Form.Label>
+									<Form.Control 
+										name="source"
+										type="text" 
+										placeholder="Enter source PIN code"
+										required
+										value={locationQuery.source}
+										onChange={handleChange}
+									/>
+									<Form.Text className="text-muted ">
+										<span className={(returnIsValid(sourceDescription))?"text-success fw-bolder ":""}>{sourceDescription}</span>
+									</Form.Text>
+								</Form.Group>
+									<Form.Group className="mb-3 ">
+									<Form.Label>Destination Pincode*</Form.Label>
+									<Form.Control 
+										name="destination"
+										type="text" 
+										placeholder="Enter destination PIN code" 
+										required
+										value={locationQuery.destination}
+										onChange={handleChange}
+									/>
+									<Form.Text className="text-muted ">
+										<span className={(returnIsValid(destinationDescription))?"text-success fw-bolder ":""}>{destinationDescription}</span>
+									</Form.Text>
+								</Form.Group>
+								<Button variant="primary" onClick={submitLocationData} >
+									Submit
+								</Button>
+							</Form>
+						</div>
+					</div>
 			</div>
 
 			<div className="content">
@@ -147,7 +148,7 @@ const Homepage = () => {
 					<p>
 						Our team of experienced logistics professionals is dedicated to delivering exceptional service with a customer-centric approach. We take pride in our ability to offer customized shipping solutions that meet the unique needs of each customer, whether it's a small package or a large shipment. With our extensive network of shipping partners and carriers, we can offer competitive rates and reliable transit times to destinations across the globe.
 					</p>
-					<div className="image">
+					<div className="image justify-content-center">
 						<img src="https://th.bing.com/th/id/OIP.e1me_6IwMOcMZVH_MUk_9gHaFb?pid=ImgDet&rs=1" alt="Team image" />
 					</div>
 
