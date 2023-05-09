@@ -13,6 +13,7 @@ function Grievance() {
         email:'',
         name:'',
         content:'',
+        queryType:'Order'
     });
 
     const [info,setInfo] = useState('');
@@ -30,7 +31,7 @@ function Grievance() {
         event.preventDefault();
         console.log(messageBody);
         try {
-			let res = await fetch("https://logigoapi.onrender.com/message", {
+			let res = await fetch("http://localhost:8000/grievance", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",
@@ -79,7 +80,7 @@ function Grievance() {
                     <input type="text" name="email" placeholder="Your Email" onChange={handleChange} />
                     
                     <label for="query" style={{color:'white'}}>Choose Type of Complaint: &nbsp;</label>
-                    <select id="query" name="queryType" style={{width:'100%'}}>
+                    <select id="query" name="queryType" style={{width:'100%'}} onChange={handleChange}>
                         <option value="Order">Order</option>
                         <option value="Account">Account</option>
                         <option value="Others">Others</option>
