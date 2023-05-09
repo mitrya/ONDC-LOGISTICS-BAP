@@ -81,18 +81,18 @@ function Grievance() {
                     <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />
                     <input type="text" name="email" placeholder="Your Email" onChange={handleChange} />
                     
-                    <label for="query" style={{color:'white'}}>Choose Type of Complaint: &nbsp;</label>
-                    <select id="query" name="queryType" style={{width:'100%'}} onChange={handleChange}>
+                    <label for="query" style={{color:'black', fontSize:'16px', textAlign:'left', margin:'10px 0', display: 'block'}}>Choose Type of Complaint: &nbsp;</label>
+                    <select id="query" name="queryType" style={{width:'100%', height: '4vh', border: '1px solid #ccc', borderRadius: '5px', paddingLeft: '10px', fontSize: '16px'}} onChange={handleChange}>
                         <option value="Order">Order</option>
                         <option value="Account">Account</option>
                         <option value="Others">Others</option>
                     </select>
                     <br/><br/>
                     <label style={{color:'white'}}>Describe Your Complaint</label><br/>
-                    <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%'}}/>
+                    <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%', paddingBottom:'50px'}}/>
                     {info.length>0 && displayMessage(info)}
                     {/* <input type="submit" id="grievance-message-submit" value="SUBMIT" /> */}
-                    <Button onClick={handleClick}>Submit</Button>
+                    <Button id="Submit-complaint" onClick={handleClick} style={{ marginTop:'20px', backgroundColor: 'green', color: 'white', border: 'none', fontSize: '16px'} }>Submit</Button>
                 </form>
             </>
         )
