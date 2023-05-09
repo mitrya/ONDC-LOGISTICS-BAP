@@ -8,23 +8,31 @@
     flex-direction: row;
     background-image: url('/shutterstock_1469983160.jpg');
     background-size: cover;
-    padding:0;
+    padding:40px;
     margin: 0;
     top: 0;
     left: 0;
+    width:100%;
+
 }
 
 .gform-cont{
     background-color: white;
     color: black;
-    padding: 1em;
+    padding: 1.5em;
     border-radius: 1em;
     margin: 1em;
+    
+
 }
 .gform{
     background-color: white;
     margin: 1em;
-    right: 2em;
+    /* right: 2em; */
+    padding: 1em;
+    width:95%;
+    height:50%;
+    text-align: center;
 }
 
 .promotion h1{
@@ -46,11 +54,22 @@
     background-color: transparent;
     display: block;
     margin-bottom: 2.7rem;
-    /* width: 100%; */
+    /* margin-bottom: 2.7rem; */
+    width: 100%;
     color: black;
     height: 2rem;
     padding-left: 0.4rem; 
-    margin: 3px;
-    
+    margin-bottom: 2em;
+   
 }
 
+#gform #Submit-complaint {
+    padding-top: 30px;
+  background-color: green;
+  color:white
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
