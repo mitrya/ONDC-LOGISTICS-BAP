@@ -3,32 +3,58 @@
     /* display: flex;
     flex-wrap: wrap; */
 }
-
 .card-img-top {
     object-fit: cover;
     overflow: hidden;
-}
-.image
-{
+  }
+  
+  .image {
     height: 10em;
     width: 10em;
-}
-.card-rows {
+  }
+  
+  .card-container-gateway{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-bottom: 5%;
+  }
+  
+  .card-rows {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .each-card-service{
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 30%; /* adjust this as per your requirement */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.card-rows:hover{
-    /* background-color: rgba(255, 248, 220, 1); */
-    border: solid skyblue;
-}
-.card-row{
+    align-items: center;
+  }
+  
+  .card-rows:hover {
+    border: solid rgb(158, 104, 159);
+  }
+  
+  .card-row {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-.card {
+  }
+  
+  .card {
     border: none !important;
-}
+  }
+  
