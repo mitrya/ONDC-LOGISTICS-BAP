@@ -67,6 +67,7 @@
 .float-container:last-child {
 	margin-right: 0;
 	width: 65%;
+	height:560px;
 	display: flex;
 	justify-content: space-between;
     flex-wrap: wrap;
