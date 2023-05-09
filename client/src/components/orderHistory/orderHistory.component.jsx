@@ -77,15 +77,20 @@ const OrderHistory = () => {
             </div>
 
 
-            <div className="card-container">
+            <div className="order-card-container">
             { 
                 orders && orders.length?
                 
                     orders.map((order ) => {
                         return (<div key={order._id}>
                                 <Card  className='mt-3' style={{ width: 'max-content' }}>
-                                            <div className='card-rows'>    
-                                                <div className="card-row">
+                                            <div className='order-card-rows'>    
+                                                <div className="order-card-row">
+                                                <div className="order-card-image">
+                                                  <img>
+
+                                                  </img>
+                                                      </div>
                                                         <Card.Body>
                                                             <Card.Title>Order Recipient: {order.deliveryaddress[0].rName.toUpperCase()}</Card.Title>
                                                         
@@ -99,8 +104,12 @@ const OrderHistory = () => {
                                                                 <Card.Text className='mt-2'>
                                                                     State : {order.state}
                                                                 </Card.Text>
-                                                                <Card.Text><Button className="cancel_order" id={order._id} onClick={handleCancel}>Cancel</Button></Card.Text>
+                                                               <div id="order-card-buttons">
+                                                                 <Card.Text><Button className="cancel_order" id={order._id} onClick={handleCancel}>Cancel</Button></Card.Text>
+                                                                <Card-Text><Button variant="primary" className="track_order custom-class" id={order._id}>
                                                                 
+                                                                Track Order
+                                                              </Button></Card-Text></div>
                                                         </Card.Body>
                                                 </div>
                                             
