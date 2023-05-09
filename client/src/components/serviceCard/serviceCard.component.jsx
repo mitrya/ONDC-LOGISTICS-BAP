@@ -27,12 +27,14 @@ const ServiceCard = ({service,query}) => {
     return (
         
         <Card className='mt-3' style={{ width: 'max-content' }}>
+         <div id="card-container-gateway">
           <div className='card-rows' onClick={previewHandler} >    
-              <div className="card-row">
+              <div id="each-card-service">
+                <div className="card-row">
                   <div className='card-img-top'>
                     <img src={service.logo} className='image'/>
                   </div>
-              </div>
+                </div>
                 <div className="card-row">
 
                 <Card.Body>
@@ -53,9 +55,10 @@ const ServiceCard = ({service,query}) => {
                 {/* <Button id={service.id} variant="primary" onClick={previewHandler}>Preview</Button> */}
                 </Card.Body>
                 </div>
+                </div>
             
           </div>
-
+          </div> 
         </Card>
       );
 }
