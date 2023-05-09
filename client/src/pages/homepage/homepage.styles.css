@@ -24,8 +24,6 @@
   padding-bottom: 5%;
   padding-top: 0px;
   top: 0;
-  height: 70vh;
-  object-fit: cover;
 }
 
 .hhero-subtext {
@@ -33,7 +31,7 @@
 }
 
 .section-header {
-  font-size: 40px;
+  font-size: 2.5em;
   margin-top: 50px;
   margin-bottom: 30px;
 }
@@ -44,8 +42,9 @@
 
 .image {
   margin: 10px auto;
-  max-width: 100%;
+  max-width: fit-content;
   display: block;
+  padding-right: 3em;
 }
 
 .image img {
@@ -61,13 +60,14 @@ p {
 }
 
 .formContainer{
-  background-color: white;
   position: absolute;
-  padding: 2em;
   right: 8vw;
   top: 5vw;
+  padding: 1rem;
   border-radius: 5px;
+  background-color: white;
 }
+
 
 @media (max-width: 768px) {
   .hero-text {
@@ -85,4 +85,5 @@ p {
   p {
     font-size: 16px;
   }
+
 }
