@@ -11,6 +11,7 @@ const Verifyotp = () => {
     })
 
     const history=useNavigate();
+    const navigate = useNavigate();
     const [otp, setOTP] = useState('');
     const [email,setEmail] = useState('');
     const [loading,setLoading] = useState(false);
@@ -41,6 +42,7 @@ const Verifyotp = () => {
                 })
             });
             let data = await res.json();
+            console.log('data= ',data);
             if(data.error) {
 			    setLoading(false);
                 setInfo(data.error);
@@ -52,6 +54,7 @@ const Verifyotp = () => {
                 navigate('/signin');
             }
         } catch (error) {
+            console.log('error= ',error);
 			setLoading(false);
             setInfo("There was some error");
             setResult(false);

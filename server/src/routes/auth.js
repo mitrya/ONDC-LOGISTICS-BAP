@@ -60,7 +60,9 @@ router.post("/signup",(req,res) => {
 })
 
 router.post("/signin", async (req,res) => {
+	console.log('Inside sign in');
 	const {email,password} = req.body;
+	console.log('email= ',email,'password= ',password);
 	saveduser =  await User.findOne({email:email})
 	console.log(saveduser);
 	if(!saveduser||!saveduser.otp_verified) {
