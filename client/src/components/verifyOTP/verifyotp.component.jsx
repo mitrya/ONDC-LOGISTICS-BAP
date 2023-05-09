@@ -14,10 +14,15 @@ const Verifyotp = () => {
     const [otp, setOTP] = useState('');
     const [email,setEmail] = useState('');
     const [loading,setLoading] = useState(false);
+    const [info,setInfo] = useState('');
+    const [result,setResult] = useState(false);
+
     
     
     const handleChange = (event) => {
         setOTP(event.target.value);
+        setInfo('');
+        setResult(false);
     };
 
     const handleSubmit = async event => {
@@ -25,7 +30,7 @@ const Verifyotp = () => {
         const email = JSON.parse(localStorage.getItem('email'));
         setLoading(true);
         try {
-            let res = await fetch('http://localhost:8000/validateOTP',{
+            let res = await fetch('https://logigoapi.onrender.com/validate',{
                 method: "post",
                 headers: {
                     "Content-Type" : "application/json",
@@ -38,18 +43,39 @@ const Verifyotp = () => {
             let data = await res.json();
             if(data.error) {
 			    setLoading(false);
-                console.log(data.error);
-                alert(data.error);
+                setInfo(data.error);
+                setResult(false);
             } else {
 			    setLoading(false);
-                console.log(data.message);
+                setInfo(data.message);
+                setResult(true);
                 navigate('/signin');
             }
         } catch (error) {
 			setLoading(false);
-            alert(error);
+            setInfo("There was some error");
+            setResult(false);
         }
     }
+
+    const displayMessage = (info) => {
+        if(result===true){
+            return (
+                <div class="success">
+                    <p><strong>Success!</strong> {info}</p>
+                </div>
+            );
+        }   
+        else if(result===false){
+            return (
+                <div class="danger">
+                    <p><strong>Error!</strong> {info}</p>
+                </div>
+            );
+        }
+    }
+
+
 
     return (
         <div className="forms mt-5 d-flex justify-content-center">
@@ -73,6 +99,7 @@ const Verifyotp = () => {
                     {loading ? <span> Loading</span>: <span>Verify</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
                     </Button>
                 </Form>
+                {info.length>0 && displayMessage(info)}
             </div>
         </div>
     )

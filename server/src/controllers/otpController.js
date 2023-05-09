@@ -38,28 +38,29 @@ module.exports.validateOTP = async function(req,res) {
     let email = req.body.email;
     let otp = req.body.otp;
     if(!email||!otp){
-        return res.status(400).json({
+        console.log('Line 42');
+        return res.status(500).json({
             error:"There was some error"
         })
     }
     let user = await User.findOne({email});
     if(!user||user.otp_verified){
-        return res.status(400).json({
+        return res.status(500).json({
             error:"User not found"
         })
     }
-    let otpDoc = await Otp.find({
+    let otpDoc = await Otp.findOne({
         user:user._id,
         otp:otp
     });
     if(!otpDoc){
-        return res.status(400).json({
+        return res.status(500).json({
             error:"Invalid OTP"
         })
     }
     user.otp_verified = true;
     user.save();
-    otpDoc.remove();
+    await Otp.findByIdAndDelete(otpDoc._id);
     return res.status(200).json({
         message:"OTP Verified Successfully"
     });

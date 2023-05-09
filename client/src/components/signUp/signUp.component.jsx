@@ -69,7 +69,7 @@ const SignUp = () => {
           return;
         }
         try {
-          let res = await fetch("http://localhost:8000/signup", {
+          let res = await fetch("https://logigoapi.onrender.com/signup", {
             method: "post",
             headers: {
               "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const SignUp = () => {
             setLoading(false);
             alert(signupData.error);
           } else {
-            let result = await fetch('http://localhost:8000/generate',{
+            let result = await fetch('https://logigoapi.onrender.com/generate',{
                 method: "post",
                 headers: {
                   "Content-Type": "application/json",
