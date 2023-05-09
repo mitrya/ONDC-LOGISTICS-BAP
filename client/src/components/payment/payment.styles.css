@@ -3,5 +3,6 @@
 }
 .card{
 	margin: auto !important;
-	width:max-content
+	width:max-content;
+	font-size:17px;
 }                                              

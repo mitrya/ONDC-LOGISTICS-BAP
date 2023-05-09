@@ -63,7 +63,7 @@ const Payment = () => {
 					</ListGroup>
 
 					<Button onClick={makePayment}>
-						{loading ? <span> Loading</span>: <span>Pay</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
+						{loading ? <span> Loading</span>: <span>Proceed To Payment</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
 					</Button>
 				</Card.Body>
 			</Card>

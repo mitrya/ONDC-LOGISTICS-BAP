@@ -17,6 +17,7 @@
 {
     background-color:#577D86 !important;
     --bs-offcanvas-bg : #577D86 !important;
+    font-size: 20px;
 }
 .dropdown-menu {
     /* background-color: #e4c812; */
@@ -35,14 +36,24 @@
 
 /* hr
 {
-   /* background-color: aliceblue; */
-
-
-.link{
-    color: aliceblue;
-    text-decoration: none;
-    font-weight: 500;
-    margin: 10px;
+    /* background-color: aliceblue; */
+    
+    
+    .btn1{
+        color: aliceblue;
+        font-weight: 500;
+        width: 10% !important;
+        background-color: whitesmoke !important;
+        text-align: center !important;
+        margin: 10px;
+        padding: 5px;
+    }
+    .btn1:hover{
+        background-color: #78979E !important;
+    }
+.btn1:active{
+    box-shadow: 0 5px #666;
+    transform:translateY(4px) ;
 }
 
 
@@ -52,6 +63,7 @@
     background-color:#577D86;
     --bs-dropdown-bg:#577D86 !important;
     --bs-dropdown-link-hover-bg:#577D86 !important;
+    color: white;
 }
 
 /* .dropdown-menu a:hover {

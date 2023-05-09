@@ -27,12 +27,10 @@ function Footer() {
         </div>
         <div className="footer-column">
           <h3>Follow Us</h3>
-          <ul>
           <link rel="icon" href="favicon.ico"/>
-            <li><a className='footer-link footer-icon' href="https://www.facebook.com/"><i className="fa fa-facebook-square fa-1.75x" aria-hidden="true"></i></a></li>
-            <li><a className='footer-link footer-icon' href="https://www.youtube.com/"><i className="fa fa-youtube-square fa-1.75x" aria-hidden="true"></i></a></li>
-            <li><a className='footer-link footer-icon' href="https://github.com/mitrya/ONDC-LOGISTICS-BAP"><i className="fa fa-github-square fa-1.75x" aria-hidden="true"></i></a></li>
-          </ul>
+            <a className='footer-link footer-icon' href="https://www.facebook.com/"><i className="fa fa-facebook-square fa-1.75x" aria-hidden="true"></i></a>
+            <a className='footer-link footer-icon' href="https://www.youtube.com/"><i className="fa fa-youtube-square fa-1.75x" aria-hidden="true"></i></a>
+            <a className='footer-link footer-icon' href="https://github.com/mitrya/ONDC-LOGISTICS-BAP"><i className="fa fa-github-square fa-1.75x" aria-hidden="true"></i></a>
         </div>
       </div>
       <div className="footer-links">

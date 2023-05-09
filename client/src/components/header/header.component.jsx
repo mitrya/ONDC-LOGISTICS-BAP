@@ -76,15 +76,17 @@ function Header() {
                                 {/* <NavDropdown.Item><Link to="/track" className="helper">Track Shipments</Link></NavDropdown.Item> */}
                                 <NavDropdown.Item><Link to="/orders" className="helper">History</Link></NavDropdown.Item>
                                 <NavDropdown.Item onClick={LogoutHandler}><Link to="" className="helper">Logout</Link></NavDropdown.Item>
-                                <NavDropdown.Item className='temp1'><Link to="/grievance" className="helper">Raise Grievance</Link></NavDropdown.Item>
+                                <NavDropdown.Item className='temp1'><Link to="/grievance" className="helper">Raise a Complaint</Link></NavDropdown.Item>
 
                                 
                         </NavDropdown>
                       </div>
                       :
                       <>
-                        <Link to="/signIn" className='link'>Login</Link>
-                        <Link to="/signUp" className='link'>Register</Link>
+                        <a href="/signIn" className="btn btn1" role="button">Login</a>
+                        <a href="/signUp" className="btn btn1" role="button">Register</a>
+                        {/* <Link to="/signIn" className='link'>Login</Link>
+                        <Link to="/signUp" className='link'>Register</Link> */}
                       </>
               }
 

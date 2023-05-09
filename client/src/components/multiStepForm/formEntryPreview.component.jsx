@@ -1,5 +1,6 @@
 import React from 'react'
 import CustomRow from './customRow.component';
+import './FormEntryPreview.component.css';
 
 
 const FormEntryPreview = ({searchQuery}) => {
