@@ -46,6 +46,7 @@ app.use(require("./routes/auth"));
 app.use(require("./routes/order"));
 app.use(require('./routes/email'));
 app.use(require('./routes/grievance'));
+app.use(require('./routes/otp'));
 
 
 async function startServer() {

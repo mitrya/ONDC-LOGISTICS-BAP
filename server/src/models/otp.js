@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const otpSchema = new Schema({
+const otpSchema = new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'user',
