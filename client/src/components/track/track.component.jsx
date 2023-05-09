@@ -15,7 +15,7 @@ const Track = () => {
 		e.preventDefault();
 		setLoading(true);
 
-		let response = await fetch(`http://localhost:8000/${oid}`)
+		let response = await fetch(`https://logigoapi.onrender.com/${oid}`)
 		let res = await response.json();
 		setchecked(true)
 		setLoading(false);

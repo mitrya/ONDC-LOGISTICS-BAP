@@ -20,7 +20,7 @@ const Payment = () => {
 		e.preventDefault();
 		setLoading(true);
 
-		const res = await fetch('http://localhost:8000/neworder', {
+		const res = await fetch('https://logigoapi.onrender.com/neworder', {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",

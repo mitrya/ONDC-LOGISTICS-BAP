@@ -70,11 +70,12 @@ router.get("/allorders/:email", async (req, res) => {
 	const email = req.params.email;
 	
 	try {
-		const user = await User.findOne({email});
-		if(!user) {
-			res.status(500).json({error : "Cannot find user"});
-		}
-		res.json({orders: user.orders});
+		let user = await User.findOne({email})
+		.populate({
+			path:'orders'
+		})
+		console.log(user);
+		res.json({user: user});
 	} catch (error) {
 		console.error(error);
 		res.status(500).json({ error: "Internal server error" });
@@ -126,15 +127,16 @@ router.put("/:orderId", async (req, res) => {
 });
 
 // Delete an existing order by ID
-router.delete("/:orderId", async (req, res) => {
-	const {id} = req.body;
+router.post("/delete/:orderId", async (req, res) => {
+	const {id} = req.body
+	console.log('delete req for user ', id);
 	try {
-		const order = await Order.findById(req.params.orderId);
-		if (!order) {
-		return res.status(404).json({ error: "Order not found" });
-		}
-		await order.remove();
-		await User.findByIdAndUpdate(id,{$pull:{orders:req.params.orderId}});
+		await Order.findByIdAndDelete(req.params.orderId);
+		// if (!order) {
+		// return res.status(404).json({ error: "Order not found" });
+		// }
+		// await order.remove();
+		await User.findByIdAndUpdate(id,{$pull:{orders:req.params.orderId}})
 		res.json({ message: "Order deleted successfully" });
 	} catch (error) {
 		console.error(error);

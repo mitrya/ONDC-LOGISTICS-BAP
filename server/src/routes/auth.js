@@ -64,11 +64,12 @@ router.post("/signin", async (req,res) => {
 				return res.json({
 					message:"Login Successful",
 					token,
-					user : {
-						name: saveduser.name,
-						email: saveduser.email,
-						address : (saveduser.address) ? saveduser.address : {}
-					}
+					user : saveduser,
+					// {
+					// 	name: saveduser.name,
+					// 	email: saveduser.email,
+					// 	address : (saveduser.address) ? saveduser.address : {}
+					// }
 				});
 			} else return res.status(422).json({error : "Invalid credentials"});
 		})
