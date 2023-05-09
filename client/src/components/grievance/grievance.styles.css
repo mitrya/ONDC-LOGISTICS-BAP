@@ -30,8 +30,8 @@
     margin: 1em;
     /* right: 2em; */
     padding: 1em;
-    width:95%;
-    height:50%;
+    /* width:95%;
+    height:50%; */
     text-align: center;
 }
 
@@ -64,7 +64,7 @@
 }
 
 #gform #Submit-complaint {
-    padding-top: 30px;
+  padding-top: 30px;
   background-color: green;
   color:white
 }
