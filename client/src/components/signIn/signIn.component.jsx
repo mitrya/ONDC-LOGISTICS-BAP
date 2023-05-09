@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {ThreeDots} from 'react-loading-icons'
+import { Link } from 'react-router-dom';
 
 import './signIn.styles.css'
 const SignIn = () => {
@@ -106,6 +107,7 @@ const SignIn = () => {
                     <Button variant="primary" type="submit" onClick={handleSubmit}>
                     {loading ? <span> Loading</span>: <span>Login</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
                     </Button>
+                    Forgot Password ? <span><Link to="/forgotPassword">Click Here</Link></span>
                 </Form>
             </div>
         </div>
