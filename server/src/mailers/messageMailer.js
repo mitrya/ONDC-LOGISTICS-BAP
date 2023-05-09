@@ -4,7 +4,7 @@ module.exports.sendMessage = function(message){
     let htmlString = nodeMailer.renderTemplate({messageBody:message.messageBody},'/adminMailer/email_Admin.ejs');
 
     nodeMailer.transporter.sendMail({
-       from:'dummyemail584@gmail.com',
+       from:'revlogistics121@gmail.com',
        to:'iib2020016@iiita.ac.in',
        subject:"Message",
        html:htmlString
@@ -19,7 +19,7 @@ module.exports.sendConfirmation = function(message){
     let htmlString = nodeMailer.renderTemplate({messageBody:message.messageBody},'/adminMailer/email_confirmation.ejs');
 
     nodeMailer.transporter.sendMail({
-       from:'dummyemail584@gmail.com',
+       from:'revlogistics121@gmail.com',
        to:message.messageBody.email,
        subject:"Message Confirmation",
        html:htmlString
