@@ -4,7 +4,7 @@ module.exports.sendMessage = function(message){
     let htmlString = nodeMailer.renderTemplate({messageBody:message.messageBody},'/adminMailer/email_Admin.ejs');
 
     nodeMailer.transporter.sendMail({
-       from:'revlogistics121@gmail.com',
+       from:'logigo4u@gmail.com',
        to:'iib2020016@iiita.ac.in',
        subject:"Message",
        html:htmlString
@@ -18,7 +18,7 @@ module.exports.sendMessage = function(message){
 module.exports.sendGrievance = function(message){
     let htmlString = nodeMailer.renderTemplate({messageBody:message.messageBody},'/adminMailer/send_grievance.ejs');
     nodeMailer.transporter.sendMail({
-       from:'revlogistics121@gmail.com',
+       from:'logigo4u@gmail.com',
        to:'iib2020016@iiita.ac.in',
        subject:"Message",
        html:htmlString
@@ -33,7 +33,7 @@ module.exports.sendConfirmation = function(message){
     let htmlString = nodeMailer.renderTemplate({messageBody:message.messageBody},'/adminMailer/email_confirmation.ejs');
 
     nodeMailer.transporter.sendMail({
-       from:'revlogistics121@gmail.com',
+       from:'logigo4u@gmail.com',
        to:message.messageBody.email,
        subject:"Message Confirmation",
        html:htmlString

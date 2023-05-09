@@ -7,8 +7,8 @@ host:'smtp.gmail.com',
 port:587,
 secure:false,
 auth:{
-    user:'revlogistics121@gmail.com',
-    pass:'dfdrywtdxnuqoykw'
+    user:'logigo4u@gmail.com',
+    pass:'ngoanawgoemkrujk'
 }});
 
 let renderTemplate = function(data,relativePath){
