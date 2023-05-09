@@ -50,7 +50,7 @@ function Terms() {
                 </li>
             </ul>
             <p class="text">
-                Thank you for choosing our package delivery website. If you have any questions or concerns about these terms and conditions, please contact us at <Link to="/contact">Contact Us</Link>.
+                Thank you for choosing our package delivery website. If you have any questions or concerns about these terms and conditions, please contact us <Link to="/contact">here</Link>.
             </p>
         </div>
     );
