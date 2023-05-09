@@ -62,8 +62,7 @@ router.post("/signup",(req,res) => {
 router.post("/signin", async (req,res) => {
 	const {email,password} = req.body;
 	saveduser =  await User.findOne({email:email})
-	// console.log(saveduser);
-	// console.log(savedUser.otp_verified);
+
 	if(!saveduser||!saveduser.otp_verified) {
 		return res.json({error : "User not registered" });
 	}
@@ -76,11 +75,6 @@ router.post("/signin", async (req,res) => {
 					message:"Login Successful",
 					token,
 					user : saveduser,
-					// {
-					// 	name: saveduser.name,
-					// 	email: saveduser.email,
-					// 	address : (saveduser.address) ? saveduser.address : {}
-					// }
 				});
 			} else return res.status(422).json({error : "Invalid credentials"});
 		})

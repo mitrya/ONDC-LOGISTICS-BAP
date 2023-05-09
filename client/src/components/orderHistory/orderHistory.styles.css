@@ -27,14 +27,13 @@
     
 }
 .new_order {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    text-align: center;
+    /* background-color: #4CAF50;*/
     text-decoration: none;
+    border: none;
+    padding: 0.5em 0.4em;
+    text-align: center;
     display: inline-block;
-    font-size: 22px;
+    font-size: 1.2rem;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
@@ -42,7 +41,7 @@
   }
   
 .new_order:hover {
-    background-color: #3e8e41;
+    background-color: #3e8e87;
     color:black;
   }
 .order-card-container {
@@ -86,7 +85,7 @@
 
 /* CSS */
 .cancel_order {
-    background-color:red;
+    background-color:red !important;
     color: white;
     border: none;
     padding: 8px;
@@ -96,8 +95,8 @@
     font-weight: 500;
   }
   .track_order {
-    background-color: blue;
-    color: white;
+    background-color: blue ;
+    color: white ;
     border: none;
     padding: 8px;
     cursor: pointer;
