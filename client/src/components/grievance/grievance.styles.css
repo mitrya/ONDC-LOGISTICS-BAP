@@ -203,7 +203,7 @@
     display: inline-block;
 }
 #grievance-message-submit {
-    background-color: #4CAF50; /* Green */
+    background-color: rgb(98, 165, 199); /* Green */
     border: none;
     color: black;
     padding: 10px 20px;
