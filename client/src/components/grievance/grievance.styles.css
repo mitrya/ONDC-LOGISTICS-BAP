@@ -17,7 +17,8 @@
     padding:0px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-self: center;
     width:100%;
     margin:fit-content;
@@ -68,8 +69,8 @@
     height: 100%;
     background-image: url('/shutterstock_1469983160.jpg');
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    /* background-position: center;
+    background-attachment: fixed; */
     text-align: center;
     background-color: rgba(100, 157, 218, 0.5); /* Change the opacity as desired */
     z-index: -1;
