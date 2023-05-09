@@ -98,8 +98,22 @@ function Grievance() {
     return (
         <>
             <div className='grievance-container-fluid box mt-3 mx-1 temp'>
-                    
+                <div id="grievance-container-fluid-image">
                 <div id="big-box">
+                
+                <div id="second-box">
+                    <div id="promotion">
+                           <span>Do you have any Grievances?</span> 
+                    </div>
+                    <div id="promotion-sub">
+                            <span>
+                            We value your feedback! 
+                            Tell us about your experience.
+                            </span>
+                           
+                        </div>
+                    
+                </div>
                 <div class="grievance-box">
                     <div id="grievance grievance-helper" className='grievance-section'>
                         
@@ -113,22 +127,9 @@ function Grievance() {
                         </div>
                     </div>
                 </div> 
-                <div id="second-box">
-                    <div id="promotion">
-                           <span>Do you have any Grievances?</span> 
-                    </div>
-                    <div id="promotion-sub">
-                            <span>
-                            We value your feedback! 
-                            Tell us about your experience
-                            </span>
-                           
-                        </div>
-                    
-                </div>
                     </div>  
                     
-
+                    </div>
                 
             </div>  
         </>
