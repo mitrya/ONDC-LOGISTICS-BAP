@@ -29,26 +29,7 @@ router.post("/neworder", async (req, res) => {
 				error: "Error Retreiving user"
 			})
 		} 
-		// let pickUpAddress = await Address.create(user.address);
-		// let deliveryinstance = await Address.create(address)
-		// pickupInstance = new Address(user.address)
-		// let pkid = await pickupInstance.save()
-		// if(pkid.error) {
-		// 	console.log(pkid.error);
-		// 	res.status(402).json({error : pkid.error})
-		// }
-		// log
-		// deliveryInstance = new Address(address)
-		// let dlid = await pickupInstance.save()
-		// if(dlid.error) {
-		// 	console.log(dlid.error);
-		// 	res.status(402).json({error : dlid.error})
-		// }
 		const order = new Order({
-			// pickupaddress:pkid._id,
-			// deliveryaddress:dlid._id,
-			// pickupAddress:pickUpAddress._id,
-			// deliveryaddress:deliveryinstance._id,
 			pickupaddress:user.address,
 			deliveryaddress:address,
 			items:{value,type},
@@ -146,12 +127,14 @@ router.put("/:orderId", async (req, res) => {
 
 // Delete an existing order by ID
 router.delete("/:orderId", async (req, res) => {
+	const {id} = req.body;
 	try {
 		const order = await Order.findById(req.params.orderId);
 		if (!order) {
 		return res.status(404).json({ error: "Order not found" });
 		}
 		await order.remove();
+		await User.findByIdAndUpdate(id,{$pull:{orders:req.params.orderId}});
 		res.json({ message: "Order deleted successfully" });
 	} catch (error) {
 		console.error(error);
