@@ -45,6 +45,7 @@ app.set('views','./views');    // specify a folder to look for the views.
 app.use(require("./routes/auth"));
 app.use(require("./routes/order"));
 app.use(require('./routes/email'));
+app.use(require('./routes/grievance'));
 
 
 async function startServer() {
