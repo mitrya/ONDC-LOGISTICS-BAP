@@ -3,6 +3,7 @@ const Otp = require('../models/otp');
 const otpGenerator = require('otp-generator');
 const messageMailer = require('../mailers/messageMailer'); 
 
+
 module.exports.generateOTP = async function(req,res){
     try{
         const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
@@ -45,6 +46,7 @@ module.exports.validateOTP = async function(req,res) {
     }
     let user = await User.findOne({email});
     if(!user||user.otp_verified){
+        console.log('line 48');
         return res.status(500).json({
             error:"User not found"
         })
@@ -53,14 +55,18 @@ module.exports.validateOTP = async function(req,res) {
         user:user._id,
         otp:otp
     });
+    console.log(otpDoc);
     if(!otpDoc){
+        console.log('line 59');
         return res.status(500).json({
             error:"Invalid OTP"
         })
     }
+    console.log('line 64');
     user.otp_verified = true;
     user.save();
     await Otp.findByIdAndDelete(otpDoc._id);
+    console.log('line 68');
     return res.status(200).json({
         message:"OTP Verified Successfully"
     });
