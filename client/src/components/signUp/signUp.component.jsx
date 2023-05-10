@@ -150,7 +150,7 @@ const SignUp = () => {
       <div className="forms  mt-5 d-flex justify-content-center">
         <Form>
           <div className='form container'> 
-            <div className='row'>
+            <div className='row d-flex fcont2'>
 
               <div className="col">
                 <div className="form-heading">Sign Up</div>

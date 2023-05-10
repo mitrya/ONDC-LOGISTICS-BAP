@@ -67,6 +67,7 @@
 
 .button{
   background-color: #577D86 !important;
+  border: #223235 !important;
 }
 .button:hover{
   background-color: #223235  !important;
