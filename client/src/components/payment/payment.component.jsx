@@ -44,22 +44,26 @@ const Payment = () => {
 
 	return (
 		<div className="container">
-			<Card style={{width:"20rem"}}>
+			<Card>
 				<Card.Body>
 					<Card.Title> Order </Card.Title>
 					<Card.Text className=''>Please confirm the details before payment</Card.Text>
 					<ListGroup className="list-group-flush">
 						<ListGroup.Item>Customer Name : {order.username}</ListGroup.Item>
-						<ListGroup.Item>Courier Name : {order.courier.name}</ListGroup.Item>
+						<ListGroup.Item>Courier Company : {order.courier.name}</ListGroup.Item>
 						<ListGroup.Item>Pickup : {order.source}</ListGroup.Item>
 						<ListGroup.Item>Drop : {order.destination}</ListGroup.Item>
 						<ListGroup.Item>Item Type : {order.type}</ListGroup.Item>
-						<ListGroup.Item >Amount to Pay : {order.price} INR</ListGroup.Item>
+						<ListGroup.Item ><b>Receivers Details:</b></ListGroup.Item>
+
 						{
 							Object.keys(order.address).map((key) => {
+								if(key=='rName') return <ListGroup.Item>{"Receivers Name : " + order.address[key]}</ListGroup.Item>
+								if(key=='area_code') return <ListGroup.Item>{"Pincode : " + order.address[key]}</ListGroup.Item>
 								return <ListGroup.Item>{key + " : " + order.address[key]}</ListGroup.Item>
 							})
 						}
+						<ListGroup.Item ><b>Amount to Pay : {order.price} INR</b></ListGroup.Item>
 					</ListGroup>
 
 					<Button onClick={makePayment}>

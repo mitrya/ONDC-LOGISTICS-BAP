@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import ListGroup from 'react-bootstrap/ListGroup';
 import {Card ,Button} from 'react-bootstrap';
 import {ThreeDots} from "react-loading-icons"
@@ -11,7 +12,7 @@ const OrderHistory = () => {
     const [orders, setOrders] = useState(undefined);
     const [loading,setLoading] = useState(false);
     const [userData, setUserData] = useState()
-
+    const navigate = useNavigate()
     useEffect( () => {
         setLoading(true)
         fetch(`https://logigoapi.onrender.com/allorders/${user.email}`)
@@ -62,6 +63,13 @@ const OrderHistory = () => {
           }
     }
 
+    const toTrack = (e) => {
+      e.preventDefault();
+      return
+      const id = e.target.attributes.id.value;
+      navigate('/track', {state:{tid:id}})
+    }
+
     return (
         <div className="mt-5 container justify-content-center">
             <h1 id="order-headline">Order History</h1>
@@ -71,7 +79,7 @@ const OrderHistory = () => {
             </div>
             <div id="order-subhead-part2">
             
-              <Button className="new_order" as={Link} to="/">Place New Order</Button>
+              <Link className="new_order" to="/">Place New Order</Link>
         
             </div>
             </div>
@@ -106,8 +114,9 @@ const OrderHistory = () => {
                                                                 </Card.Text>
                                                                <div id="order-card-buttons">
                                                                  <Card.Text><Button className="cancel_order" id={order._id} onClick={handleCancel}>Cancel</Button></Card.Text>
-                                                                <Card-Text><Button variant="primary" className="track_order custom-class" id={order._id}>
-                                                                
+                                                                <Card-Text><Button variant="primary" className="track_order custom-class" id={order._id}
+                                                                 onClick={toTrack}
+                                                                >
                                                                 Track Order
                                                               </Button></Card-Text></div>
                                                         </Card.Body>

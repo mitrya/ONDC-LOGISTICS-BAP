@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import  '@fortawesome/fontawesome-free-solid'
-
+import { Button } from 'react-bootstrap';
  import  './grievance.styles.css'
  import '../contact/contact.styles.css'
 
@@ -75,21 +74,25 @@ function Grievance() {
     function MyForm() {
         return (
             <>
-                <form action ="/user/grievance" method="post" onSubmit = {handleClick}  style={{color:'black'}}>
+                <form action ="/user/grievance" method="post" onSubmit = {handleClick} className='gform' style={{color:'black'}}>
+                    {/* <div className="row">
+
+                    </div> */}
                     <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />
                     <input type="text" name="email" placeholder="Your Email" onChange={handleChange} />
                     
-                    <label for="query" style={{color:'white'}}>Choose Type of Complaint: &nbsp;</label>
-                    <select id="query" name="queryType" style={{width:'100%'}} onChange={handleChange}>
+                    <label for="query" style={{color:'black', fontSize:'16px', textAlign:'left', margin:'10px 0', display: 'block'}}>Choose Type of Complaint: &nbsp;</label>
+                    <select id="query" name="queryType" style={{width:'100%', height: '4vh', border: '1px solid #ccc', borderRadius: '5px', paddingLeft: '10px', fontSize: '16px'}} onChange={handleChange}>
                         <option value="Order">Order</option>
                         <option value="Account">Account</option>
                         <option value="Others">Others</option>
                     </select>
                     <br/><br/>
                     <label style={{color:'white'}}>Describe Your Complaint</label><br/>
-                    <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%'}}/>
+                    <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%', paddingBottom:'50px'}}/>
                     {info.length>0 && displayMessage(info)}
-                    <input type="submit" id="grievance-message-submit" value="SUBMIT" />
+                    {/* <input type="submit" id="grievance-message-submit" value="SUBMIT" /> */}
+                    <Button id="Submit-complaint" onClick={handleClick} style={{ marginTop:'20px', backgroundColor: 'green', color: 'white', border: 'none', fontSize: '16px'} }>Submit</Button>
                 </form>
             </>
         )
@@ -97,41 +100,28 @@ function Grievance() {
 
     return (
         <>
-            <div className='grievance-container-fluid box mt-3 mx-1 temp'>
-                <div id="grievance-container-fluid-image">
-                <div id="big-box">
-                
-                <div id="second-box">
-                    <div id="promotion">
-                           <span>Do you have any Complaints?</span> 
-                    </div>
-                    <div id="promotion-sub">
+            <div className='grievance-container-fluid box  d-flex'>                
+                <div id="flex_user">
+                            
+                    <div id="other-info">
+                        <div className="promotion">
+                            <h1 className='gheader'>Do you have any Grievances?</h1 > 
+                        </div>
+                        <div className="promotion-sub">
                             <span>
                             We value your feedback! 
                             Tell us about your experience.
                             </span>
-                           
-                        </div>
-                    
-                </div>
-                <div class="grievance-box">
-                    <div id="grievance grievance-helper" className='grievance-section'>
                         
-                        <div id="grievance-header">
-                            <span>Raise A Complaint Form</span>
                         </div>
-                        <div id="grievance-flex_user">
-                            <div id="grievance-message-section">
-                                {MyForm()}
-                            </div>
-                        </div>
+                     </div>
+                     <div id="message-section" className='gform-cont' >
+                        <h3>Raise A Complaint Form</h3>
+                        {MyForm()}
                     </div>
-                </div> 
-                    </div>  
+                </div>
                     
-                    </div>
-                
-            </div>  
+            </div>      
         </>
     );
 }

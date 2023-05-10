@@ -32,7 +32,7 @@ const ServiceCard = ({service,query}) => {
               <div id="each-card-service">
                 <div className="card-row">
                   <div className='card-img-top'>
-                    <img src={service.logo} className='image'/>
+                    <img src={service.logo} className='image-service'/>
                   </div>
                 </div>
                 <div className="card-row">

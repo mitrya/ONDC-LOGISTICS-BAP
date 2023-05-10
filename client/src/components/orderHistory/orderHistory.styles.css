@@ -27,7 +27,7 @@
     
 }
 .new_order {
-    background-color: #4CAF50;
+    background-color: #65a467;
     border: none;
     color: white;
     padding: 12px 24px;
@@ -44,13 +44,18 @@
 .new_order:hover {
     background-color: #3e8e41;
     color:black;
+    
+    transform: scale(1.05); /* Increase the size of the card on hover */
+	  cursor: pointer; /* Change the cursor to a pointer on hover */
+	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
   }
 .order-card-container {
     padding-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    gap: 20px;
+    gap: 10px;
     padding-bottom: 5%;
   }
   #order-card-rows{
@@ -65,8 +70,9 @@
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    width: 100%;
-    margin-right: 4rem;
+    width:375px;
+    height:650px;
+    margin-right: 2rem;
     margin-top: 4rem;;
     
   }
@@ -75,7 +81,6 @@
     width: 30%;
     /* border: 2px solid black; */
     /* your other card styles */ 
-   
     
   }
   .order-card-row:hover,
@@ -86,7 +91,7 @@
 
 /* CSS */
 .cancel_order {
-    background-color:red;
+    background-color:rgb(175, 56, 56);
     color: white;
     border: none;
     padding: 8px;
@@ -96,7 +101,7 @@
     font-weight: 500;
   }
   .track_order {
-    background-color: blue;
+    background-color: rgb(100, 100, 210);
     color: white;
     border: none;
     padding: 8px;
@@ -108,13 +113,19 @@
   }
   .cancel_order:hover{
     color:black;
+    transform: scale(1.05); /* Increase the size of the card on hover */
+	  cursor: pointer; /* Change the cursor to a pointer on hover */
+	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgb(247, 62, 62);
   }
   .track_order:hover{
     color:black;
+    transform: scale(1.05); /* Increase the size of the card on hover */
+	  cursor: pointer; /* Change the cursor to a pointer on hover */
+	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgb(123, 123, 237);
   }
-  .custom-class {
-    background-color: red;
-  }
+
   .order-card-image {
     margin-right: 20px;
     background-image: url('https://fleetcouriers.com/wp-content/uploads/2020/09/AdobeStock_310063620-2048x1236.jpeg');

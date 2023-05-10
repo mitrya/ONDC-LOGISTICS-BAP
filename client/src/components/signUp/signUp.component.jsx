@@ -5,12 +5,15 @@ import Form from 'react-bootstrap/Form';
 import './signUp.styles.css'
 import { FormGroup } from 'react-bootstrap';
 import {ThreeDots} from "react-loading-icons"
+import {lookup as PINLookup} from 'india-pincode-lookup'
 
 // import axios
 const SignUp = () => {
     useEffect(() => {
         document.title='Sign Up - LogiGo'
     })
+    const pinExample = "Example 110001"
+      const pinError  = "invalid PIN"
     const navigate = useNavigate();
     const [signUpDetails, setSignUpDetails] = useState({
         displayName:'',
@@ -24,11 +27,41 @@ const SignUp = () => {
     const [address,setAddress] = useState({
       door:'',
       street:'',
-      city:'',
-      state:'',
-      country:'',
-      area_code:''
+      country:'India',
     })
+    const [area_code,setArea] = useState('')
+    const [state, setState] = useState('')
+    const [city, setCity] = useState('')
+    
+    const returnDescription = (pinString) => {
+      if(pinString.length==0)
+        return pinError;
+  
+      if(isNaN(pinString))
+        return pinError
+      
+      if(pinString.length<6 || pinString.length>6)
+        return pinError
+      // let data 
+      if(PINLookup(Number(pinString))[0] === undefined ||  PINLookup(Number(pinString).length === 0))
+        return pinError
+  
+      return (PINLookup(Number(pinString))[0])
+    }
+
+  
+    const handlePin = (event) => {
+      setArea(event.target.value)
+      let pinData = returnDescription(event.target.value)
+  
+      if(pinData!=pinError) {
+        setState(pinData.stateName);
+        setCity(pinData.taluk)
+      } else {
+        setState('');
+        setCity('')
+      }
+    }
     const [hide,sethide] = useState(false);
 
     const handleChange = (event) => {
@@ -69,38 +102,43 @@ const SignUp = () => {
           return;
         }
         try {
-          // let res = await fetch("https://logigoapi.onrender.com/signup", {
-          //   method: "post",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify({
-          //     signUpDetails,
-          //     address
-          //   }),
-          // })
-          // let data = await res.json();
+          let res = await fetch("https://logigoapi.onrender.com/signup", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              signUpDetails,
+              address
+            }),
+          })
+          let signupData = await res.json();
 
-          // if (data.error) {
-          //   setLoading(false);
-          //   alert(data.error);
-          // } else {
-			    //   setLoading(false);
-          
-          //   navigate('/signin')
-          // }
-          let res = await fetch('http://localhost:8000/generate',{
-              method: "post",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                signUpDetails,
-                address
-              }),
-          });
-          let data = await res.json();
-          console.log('data is ',data);
+          if (signupData.error) {
+            setLoading(false);
+            alert(signupData.error);
+          } else {
+            let result = await fetch('https://logigoapi.onrender.com/generate',{
+                method: "post",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  signUpDetails,
+                  address
+                }),
+            });
+            let otpdata = await result.json();
+            if(otpdata.error){
+              setLoading(false);
+              alert(otpdata.error);
+            }
+            else{
+              setLoading(false);
+              navigate('/verifyOTP');
+              localStorage.setItem('email', JSON.stringify(signUpDetails.email));
+            }
+          }
         }
         catch(err){
           setLoading(false);
@@ -223,8 +261,8 @@ const SignUp = () => {
                       type="text" 
                       placeholder="Enter Area Code" 
                       required
-                      value={address.area_code}
-                      onChange={handleAddress}
+                      value={area_code}
+                      onChange={handlePin}
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="signUpFormCity">
@@ -234,8 +272,8 @@ const SignUp = () => {
                       type="text" 
                       placeholder="Enter city" 
                       required
-                      value={address.city}
-                      onChange={handleAddress}
+                      value={city}
+                      onChange={handlePin}
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="signUpFormState">
@@ -245,8 +283,8 @@ const SignUp = () => {
                       type="text" 
                       placeholder="Enter State" 
                       required
-                      value={address.state}
-                      onChange={handleAddress}
+                      value={state}
+                      onChange={handlePin}
                     />
                 </Form.Group>
                 
@@ -256,9 +294,8 @@ const SignUp = () => {
                       name="country"
                       type="text" 
                       placeholder="Enter country" 
-                      required
+                      disabled
                       value={address.country}
-                      onChange={handleAddress}
                     />
                 </Form.Group>
                   

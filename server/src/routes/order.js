@@ -1,6 +1,3 @@
-// save new order 
-// fetch all prev orders
-// update order : cancel track 
 const express = require("express");
 const app = express();
 const router = express.Router();
@@ -132,10 +129,6 @@ router.post("/delete/:orderId", async (req, res) => {
 	console.log('delete req for user ', id);
 	try {
 		await Order.findByIdAndDelete(req.params.orderId);
-		// if (!order) {
-		// return res.status(404).json({ error: "Order not found" });
-		// }
-		// await order.remove();
 		await User.findByIdAndUpdate(id,{$pull:{orders:req.params.orderId}})
 		res.json({ message: "Order deleted successfully" });
 	} catch (error) {

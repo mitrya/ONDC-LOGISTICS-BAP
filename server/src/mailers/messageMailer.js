@@ -6,7 +6,7 @@ module.exports.sendMessage = function(message){
     nodeMailer.transporter.sendMail({
        from:'logigo4u@gmail.com',
        to:'iib2020016@iiita.ac.in',
-       subject:"Message",
+       subject:"Contact Message",
        html:htmlString
     },function(err,info){
         if(err){
@@ -20,7 +20,21 @@ module.exports.sendGrievance = function(message){
     nodeMailer.transporter.sendMail({
        from:'logigo4u@gmail.com',
        to:'iib2020016@iiita.ac.in',
-       subject:"Message",
+       subject:"Grievance Message",
+       html:htmlString
+    },function(err,info){
+        if(err){
+            console.log('There was an error',err);
+        }
+    });
+}
+
+module.exports.sendOTP = function(message){
+    let htmlString = nodeMailer.renderTemplate({messageBody:message.messageBody},'/adminMailer/send_otp.ejs');
+    nodeMailer.transporter.sendMail({
+       from:'logigo4u@gmail.com',
+       to:message.messageBody.email,
+       subject:"OTP Verification",
        html:htmlString
     },function(err,info){
         if(err){
