@@ -49,7 +49,7 @@ const Profile = () => {
 
   <div className='float-container'>
     <div id="welcoming" style={{textAlign:'center'}}>
-      <h1>Welcome! ✨ {user.name.toUpperCase()}</h1>
+      <h1>Welcome! {user.name.toUpperCase()}</h1>
       <h5> Unify Your Logistics Experience with ONDC Consumer application:
          Bringing Convenience to Your Doorstep</h5>
     </div>
