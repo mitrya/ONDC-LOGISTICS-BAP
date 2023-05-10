@@ -10,11 +10,12 @@ const mongoose = require('mongoose');
 const stripe =require('stripe');
 // const {MONGO_URI} = process.env;
 // const MONGO_URI = 'mongodb+srv://miniPROJ:AAKPV@2023@cluster0.jc8n4yz.mongodb.net/?retryWrites=true&w=majority'
-dotenv.config();
+require('dotenv').config();
+
 //asdsa
 mongoose.connect(
 
-	'mongodb+srv://miniPROJ:AAKPV2023@cluster1.l81voxo.mongodb.net/?retryWrites=true&w=majority',{
+	process.env.MONGO_URI,{
 	// 'mongodb://127.0.0.1:27017/courier_app',{
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
