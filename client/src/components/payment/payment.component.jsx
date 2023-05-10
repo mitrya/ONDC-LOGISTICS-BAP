@@ -15,6 +15,8 @@ const Payment = () => {
 
 	const [order,setorder] = useState(location.state.order);
 	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
+	const token = JSON.parse(localStorage.getItem('token'))
+
 	console.log(order);
 	const makePayment = async (e) => {
 		e.preventDefault();
@@ -24,8 +26,11 @@ const Payment = () => {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",
+				"Authorization": `${token}` 
+
 			},
 			body: JSON.stringify({
+				email:user.email,
 				order
 			}),
 		})

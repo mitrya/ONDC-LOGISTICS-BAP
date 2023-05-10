@@ -9,9 +9,11 @@ import '../serviceCard/serviceCard.styles.css'
 const OrderHistory = () => {
     
     const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
+    const token = JSON.parse(localStorage.getItem('token'))
     const [orders, setOrders] = useState(undefined);
     const [loading,setLoading] = useState(false);
     const [userData, setUserData] = useState()
+
     const navigate = useNavigate()
     useEffect( () => {
         setLoading(true)
@@ -43,8 +45,10 @@ const OrderHistory = () => {
               method: "post",
               headers: {
                 "Content-Type": "application/json",
+                "Authorization": `${token}` 
               },
               body: JSON.stringify({
+                email:user.email,
                 id:userData._id
               }),
             })

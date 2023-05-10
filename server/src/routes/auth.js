@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt')
 const jwt  = require('jsonwebtoken');
 const User = require('../models/person');
 const JWT_SECRET = 'secRET';// require(process.env)
+const verifyToken = require('../middleware/auth');
 
 router.get("/test",(req,res) => {
 	res.json({message : "Test Route working"})
@@ -83,7 +84,7 @@ router.post("/signin", async (req,res) => {
 
 })
 
-router.post("/updateaddress", async (req,res) => {
+router.post("/updateaddress", verifyToken ,async (req,res) => {
 	const {email,address} = req.body;
 	let user = await User.findOne({email})
 	if(!user) {
