@@ -2,6 +2,12 @@
 {
     width: 100%;
     margin-bottom: 2%;
+    background-color: #577D86;
+    margin: #223235 !important;
+}
+
+.btn:hover{
+    background-color: #223235 ;
 }
 
 .msform {

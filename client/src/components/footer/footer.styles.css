@@ -30,6 +30,7 @@
 
 .footer-column ul li {
   margin-bottom: 10px;
+  font-size: medium;
 }
 
 .footer-links {
@@ -40,6 +41,7 @@
 .footer-link {
   color:whitesmoke;
   text-decoration: none;
+  font-size: medium;
 }
 .footer-link:hover {
   color:#223235;
