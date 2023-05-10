@@ -74,9 +74,3 @@
     opacity: 1; /* Firefox */
 }
 
-#Submit-complaint{
-    background-color: #577D86;
-}
-#Submit-complaint:hover{
-    background-color: #223235;
-}

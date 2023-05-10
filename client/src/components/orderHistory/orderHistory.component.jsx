@@ -22,6 +22,7 @@ const OrderHistory = () => {
         .then(data => {
             setUserData(data.user)
             setOrders(data.user.orders)
+            setLoading(false)
         })
         .catch(
 			error => {

@@ -92,7 +92,7 @@ function Grievance() {
                     <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%', paddingBottom:'50px'}}/>
                     {info.length>0 && displayMessage(info)}
                     {/* <input type="submit" id="grievance-message-submit" value="SUBMIT" /> */}
-                    <Button id="Submit-complaint" onClick={handleClick} >Submit</Button>
+                    <Button id="Submit-complaint" variant="primary" onClick={handleClick} >Submit</Button>
                 </form>
             </>
         )
