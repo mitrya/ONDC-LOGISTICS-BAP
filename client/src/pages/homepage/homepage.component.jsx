@@ -126,7 +126,7 @@ const Homepage = () => {
 										<span className={(returnIsValid(destinationDescription))?"text-success fw-bolder ":""}>{destinationDescription}</span>
 									</Form.Text>
 								</Form.Group>
-								<Button variant="primary" onClick={submitLocationData} >
+								<Button variant="primary" onClick={submitLocationData} className='button' >
 									Submit
 								</Button>
 							</Form>

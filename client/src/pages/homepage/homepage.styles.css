@@ -65,6 +65,13 @@
   background-color: white;
 }
 
+.button{
+  background-color: #577D86 !important;
+}
+.button:hover{
+  background-color: #223235  !important;
+}
+
 
 @media (max-width: 768px) {
   .hero-text {

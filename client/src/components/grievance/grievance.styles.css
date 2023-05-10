@@ -63,7 +63,7 @@
    
 }
 
-#gform #Submit-complaint {
+#gform{
   padding-top: 30px;
   background-color: green;
   color:white
@@ -72,4 +72,11 @@
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     opacity: 1; /* Firefox */
+}
+
+#Submit-complaint{
+    background-color: #577D86;
+}
+#Submit-complaint:hover{
+    background-color: #223235;
 }

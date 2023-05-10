@@ -92,7 +92,7 @@ function Grievance() {
                     <textarea name="content" placeholder="Complaint/Feedback" onChange={handleChange} style={{width:'100%', paddingBottom:'50px'}}/>
                     {info.length>0 && displayMessage(info)}
                     {/* <input type="submit" id="grievance-message-submit" value="SUBMIT" /> */}
-                    <Button id="Submit-complaint" onClick={handleClick} style={{ marginTop:'20px', backgroundColor: 'green', color: 'white', border: 'none', fontSize: '16px'} }>Submit</Button>
+                    <Button id="Submit-complaint" onClick={handleClick} >Submit</Button>
                 </form>
             </>
         )
@@ -105,7 +105,7 @@ function Grievance() {
                             
                     <div id="other-info">
                         <div className="promotion">
-                            <h1 className='gheader'>Do you have any Grievances?</h1 > 
+                            <h1 className='gheader'>Do you have any complaints?</h1 > 
                         </div>
                         <div className="promotion-sub">
                             <span>
