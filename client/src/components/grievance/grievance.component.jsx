@@ -103,7 +103,7 @@ function Grievance() {
                 
                 <div id="second-box">
                     <div id="promotion">
-                           <span>Do you have any Grievances?</span> 
+                           <span>Do you have any Complaints?</span> 
                     </div>
                     <div id="promotion-sub">
                             <span>

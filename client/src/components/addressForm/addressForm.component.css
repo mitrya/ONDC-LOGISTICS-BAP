@@ -1,0 +1,11 @@
+.container-form{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+Form{
+    display: inline-block;
+    margin: auto;
+    text-align: left;
+}

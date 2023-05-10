@@ -73,6 +73,9 @@
 .dropdown-menu .nav-link {
     color: rgba(0, 0, 0, 0.71) !important;
 }
+#offcanvasNavbarDropdown-expand-lg:hover{
+    color: #223235 !important;
+}
 
 .temp {
     margin-top:-10px;
@@ -91,8 +94,8 @@
 }
 
 .helper:hover{
-    background-color: white;
-    color:black;
+    color:#223235;
+
 }
 
 .logo-helper {
