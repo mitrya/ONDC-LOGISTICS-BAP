@@ -6,7 +6,6 @@ import { Card } from 'react-bootstrap'
 import { RatingStar } from "rating-star";
 import { ListGroup } from 'react-bootstrap'
 import { Form } from 'react-bootstrap'
-// import AddressForm from '../../components/addressForm/addressForm.component'
 import {ThreeDots} from "react-loading-icons"
 import {lookup as PINLookup} from 'india-pincode-lookup'
 
