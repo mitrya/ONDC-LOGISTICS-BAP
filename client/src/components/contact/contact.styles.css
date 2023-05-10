@@ -1,144 +1,120 @@
-section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    background-color: #9e9b9b29;
-}
-  
-
-.hero {
-    background-color: white;
-    padding: 50px;
-    text-align: center;
-    
-  }
-  
-  .hero-text {
-    font-size: 50px;
-    margin-bottom: 20px;
-    align-content: center;
-      
-  }
-#contact {
-    width: 100%;
-    height: auto;
-    padding-bottom: 50px;
-    background: linear-gradient(180deg, #577D86 60%, #4f7982); 
-}
-#contact #myaddress p {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 550;
-    display: inline-block; 
-}
-#contact #myaddress #contact-location span {
-    color: white;
-    font-size: 1.5rem;
-    display: inline-block;
-    margin-bottom: 1rem; 
-}
-#contact #myaddress #contact-mobile span {
-    color: white;
-    font-size: 1.5rem;
-    display: inline-block;
-    margin-bottom: 1rem; 
-}
-#contact #myaddress #contact-email span {
-    color: white;
-    font-size: 1.5rem;
-    display: inline-block;
-    margin-bottom: 1rem;
-}
-#contact #message-submit {
+.container-contact-fluid {
+    position: relative;
+    padding: 1em;
     margin: auto;
-    margin-top: 1rem;
+    /* align-items: center; */
+    text-align: center;
+    padding-bottom: 100px;
+    padding-top: 30px;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #83f0b8, #73b7d4);
+    background-size: 100% 10vh; /* Set the background size to cover the entire viewport height */
+}
+
+  .hero{
+    color:white;
+    text-align: center;
+  }
+
+  .hero-text{
+   font-size: 50px;
+   padding:0px;
+   margin: 0;
+   
+  }
+  .hero-query-subtext{
+    font-size: 25px;
+  }
+  .hero-subtext{
+    font-size: 20px;
+    padding:0px;
+    margin: 0;
+  }
+
+ /* Style the main container */
+.contact-floating-container {
+    position: relative;
+    position: center;
+    align-self: center;
+    margin-left: 27%;
+    margin-top: -80px;
+    margin-bottom: 3%;
+    width: 45%;
+    height: 58vh;
+    background-color: #ffffff;
+    border-radius: 10px 0 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    /* padding-bottom: 100px; */
+  }
+  
+
+.other-info{
+    text-align: center;
+    width:50%;
+
+}
+
+  
+#connect-text{
+    text-align: left;
+    margin:5px;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+
+.contact-form{
+    width:100%;
+    height:100%;
+    padding:20px;
+    margin:20px;
+
+}
+#contact-form {
+    box-sizing: border-box;
+    width: 55%;
+    margin: auto; 
+    display:flex;
+    flex-direction: column;
+    
+}
+
+#message-section #message-submit {
+    margin: auto;
+    /* margin-top: 10px; */
     display: block; 
+    margin-bottom: 10px;
 }
   
-#contact-header {
-    color: white;
-    font-size: 2.9rem;
-    font-weight: 530;
-    margin-top: 1.5rem;
-    margin-bottom: 3.5rem; 
-}
-
-#flex_user {
-    height: auto;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap; 
-}
-
-.box {
-    height: auto;
-    min-height: 70vh;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column; 
-    
-}
-    
-.contact-header {
-    padding: 1rem;
-    font-size: 2rem;
-    color: red;
-    height: 10%; 
-}
-
-.contact-box {
-    height: 100%;
-    min-height: 63vh;
-    padding: 1rem; 
-    
-}
-
-#other-info {
-    box-sizing: border-box;
-    width: 35%;
-    margin: auto; 
-    align-items: top;
-}
-#other-info #connect span {
-    display: inline-block;
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 550; 
-}
-#other-info #connect #connect-text {
-    display: inline-block;
-    color: white;
-    font-size: 1.2rem;
-    text-align: justify; 
-}
-        
-/*Contact Section's message-section*/
-#message-section {
-    box-sizing: border-box;
-    width: 35%;
-    margin: auto; 
-}
-
-#contact input[type="text"] {
+#message-section input[type="text"] {
     border: 0;
     outline: 0;
-    border-bottom: 2px solid white;
-    background-color: transparent;
+    /* border-bottom: 2px solid white; */
+    background-color: rgb(232, 227, 227);
     display: inline-block;
+    border-radius: 5%;
+    margin: 5px;
     margin-bottom: 2.7rem;
     width: 100%;
-    color: white;
-    height: 2rem;
+    color:black;
+    height: 3rem;
     padding-left: 0.4rem; 
 }
+  
+
           
-#contact input[type="submit"] {
+#message-section input[type="submit"] {
     color: white;
-    background-color: transparent;
+    background-color: #53b5df;
     border: 2px solid white;
+    border-radius: 7%;
     padding: 0.8rem 0.8rem;
     font-weight: 550;
     display: inline-block;
@@ -147,17 +123,6 @@ section {
 #contact #message-submit:hover {
     background-color: white;
     color:#4f7982; 
-}
-
-@media screen and (max-width: 728px) {
-    #other-info {
-        width: 80%;
-        margin-top: 10rem;
-        margin-bottom: 5rem;
-    }
-    #message-section {
-        width: 80%; 
-    } 
 }
 
 .dropdown-menu {
@@ -181,3 +146,22 @@ section {
     color: white;
     opacity: 1; /* Firefox */
   }
+
+
+@media (max-width:700px) {
+    .contact-floating-container{
+        flex-direction: column;
+        height:100%;
+        width:100%;
+        padding:0;
+        margin:0;
+    }
+    .other-info{
+        margin: 10px
+    }
+    .contact-form{
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+}
