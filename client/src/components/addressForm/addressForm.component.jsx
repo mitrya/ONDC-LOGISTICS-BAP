@@ -10,7 +10,7 @@ const AddressForm = () => {
 	const pinExample = "Example 110001"
     const pinError  = "invalid PIN"
 	const user = JSON.parse(localStorage.getItem('user'))
-  const token = JSON.parse(localStorage.getItem('token'))
+  	const token = JSON.parse(localStorage.getItem('token'))
 
 	const [address, setaddress] = useState({
 		door:'',
