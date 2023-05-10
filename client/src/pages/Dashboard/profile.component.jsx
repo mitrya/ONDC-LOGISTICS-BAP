@@ -21,7 +21,7 @@ const Profile = () => {
       <div className='Account-container'> 
     
     <div className='float-container'>
-    <img  id="img" src="cat.jpg" alt="Description of the image"></img>
+    <img  id="img" src="cat.jpg" ></img>
     <div id="user-account-data">
         
         <p>{user.name.toUpperCase()}</p>
@@ -55,14 +55,30 @@ const Profile = () => {
     </div>
   <div className='cards-in-row' style={{alignSelf:'center'}}>
     <div className='card-account' style={{backgroundColor:'#dbc3e4'}}onClick={() => window.location.href = '/'}>
-    <img  id="image-cards-account" src="/order-icon.jpg"  style={{display:'block', margin:'40px', marginTop:'40px',borderRadius:'50%', width:'150px', height:'150px', objectFit:'cover', objectPosition:'center'}}></img>
-        <p>Explore and Order</p>
-        <p>&#10140;</p>
+    <img  id="image-cards-account" src="/order-icon.jpg"  
+    style={{display:'block', margin:'30px',
+     marginTop:'40px',borderRadius:'50%',
+      width:'150px', height:'150px', 
+      objectFit:'cover', objectPosition:'center',
+     
+      }}>
+
+      </img>
+        <p>Explore & Order &#10140;</p>
+        {/* <p>&#10140;</p> */}
         </div>
         <div className='card-account'style={{backgroundColor:'#d1e4c3'}}onClick={() => window.location.href = '/orders'}>
-        <img  id="image-cards-account" src="/parcel.jpg" style={{display:'block', margin:'40px', marginTop:'40px',borderRadius:'50%', width:'150px', height:'150px', objectFit:'cover', objectPosition:'center'}}></img>
-        <p>Your Orders</p>
-        <p> &#10140;</p>
+        <img  id="image-cards-account" src="/parcel.jpg" 
+        style={{display:'block', margin:'30px', 
+              marginTop:'50px',borderRadius:'50%',  
+              width:'140px', height:'140px',  
+              objectFit:'cover', objectPosition:'center',
+              marginRight:'10px',
+            }}>
+
+              </img>
+        <p>Monitor Orders &#10140;</p>
+        {/* <p> </p> */}
         </div>
 </div>
   
