@@ -149,10 +149,10 @@ const SignUp = () => {
     return (
       <div className="forms  mt-5 d-flex justify-content-center">
         <Form>
-          <div className='form container'> 
-            <div className='row'>
+          <div className='form container '> 
+            <div className='row flex-user'>
 
-              <div className="col">
+              <div className="col fwrap">
                 <div className="form-heading">Sign Up</div>
                 <div className="form-subheading">Sign up with your email and password</div>
             
@@ -230,7 +230,7 @@ const SignUp = () => {
                 </FormGroup>
 
                 </div>
-                <div className={(!hide) ? 'col' : 'hidden'}>
+                <div className={(!hide) ? 'col fwrap' : 'hidden'}>
                   <div className="form-subheading">Address Details</div>
                   <Form.Group className="mb-3" controlId="signUpFormAddDoor">
                       <Form.Label>Door Number</Form.Label>

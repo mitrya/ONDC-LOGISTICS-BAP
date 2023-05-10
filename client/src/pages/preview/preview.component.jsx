@@ -47,7 +47,7 @@ const Preview = () => {
     })
 
 	const [address, setaddress] = useState({
-		Receiver_Name:'',
+		rName:'',
 		door:'',
 		street:'',
 		country:'India',

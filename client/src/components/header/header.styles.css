@@ -39,18 +39,17 @@
     /* background-color: aliceblue; */
     
     
-    .btn1{
-        color: aliceblue;
-        font-weight: 500;
-        width: 10% !important;
-        background-color: whitesmoke !important;
-        text-align: center !important;
-        margin: 10px;
-        padding: 5px;
-    }
-    .btn1:hover{
-        background-color: #78979E !important;
-    }
+.btn1{
+    color: aliceblue;
+    font-weight: 500;
+    background-color: whitesmoke !important;
+    text-align: center !important;
+    margin: 10px;
+    padding: 5px;
+}
+.btn1:hover{
+    background-color: #78979E !important;
+}
 .btn1:active{
     box-shadow: 0 5px #666;
     transform:translateY(4px) ;

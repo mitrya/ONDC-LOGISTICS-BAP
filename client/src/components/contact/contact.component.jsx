@@ -89,40 +89,37 @@ function Contact() {
 
     return (
         <>
-        
-        <div className="hero">
-                <h1 className="hero-text">
-                We'd love to hear from you!
+        <div className='container-contact-fluid '>
+            <div className="hero">
+                <h1 className="hero-text" style={{paddingBottom:'0', margin:'0'}}>
+                Don't be a stranger 
                 </h1>
-                <p className="hero-subtext">
-                Have questions about our products, features, trials, or pricing? Need a demo?
+                <h1 className="hero-text" style={{paddingBottom:'30px'}}>
+                Just say hello
+                </h1>
+                <p className="hero-query-subtext">
+                Have some questions? Need a demo?
                 </p>
                 <p className="hero-subtext">
-                     Our teams will help you.
+                 Thank You for your interest in our services. 
+                </p>
+                <p className="hero-subtext">
+                Please fill out the form below or email us at ourEmail@gmail.com
                 </p>
            </div>
-           
-            <div className='container-fluid box mt-3 mb-2 mx-1'>
-
-                <div className="contact-box">
-                    <section id="contact">
-                        <div id="contact-header">
-                            <span>Feedback</span>
-                            {/* <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-address-book" /></span> */}
-                        </div>
-                        <div id="flex_user">
-                            <div id="message-section">
-                                {MyForm()}
-                            </div>
-                            <div id="other-info">
+        </div>
+        <div className='contact-floating-container'>
+            <div id="other-info">
+                <img id="contact-img" src="contact-us.jpg" style={{margin:'5px', maxWidth:'70%', height:'auto'}}>
+                </img>
                                 <div id="connect">
-                                    <span>Get in touch</span>
+                                    <span style={{alignSelf:'center', fontSize:'40px', marginLeft:'20px',}}>Get in touch</span>
                                     <div id="connect-text">
-                                    <p>While we are good with smoke signals, there are simpler ways for us to get in touch and answer your questions :)</p>
+                                    <span>While we are good with smoke signals,
+                                        </span><span> there are simpler ways for us to get in touch and answer your questions</span>
                                     </div>
                                 </div>
                                 <div id="myaddress">
-                                    <p>Our Address</p>
                                         <div id="contact-location">
                                             <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-map-marker" /></span>
                                             <span>&nbsp;Delhi, India</span>
@@ -138,11 +135,28 @@ function Contact() {
                                             <span>&nbsp;ourEmail@gmail.com</span>
                                         </div>
                                 </div>
-                            </div>
-                       </div>
-                    </section>
-                </div>
             </div>
+            <div className='contact-form'>
+            <div style={{textAlign:'left', fontSize:'40px', color:'#58b384'}}>
+                        <p >
+                           Please fill this Form
+                        </p>
+                    </div>
+                    <div id="message-section">
+                                {MyForm()}
+                            </div>
+                    <div style={{textAlign:'center', marginLeft:'20', padding:'0'}}>
+                        <span>
+                            The Company shall not sell, share or trade customer information.</span>
+                        
+                        <span> Your Privacy is very important to us.</span>
+                    </div>
+            </div>
+
+           </div>
+        
+           
+           
         </>
     );
 }
