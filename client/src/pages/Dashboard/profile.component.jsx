@@ -27,8 +27,8 @@ const Profile = () => {
               <div className='address-account'>
               {user.address ? (
                 <div>
-                  <p>Address: Door:{user.address.door}, Street:{user.address.street}, Pincode: {user.area_code}</p>
-                  <p>City-{user.address.city}, State-{user.address.state},  Country-{user.address.country} </p>
+                  <p>Address: <br /> {user.address.door} <br /> {user.address.street}</p>
+                  <p>{user.address.city} <br />  Pincode: {user.area_code} <br />{user.address.state} <br /> {user.address.country} </p>
                 </div>
               ) : (
                 <p>Address not provided</p>
@@ -44,7 +44,7 @@ const Profile = () => {
         </div>
         <div className='float-container'>
           <div id="welcoming" style={{textAlign:'center'}}>
-            <h1>Welcome! ✨ {user.name.toUpperCase()}</h1>
+            <h1>Welcome!{user.name.toUpperCase()}</h1>
             <h5> Unify Your Logistics Experience with ONDC Consumer application:
                   Bringing Convenience to Your Doorstep</h5>
           </div>
