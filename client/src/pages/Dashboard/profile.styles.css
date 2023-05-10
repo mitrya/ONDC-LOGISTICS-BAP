@@ -57,7 +57,7 @@
 }
 
 #user-account-data p {
-  font-size: 30px;
+  font-size: 1.6rem;
   font-weight: 400;
   margin: 10px 0;
   text-align: center;
@@ -103,7 +103,21 @@
 	margin-top: 15%;
 	display: flex;
   }
+.row-add{
+	text-align: center;
+	align-items: center;
+}
+.aform{
+	/* text-align: center; */
+	margin: auto;
+}
 
+.sub-btn{
+	width:max-content !important;
+	padding: 2px;
+	margin:auto !important;
+
+}
 
   .card-account:hover {
 	transform: scale(1.05); /* Increase the size of the card on hover */

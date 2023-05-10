@@ -25,23 +25,26 @@ const Profile = () => {
     <div id="user-account-data">
         
         <p>{user.name.toUpperCase()}</p>
-        <p>{user.email}</p>
+        <p><span>Email: </span>{user.email}</p>
         <div className='address-account'>
   {user.address ? (
     <div>
-      <p>Address: Door:{user.address.door}, Street:{user.address.street}, Pincode: {user.area_code}</p>
-      <p>City-{user.address.city}, State-{user.address.state},  Country-{user.address.country} </p>
+      <p>Address: Door:{user.address.door}, {user.address.street},</p>
+      <p>{user.address.city} City, {user.address.state}, {user.address.country} </p>
+      <p> Pincode: {user.address.area_code}</p>
     </div>
   ) : (
     <p>Address not provided</p>
   )}
 </div>
       {
-        (upAdd) ? <div className="row"><AddressForm ></AddressForm> </div> : <></> 
+        (upAdd) ? <div className="row aform" ><AddressForm ></AddressForm> </div> : <></> 
        }
        
-        <div className="row-add">
-          <Button id={upAdd ? 'hidden Update-address' : 'Update-address'} onClick={handleClick} style={{backgroundColor:'#577D86', width:'40%', marginLeft:'32%'}}>{upAdd ? 'Cancel' : 'Update My Address'}</Button>
+        <div className="row">
+          <Button id={upAdd ? 'hidden Update-address' : 'Update-address'} className='sub-btn' variant="primary" onClick={handleClick} >
+            {upAdd ? 'Cancel' : 'Update My Address'}
+          </Button>
         </div> 
         
   </div>

@@ -83,10 +83,12 @@ function Header() {
                       </div>
                       :
                       <>
-                        <a href="/signIn" className="btn btn1" role="button">Login</a>
-                        <a href="/signUp" className="btn btn1" role="button">Register</a>
-                        {/* <Link to="/signIn" className='link'>Login</Link>
-                        <Link to="/signUp" className='link'>Register</Link> */}
+                        {/* <a href="/signIn" className="btn btn1" role="button">Login</a>
+                        <a href="/signUp" className="btn btn1" role="button">Register</a> */}
+                        <div className="d-flex">
+                          <Link to="/signIn" className='link btn btn1'>Login</Link>
+                          <Link to="/signUp" className='link btn btn1'>Register</Link>
+                        </div>
                       </>
               }
 
