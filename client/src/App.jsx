@@ -20,6 +20,7 @@ import Track from './components/track/track.component';
 import Terms from './components/terms_and_conditions/terms.component';
 import Verifyotp from './components/verifyOTP/verifyotp.component';
 import ForgotPassword from './components/forgotPassword/forgotPassword.component';
+import SetNewPassword from './components/setNewPassword/setNewPassword.component';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/terms_and_conditions" element={<Terms />} />
           <Route path="/verifyOTP" element={<Verifyotp/>} />
           <Route path="/forgotPassword" element={<ForgotPassword/>} />
+          <Route path="/setNewPassword" element={<SetNewPassword/>} />
         </Routes>
       </main>
       <Footer/>

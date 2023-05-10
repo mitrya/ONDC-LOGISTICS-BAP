@@ -255,7 +255,7 @@ const SignUp = () => {
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="signUpFormAreaCode">
-                    <Form.Label>Area Code</Form.Label>
+                    <Form.Label>Pin Code</Form.Label>
                     <Form.Control 
                       name="area_code"
                       type="text" 

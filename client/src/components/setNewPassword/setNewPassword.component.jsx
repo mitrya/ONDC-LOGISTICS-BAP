@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {ThreeDots} from 'react-loading-icons'
 
-const ForgotPassword = () => {
+const SetNewPassword = () => {
 
     useEffect(() => {
         document.title='Password-Reset'
@@ -12,28 +12,39 @@ const ForgotPassword = () => {
 
     const history=useNavigate();
     const navigate = useNavigate();
-    const [email,setEmail] = useState('');
+    const [userInfo,setUserInfo] = useState({
+        email:'',
+        password:'',
+        confirmPassword:'',
+        otp:''
+    });
+    const {email,password,confirmPassword,otp} = userInfo;
     const [loading,setLoading] = useState(false);
     const [info,setInfo] = useState('');
     const [result,setResult] = useState(false);
     
     const handleChange = (event) => {
-        setEmail(event.target.value);
+        setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
         setInfo('');
         setResult(false);
     };
 
     const handleSubmit = async event => {
         event.preventDefault();
+        const email = JSON.parse(localStorage.getItem('email'));
+        console.log(email,password,confirmPassword,otp);
         setLoading(true);
         try {
-            let res = await fetch('https://logigoapi.onrender.com/passwordResetOTP',{
+            let res = await fetch('https://logigoapi.onrender.com/setPassword',{
                 method: "post",
                 headers: {
                     "Content-Type" : "application/json",
                 },
                 body:JSON.stringify( {
-                    email:email
+                    email:email,
+                    password:password,
+                    confirmPassword:confirmPassword,
+                    otp:otp
                 })
             });
             let data = await res.json();
@@ -46,8 +57,7 @@ const ForgotPassword = () => {
 			    setLoading(false);
                 setInfo(data.message);
                 setResult(true);
-                localStorage.setItem('email', JSON.stringify(email));
-                navigate('/setNewPassword');
+                navigate('/signin');
             }
         } catch (error) {
             console.log('error= ',error);
@@ -79,23 +89,45 @@ const ForgotPassword = () => {
     return (
         <div className="forms mt-5 d-flex justify-content-center">
             <div className='form1'> 
-                <div className="form-heading">Reset Password</div>
-                <div className="form-subheading">Please enter the email id associated to your account.</div>
+                <div className="form-heading">Password Reset</div>
+                <div className="form-subheading">Please enter the otp received and set the new password.</div>
                 <Form>
 
                     <Form.Group className="mb-3" controlId="signInFormBasicPassword">
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label>OTP</Form.Label>
                         <Form.Control 
-                            name="email"
-                            type="email" 
-                            placeholder="Enter email" 
+                            name="otp"
+                            type="text" 
+                            placeholder="Enter OTP" 
                             required
-                            value={email}
+                            value={otp}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="signInFormBasicPassword">
+                        <Form.Label>New Password</Form.Label>
+                        <Form.Control 
+                            name="password"
+                            type="password" 
+                            placeholder="Enter new Password" 
+                            required
+                            value={password}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="signInFormBasicPassword">
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control 
+                            name="confirmPassword"
+                            type="password" 
+                            placeholder="Confirm new password" 
+                            required
+                            value={confirmPassword}
                             onChange={handleChange}
                         />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={handleSubmit}>
-                    {loading ? <span> Loading</span>: <span>Get OTP</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
+                    {loading ? <span> Loading</span>: <span>Set Password</span>} &nbsp; {loading && <span className='loader'><ThreeDots/></span>}
                     </Button>
                 </Form>
                 {info.length>0 && displayMessage(info)}
@@ -104,4 +136,4 @@ const ForgotPassword = () => {
     )
 }
 
-export default ForgotPassword;
+export default SetNewPassword;
