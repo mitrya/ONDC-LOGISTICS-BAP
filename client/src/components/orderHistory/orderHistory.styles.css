@@ -15,7 +15,7 @@
     padding-bottom: 20px;
 }
 #order-subhead-part1{
-    font-size: 25px;
+    font-size: 20px;
     text-align:left;
     padding-bottom:30px;
     margin-left:0%;
@@ -23,18 +23,16 @@
 }
 #order-subhead-part2{
     width:20%;
-    
-    
 }
 .new_order {
-    background-color: #65a467;
+    background-color: #577D86;
     border: none;
     color: white;
     padding: 12px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 22px;
+    font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
@@ -42,13 +40,8 @@
   }
   
 .new_order:hover {
-    background-color: #3e8e41;
-    color:black;
-    
-    transform: scale(1.05); /* Increase the size of the card on hover */
-	  cursor: pointer; /* Change the cursor to a pointer on hover */
-	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    
+    background-color: #223235 ;    
+    color: white;
   }
 .order-card-container {
     padding-top: 20px;
@@ -83,10 +76,10 @@
     /* your other card styles */ 
     
   }
-  .order-card-row:hover,
+  /* .order-card-row:hover,
   .order-card-row:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+  } */
 
 
 /* CSS */
@@ -112,18 +105,18 @@
 
   }
   .cancel_order:hover{
-    color:black;
+    /* color:black;
     transform: scale(1.05); /* Increase the size of the card on hover */
-	  cursor: pointer; /* Change the cursor to a pointer on hover */
-	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-color: rgb(247, 62, 62);
+	  /* cursor: pointer; /* Change the cursor to a pointer on hover */
+	  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  */
+    background-color: #223235;
   }
   .track_order:hover{
-    color:black;
-    transform: scale(1.05); /* Increase the size of the card on hover */
-	  cursor: pointer; /* Change the cursor to a pointer on hover */
-	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-color: rgb(123, 123, 237);
+    /* color:black; */
+    /* transform: scale(1.05); Increase the size of the card on hover */
+	  /* cursor: pointer; Change the cursor to a pointer on hover */
+	  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    background-color: #223235;
   }
 
   .order-card-image {
