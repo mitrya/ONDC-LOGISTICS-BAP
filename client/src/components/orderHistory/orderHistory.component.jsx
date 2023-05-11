@@ -73,6 +73,7 @@ const OrderHistory = () => {
     const toTrack = (e) => {
       e.preventDefault();
       // return
+      console.log('sdfkjsd');
       const id = e.target.attributes.id.value;
       navigate('/track', {state:{tid:id}})
     }

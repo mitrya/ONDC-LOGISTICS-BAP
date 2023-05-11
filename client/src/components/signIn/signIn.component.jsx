@@ -42,7 +42,7 @@ const SignIn = () => {
         const {email,password}=signInDetails;
         
         try {
-            let res = await fetch('https://logigoapi.onrender.com/signin',{
+            let res = await fetch('http://logigoapi.onrender.com/signin',{
                 method: "post",
                 headers: {
                     "Content-Type" : "application/json",

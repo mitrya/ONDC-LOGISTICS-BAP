@@ -66,7 +66,7 @@ router.post("/signin", async (req,res) => {
 	if(!saveduser||!saveduser.otp_verified) {
 		return res.json({error : "User not registered" });
 	}
-
+	console.log(saveduser);
 	bcrypt.compare(password,saveduser.password)
 		.then((doMatch) => {
 			if(doMatch) {

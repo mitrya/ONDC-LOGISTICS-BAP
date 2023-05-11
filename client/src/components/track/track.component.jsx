@@ -20,7 +20,6 @@ const Track = () => {
 		setchecked(true)
 		setLoading(false);
 		setdata(res)
-		// console.log(res, data);
 	}
 
 	const handleChange = (event ) => {
