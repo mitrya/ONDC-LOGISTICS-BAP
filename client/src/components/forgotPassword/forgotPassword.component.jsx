@@ -37,7 +37,7 @@ const ForgotPassword = () => {
                 })
             });
             let data = await res.json();
-            console.log('data= ',data);
+            // console.log('data= ',data);
             if(data.error) {
 			    setLoading(false);
                 setInfo(data.error);

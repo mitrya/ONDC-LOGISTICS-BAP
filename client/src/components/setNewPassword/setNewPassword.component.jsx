@@ -32,7 +32,7 @@ const SetNewPassword = () => {
     const handleSubmit = async event => {
         event.preventDefault();
         const email = JSON.parse(localStorage.getItem('email'));
-        console.log(email,password,confirmPassword,otp);
+        // console.log(email,password,confirmPassword,otp);
         setLoading(true);
         try {
             let res = await fetch('https://logigoapi.onrender.com/setPassword',{
@@ -48,7 +48,7 @@ const SetNewPassword = () => {
                 })
             });
             let data = await res.json();
-            console.log('data= ',data);
+            // console.log('data= ',data);
             if(data.error) {
 			    setLoading(false);
                 setInfo(data.error);

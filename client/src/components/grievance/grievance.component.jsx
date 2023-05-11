@@ -28,7 +28,7 @@ function Grievance() {
 
     const handleClick = async (event) =>{
         event.preventDefault();
-        console.log(messageBody);
+        // console.log(messageBody);
         try {
 			let res = await fetch("https://logigoapi.onrender.com/grievance", {
 				method: "post",

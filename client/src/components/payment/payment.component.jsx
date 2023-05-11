@@ -17,7 +17,7 @@ const Payment = () => {
 	const [user,setuser] = useState(JSON.parse(localStorage.getItem('user')));
 	const token = JSON.parse(localStorage.getItem('token'))
 
-	console.log(order);
+	// console.log(order);
 	const makePayment = async (e) => {
 		e.preventDefault();
 		setLoading(true);
@@ -36,7 +36,7 @@ const Payment = () => {
 		})
 
 		let data = await res.json();
-		console.log(data);
+		// console.log(data);
 		
 		if(data.error) {
 			setLoading(false);

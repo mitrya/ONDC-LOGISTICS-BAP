@@ -30,7 +30,7 @@ function Contact() {
 
     const handleClick = async (event) =>{
         event.preventDefault();
-        console.log(messageBody);
+        // console.log(messageBody);
         try {
 			let res = await fetch("https://logigoapi.onrender.com/message", {
 				method: "post",
