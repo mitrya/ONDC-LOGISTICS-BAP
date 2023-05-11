@@ -111,6 +111,7 @@ const OrderHistory = () => {
                                                             <Card.Title>Order Recipient: {order.deliveryaddress[0].rName.toUpperCase()}</Card.Title>
                                                         
                                                                 <ListGroup className="list-group-flush">
+                                                                    <ListGroup.Item>Pickup : {order._id}</ListGroup.Item>
                                                                     <ListGroup.Item>Pickup : {order.pickupaddress[0].city}</ListGroup.Item>
                                                                     <ListGroup.Item>Drop : {order.deliveryaddress[0].city}</ListGroup.Item>
                                                                     <ListGroup.Item>Item Type : {order.items.type}</ListGroup.Item>

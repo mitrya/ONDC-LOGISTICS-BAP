@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import { Button, Form,Card , ListGroup} from "react-bootstrap";
 import {ThreeDots} from "react-loading-icons"
 
 const Track = () => {
-	const [oid, setOid] = useState("") 
+	const location = uselocation()
+	const [oid, setOid] = useState(location?.state?.tid) 
 	const [data, setdata] = useState({})
 	const [checked,setchecked ] = useState(false)
 	const errText= "Error finding your order please try again"
