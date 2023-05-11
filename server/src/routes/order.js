@@ -13,7 +13,7 @@ const verifyToken = require('../middleware/auth');
 
 
 // Create a new order
-router.post("/neworder" ,verifyToken ,async (req, res) => {
+router.post("/neworder" ,async (req, res) => {
 	console.log('Received a new order');
 	try {
 		const { source, destination, value, type, email, courier,price ,address} = req.body.order;
@@ -96,7 +96,7 @@ router.get("/:orderId", async (req, res) => {
 });
 
 // Update an existing order by ID
-router.put("/:orderId",verifyToken , async (req, res) => {
+router.put("/:orderId", async (req, res) => {
 	try {
 		const { pickupaddress, deliveryaddress, items, userId, paymentdetails, providercontact, tracking, state, transactionId, paymentStatus, message } = req.body;
 		if (!pickupaddress || !deliveryaddress || !items || !userId || !paymentdetails) {
@@ -126,7 +126,7 @@ router.put("/:orderId",verifyToken , async (req, res) => {
 });
 
 // Delete an existing order by ID
-router.post("/delete/:orderId", verifyToken ,async (req, res) => {
+router.post("/delete/:orderId" ,async (req, res) => {
 	const {id} = req.body
 	console.log('delete req for user ', id);
 	try {

@@ -82,7 +82,7 @@ router.post("/signin", async (req,res) => {
 
 })
 
-router.post("/updateaddress", verifyToken ,async (req,res) => {
+router.post("/updateaddress" ,async (req,res) => {
 	const {email,address} = req.body;
 	let user = await User.findOne({email})
 	if(!user) {
