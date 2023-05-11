@@ -38,7 +38,7 @@ const Profile = () => {
               (upAdd) ? <div className="row"><AddressForm ></AddressForm> </div> : <></> 
             }
             <div className="row-add">
-              <Button id={upAdd ? 'hidden Update-address' : 'Update-address'} onClick={handleClick} style={{backgroundColor:'#577D86', width:'40%', marginLeft:'32%'}}>{upAdd ? 'Cancel' : 'Update My Address'}</Button>
+              <Button id={upAdd ? 'hidden Update-address' : 'Update-address'} onClick={handleClick} style={{ width:'max-content'}}>{upAdd ? 'Cancel' : 'Update My Address'}</Button>
             </div>      
           </div>
         </div>

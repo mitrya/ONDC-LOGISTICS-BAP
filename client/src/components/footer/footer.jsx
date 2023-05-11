@@ -9,9 +9,9 @@ function Footer() {
         <div className="footer-column">
           <h3>Contact Us</h3>
           <ul>
-            <li>Address: Delhi, India</li>
-            <li>Phone: 0123456789</li>
-            <li>Email: ourEmail@gmail.com</li>
+            <li>Address: Allahabad, UP, India</li>
+            <li>Phone: 9392436624</li>
+            <li>Email: logigo4u@gmail.com</li>
           </ul>
         </div>
         <div className="footer-column">

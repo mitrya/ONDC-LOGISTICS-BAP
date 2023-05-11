@@ -13,19 +13,19 @@ import {ThreeDots} from "react-loading-icons"
 import  './header.styles.css'
 function Header() {
     const [user, setuser] = useState('')
-    const [width, setWidth] = useState(window.innerWidth);
+    // const [width, setWidth] = useState(window.innerWidth);
     const breakpoint =  980;
     const navigate = useNavigate();
 
     React.useEffect(() => {
-        const handleResizeWindow = () => setWidth(window.innerWidth);
+        // const handleResizeWindow = () => setWidth(window.innerWidth);
          // subscribe to window resize event "onComponentDidMount"
-         window.addEventListener("resize", handleResizeWindow);
+        //  window.addEventListener("resize", handleResizeWindow);
         setuser(JSON.parse(localStorage.getItem('user')));
-         return () => {
-           // unsubscribe "onComponentDestroy"
-           window.removeEventListener("resize", handleResizeWindow);
-         };
+        //  return () => {
+        //    // unsubscribe "onComponentDestroy"
+        //    window.removeEventListener("resize", handleResizeWindow);
+        //  };
        }, []);
 
     function LogoutHandler() {

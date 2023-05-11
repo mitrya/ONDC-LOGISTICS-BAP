@@ -122,17 +122,17 @@ function Contact() {
                                 <div id="myaddress">
                                         <div id="contact-location">
                                             <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-map-marker" /></span>
-                                            <span>&nbsp;Delhi, India</span>
+                                            <span>&nbsp;Allahabad, UP, India</span>
                                         </div>
                 
                                         <div id="contact-mobile">
                                             <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-phone" /></span>
-                                            <span>&nbsp;0123456789</span>
+                                            <span>&nbsp;9392436624</span>
                                         </div>
                 
                                         <div id="contact-email">
                                             <span className='px-3'><FontAwesomeIcon className="icon" icon="fa-envelope" /></span>
-                                            <span>&nbsp;ourEmail@gmail.com</span>
+                                            <span>&nbsp;logigo4u@gmail.com</span>
                                         </div>
                                 </div>
             </div>
