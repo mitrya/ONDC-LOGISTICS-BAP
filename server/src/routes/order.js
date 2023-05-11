@@ -65,7 +65,7 @@ router.post("/neworder" ,async (req, res) => {
 });
 
 // Get all orders
-router.get("/allorders/:email", async (req, res) => {
+router.get("/allorders/:email",verifyToken, async (req, res) => {
 	const email = req.params.email;
 	
 	try {
