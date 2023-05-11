@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import { useNavigate,useLocation } from "react-router-dom";
 import { Button, Form,Card , ListGroup} from "react-bootstrap";
 import {ThreeDots} from "react-loading-icons"
-
+import "./track.styles.css"
 const Track = () => {
-	const location = uselocation()
+	const location = useLocation()
 	const [oid, setOid] = useState(location?.state?.tid) 
 	const [data, setdata] = useState({})
 	const [checked,setchecked ] = useState(false)
@@ -29,7 +29,7 @@ const Track = () => {
 
 	return (
 		<div className="mt-5 d-flex justify-content-center form1">
-			<Form>
+			<Form className="">
 			<div className="form-heading">
 				Track Shipments
 			</div><br></br>
@@ -55,7 +55,7 @@ const Track = () => {
 			{
 				(data.error || data.state) ?  
 				((data.error)? 
-				<Card  className='mt-3 dumbo' style={{ width: 'max-content' }}>
+				<Card  className='mt-3 dumbo ' style={{ width: 'max-content' }}>
 					<Card.Body>
 						<Card.Title> {" Error " + data.error}</Card.Title>
 							
@@ -65,6 +65,7 @@ const Track = () => {
 				<Card  className='mt-3' style={{ width: 'max-content' }}>
 						<div className='card-rows'>    
 							<div className="card-row">
+								<Card.Img variant="top" src="/tracking.jpeg" className="ifluid"/>
 								<Card.Body>
 									<Card.Title>To {data.deliveryaddress[0].rName}</Card.Title>
 								
