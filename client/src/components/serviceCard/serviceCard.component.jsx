@@ -44,7 +44,7 @@ const ServiceCard = ({service,query}) => {
                     <ListGroup.Item>Code : {service.serviceDescriptor.serviceName}</ListGroup.Item>
                     <ListGroup.Item className='font-weight-bold'>Price : {service.price * query.weight} INR</ListGroup.Item>
                     <ListGroup.Item>Customer Rating	  
-                    <RatingStar id="123" rating={parseInt(service.rating)} />
+                    <RatingStar id={service.id} rating={parseInt(service.rating)} />
                     </ListGroup.Item>
                 </ListGroup>
 
