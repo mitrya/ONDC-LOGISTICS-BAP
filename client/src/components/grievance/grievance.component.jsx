@@ -100,28 +100,24 @@ function Grievance() {
 
     return (
         <>
-            <div className='grievance-container-fluid box  d-flex'>                
-              
-                            
-                    <div id="other-info">
-                        <div className="promotion">
-                            <h1 className='gheader'>Do you have any Grievances?</h1 > 
-                        </div>
-                        <div className="promotion-sub">
-                            <span>
-                            We value your feedback! 
-                            Tell us about your experience.
-                            </span>
-                        
-                        </div>
-                     </div>
-                     <div id="message-section" className='gform-cont' >
-                        <h3>Raise A Complaint Form</h3>
-                        {MyForm()}
-                    </div>
-              
+            <div className="greivance-container-fluid">
+                <div className='other-info-promotion'>
+                <h1 className='promotion'>Do you have any Grievances?</h1 >
+                <div className="promotion-sub">
+                    <span>
+                    We value your feedback! 
+                    Tell us about your experience.
+                    </span>
+                </div>
+                </div>
                     
-            </div>      
+                <div id="message-section" className='gform-cont' style={{textAlign:'center'}}>
+                    <h3 >Raise A Complaint Form</h3>
+                    {MyForm()}
+                </div>      
+            </div>
+           
+                    
         </>
     );
 }
