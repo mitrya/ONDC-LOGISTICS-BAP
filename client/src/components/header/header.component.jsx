@@ -74,7 +74,7 @@ function Header() {
                           <NavDropdown title={user.name} id="offcanvasNavbarDropdown-expand-lg" className={(width>breakpoint) ? 'dropstart' : 'dropdown' }>
                                 <NavDropdown.Item className='temp'><Link to="/profile" className="helper">My Account</Link></NavDropdown.Item>
                                 {/* <NavDropdown.Item><Link to="/track" className="helper">Track Shipments</Link></NavDropdown.Item> */}
-                                <NavDropdown.Item><Link to="/orders" className="helper">History</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to="/orders" className="helper">Orders History</Link></NavDropdown.Item>
                                 <NavDropdown.Item onClick={LogoutHandler}><Link to="" className="helper">Logout</Link></NavDropdown.Item>
                                 <NavDropdown.Item className='temp1'><Link to="/grievance" className="helper">Raise a Complaint</Link></NavDropdown.Item>
 

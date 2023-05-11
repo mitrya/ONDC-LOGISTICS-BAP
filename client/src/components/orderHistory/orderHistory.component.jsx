@@ -38,8 +38,8 @@ const OrderHistory = () => {
 
     const handleCancel = async (e) => {
         e.preventDefault()
-        // let id =  t
         let oid = e.target.attributes.id.value;
+		const parCard  = e.target.closest('div.card');
         try {
             let res = await fetch(`https://logigoapi.onrender.com/delete/${oid}`, {
               method: "post",
@@ -60,12 +60,14 @@ const OrderHistory = () => {
             } else {
                 setLoading(false);
                 alert('Order Cancelled Successfully')
+				parCard.remove()
             }
-          }
-          catch(err){
+        }
+        catch(err){
             setLoading(false);
             console.log("There is some error", err);
-          }
+        }
+		e.stopPropogation()
     }
 
     const toTrack = (e) => {
