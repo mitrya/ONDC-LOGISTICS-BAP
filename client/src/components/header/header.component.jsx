@@ -13,7 +13,7 @@ import {ThreeDots} from "react-loading-icons"
 import  './header.styles.css'
 function Header() {
     const [user, setuser] = useState('')
-    // const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState(window.innerWidth);
     const breakpoint =  980;
     const navigate = useNavigate();
 
