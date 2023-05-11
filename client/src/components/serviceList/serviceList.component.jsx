@@ -26,13 +26,13 @@ const ServiceList = () => {
       {
         
         const temp = data;
-        temp.sort((a,b)=>a.price-b.price);
+        temp.sort((a,b)=>a.price<b.price);
         setData(temp);
       }
       else
       {
         const temp = data;
-        temp.sort((a,b)=>b.rating-a.rating);
+        temp.sort((a,b)=>b.rating<a.rating);
         setData(temp);
       }
     
