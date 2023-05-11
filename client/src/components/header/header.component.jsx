@@ -18,14 +18,14 @@ function Header() {
     const navigate = useNavigate();
 
     React.useEffect(() => {
-        // const handleResizeWindow = () => setWidth(window.innerWidth);
-         // subscribe to window resize event "onComponentDidMount"
-        //  window.addEventListener("resize", handleResizeWindow);
+        const handleResizeWindow = () => setWidth(window.innerWidth);
+        //  subscribe to window resize event "onComponentDidMount"
+         window.addEventListener("resize", handleResizeWindow);
         setuser(JSON.parse(localStorage.getItem('user')));
-        //  return () => {
-        //    // unsubscribe "onComponentDestroy"
-        //    window.removeEventListener("resize", handleResizeWindow);
-        //  };
+         return () => {
+           // unsubscribe "onComponentDestroy"
+           window.removeEventListener("resize", handleResizeWindow);
+         };
        }, []);
 
     function LogoutHandler() {
